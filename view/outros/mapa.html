@@ -1,0 +1,384 @@
+<script>
+    $(function () {
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight"
+        });
+        $("#sortable").disableSelection();
+    });
+</script>
+
+
+<style>
+    /* #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+            #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+            #sortable li span { position: absolute; margin-left: -1.3em; } */
+
+    #draggable2 {
+        margin-bottom: 20px;
+    }
+
+    #draggable2 {
+        cursor: default;
+    }
+
+    h3 {
+        clear: left;
+    }
+
+    html,
+    /* body {
+                height: 100%;
+                width: 100%;
+            } */
+
+    .one {
+        background-color: rgb(28, 53, 93);
+        /* height: 100%; */
+        position: relative;
+        width: 100%;
+    }
+
+    .two {
+        background-color: transparent;
+        /* rgb(253, 254, 255); */
+        top: 60px;
+
+        position: absolute;
+        z-index: 9999;
+        background: transparent
+    }
+
+    .green1 {
+        color: #55fc78;
+    }
+
+    .purple1 {
+        color: #825bfc;
+    }
+
+    .green {
+        background: #55fc78;
+        border-color: #047b1e;
+        color: #030000;
+    }
+
+    .purple {
+        background: #825bfc;
+        border-color: #351497;
+        color: #0c0b0b;
+    }
+
+    .filial {
+        background: #5b84fd;
+        border-color: #183fb6;
+        color: #030000;
+
+    }
+
+    button.css3button {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9px;
+        color: #ffffff;
+        padding: 10px 20px;
+        margin-bottom: 18px;
+        margin-left: 20px;
+        background: -moz-linear-gradient( top,
+        #1937cc 0%,
+        #d66f15 75%,
+        #364bd1);
+        background: -webkit-gradient( linear, left top, left bottom,
+        from(#1937cc),
+        color-stop(0.75, #d66f15),
+        to(#364bd1));
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #b85f00;
+        -moz-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+        -webkit-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+        box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+        text-shadow: 0px -1px 1px rgba(000, 000, 000, 0.2),
+        0px 1px 0px rgba(255, 255, 255, 0.3);
+    }
+    
+
+    .ico {
+        -webkit-filter: grayscale(100%);
+        cursor: pointer;
+        padding: 8px;
+    }
+
+    .ico:hover {
+        -webkit-filter: grayscale(0%);
+        transition: 0.2 s;
+        font-size: 120%;
+        color: #d66f15;
+
+    }
+</style>
+
+
+
+
+<!-- <div class="two">
+          <p><button ng-click="adicionarOrdem()"> adicionar</button> </p>
+        
+          <p><button ng-click="removerOrdem()"> remover</button> </p>
+        </div> -->
+
+<!-- <div class="gmaps-ticket " style="overflow: hidden;"> -->
+<!-- styles="[{featureType:'road.highway',elementType:'geometry',stylers:[{hue:'#ff0022'},{saturation:60},{lightness:-20}]},{featureType:'road.arterial',elementType:'all',stylers:[{hue:'#2200ff'},{lightness:-40},{visibility:'simplified'},{saturation:30}]},{featureType:'road.local',elementType:'all',stylers:[{hue:'#f6ff00'},{saturation:50},{gamma:0.7},{visibility:'simplified'}]},{featureType:'water',elementType:'geometry',stylers:[{saturation:40},{lightness:40}]},{featureType:'road.highway',elementType:'labels',stylers:[{visibility:'on'},{saturation:98}]},{featureType:'administrative.locality',elementType:'labels',stylers:[{hue:'#0022ff'},{saturation:50},{lightness:-10},{gamma:0.90}]},{featureType:'transit.line',elementType:'geometry',stylers:[{hue:'#ff0000'},{visibility:'on'},{lightness:-70}]}]" -->
+<ng-map style="height: 900px" center="-23.1857076, -46.8978057" zoom-to-include-markers="auto" on-click="logLatLng()">
+
+
+    <!-- <traffic-layer></traffic-layer> -->
+
+
+    <directions suppress-markers="true" draggable="false" panel="directions-panel" travel-mode="{{travelMode}}" waypoints="{{wayPoints}}"
+        origin="{{origin}}" destination="{{destination}}" polyline-options='{strokeColor: "red"}'>
+
+
+    </directions>
+
+    <div>
+        <marker label="F" optimized="false" icon="{{customIconFilial}}" position="{{origin.lat}}, {{origin.lng}}" on-click="vm.toggleBounce()"
+            animation="DROP">
+        </marker>
+    </div>
+
+
+
+    <div ng-repeat="p in wayPoints">
+
+        <!-- icon="{path:'CIRCLE', scale: 15, fillColor: 'yellow'}" -->
+        <div ng-if="p.location.tipo == 'E'">
+            <marker class="numero" label="*{{p.location.ORDEM_ENTREGA}}" optimized="false" icon=" {{customIconParadasEntregas}}" position="{{p.location.lat}}, {{p.location.lng}}"
+                on-click="toggleBounce()" animation="DROP">
+            </marker>
+        </div>
+
+        <!-- icon=" {{customIconParadasColetas}}"  -->
+        <div ng-if="p.location.tipo == 'C'">
+            <marker class="numero" label=*{{p.location.ORDEM_ENTREGA}} optimized="false" icon=" {{customIconParadasColetas}}" position="{{p.location.lat}}, {{p.location.lng}}"
+                on-click="toggleBounce()" animation="DROP">
+            </marker>
+        </div>
+
+    </div>
+
+
+
+
+
+</ng-map>
+Directions path length: {{map.directionsRenderers[0].directions.routes[0].overview_path.length}}
+<!-- </div> -->
+
+<div class="center-bounds-view" data-ng-class="{'scenariosHidden': isMonitoring }" tooltip-placement="left">
+    <span>
+        <i class="fa fa-arrows-alt ico" data-ng-click="centerBounds()" tooltip="Centralizar pontos no mapa"></i>
+        <i class="fa fa-reply ico" aria-hidden="true" ng-click="openRtng()" aria-placeholder="Voltar"></i>
+        <i class="fa fa-floppy-o ico" aria-hidden="true" ng-click="console('salvou')" aria-placeholder="Voltar"></i>
+        <i class="fa fa-refresh ico" aria-hidden="true" ng-click="removeServico1()" aria-placeholder="Trocar Sequência"></i>
+
+    </span>
+
+</div>
+
+
+
+<div class="center-bounds-view" data-ng-class="{'scenariosHidden': isMonitoring }" tooltip-placement="left">
+
+    <!-- painel com os servicos -->
+    <div id="draggable2" class="two draggable ui-widget-content">
+
+
+        <div class="col-md-12 w3-containerNew">
+            <div id="id02">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+
+
+                    <div class="routeDetails ng-scope" style="border-radius: 25px 25px 25px 25px">
+
+
+                        <div class="col-md-12new">
+
+
+                            <ul class="routeData" style="border-radius: 25px 25px 25px 25px">
+                                <li>
+                                    <span class="fa fa-group"></span>
+                                    <span class="title">Serviços</span>
+                                    <span class="statsNumber ng-binding">{{detalheItensVeiculo.length}}</span>
+                                </li>
+
+                                <li>
+                                    <span class="fa fa-tachometer"></span>
+                                    <span class="title">Peso</span>
+                                    <span class="statsNumber ng-binding">0</span>
+                                    <small class="statsNumber">kg</small>
+                                </li>
+
+                                <li>
+                                    <span class="fa fa-battery-three-quarters"></span>
+                                    <span class="title">Ocupação</span>
+                                    <span class="statsNumber ng-binding">0</span>
+                                    <small class="statsNumber">%</small>
+                                </li>
+
+                                <li>
+                                    <span class="fa fa-arrows-h"></span>
+                                    <span class="title">Distância</span>
+                                    <span class="statsNumber ng-binding">38,8</span>
+                                    <small class="statsNumber">km</small>
+                                </li>
+
+                                <li>
+                                    <span class="fa fa-clock-o"></span>
+                                    <span class="title">Tempo</span>
+                                    <span class="statsNumber ng-binding">2,7</span>
+                                    <small class="statsNumber">horas</small>
+                                </li>
+                                <li>
+                                    <span class="fa fa-tint"></span>
+                                    <span class="title">Consumo</span>
+                                    <span class="statsNumber ng-binding">5,5</span>
+                                    <small class="statsNumber">litros</small>
+                                </li>
+                                <li>
+                                    <span class="fa fa-usd"></span>
+                                    <span class="title">Combustível</span>
+                                    <span class="statsNumber ng-binding">R$ 16,65
+                                    </span>
+                                </li>
+                                <li class="ng-scope">
+
+
+
+                                    <!-- <span class="fa fa-usd"></span>
+                                                    <span class="title">Pedágio</span>
+                                                    <span class="statsNumber buttonToll" data-ng-attr-tooltip="{{user.trial.active ? 'Cálculo indisponível' : null}}" data-ng-click="calculateToll()"
+                                                        tooltip="">Calcular</span> -->
+                                </li>
+                            </ul>
+
+
+                        </div>
+                        <div class="col-md-12new scrollModal">
+
+
+
+                            <div ng-show="!alterarSequencia">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p>This is the vSortable view.</p>
+                                        <!-- <span style="color:white"> {{items}} == {{isCorrect}} </span> -->
+                                        <!-- class="dragSort" -->
+                                        <ul ng-model="items" as-sortable="sortElements" class="dragSort">
+                                            <li ng-repeat="item in items track by UniqueTracking($index, item.ORDEM_ENTREGA)" as-sortable-item class="as-sortable-item">
+                                                <div as-sortable-item-handle class="full-handle as-sortable-item-handle ">
+                                                    <span class="centered-handle-label">{{$index + 1}} - {{item.ORDEM_ENTREGA}} - {{item.DESTINATARIO}} - {{item.ENDERECO}}</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <h1 ng-show="isCorrect">Right on!</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- <ul ui-sortable="sortableOptions" class="form-group directionStages"></ul> -->
+                            <ul class="form-group directionStages" model="list">
+                                <!-- <ul ng-model="items" as-sortable="sortElements" > -->
+
+                                <li class="ng-scope">
+
+                                    <span class="depotStart ng-scope" style="width: 40px;height: 50px;display: inline-block;">
+                                        <span class="routeIndex   filial" style="top:28px;">
+                                            <span class="fa fa-home fa-2x"></span>
+                                        </span>
+                                    </span>
+
+
+                                    <span class="singleRoute ng-binding ng-scope" style="margin-top: -35px;padding-bottom:5px; border-left:3px solid #DDD;">
+                                        <strong style="padding-bottom:7px;">
+                                            <span class="fa fa-home"></span>
+                                            <span class="ng-binding">Holding
+                                                <br>
+                                            </span>
+                                        </strong>
+                                        <span class="fa fa-map-marker"></span>
+                                        <span class="ng-binding">Rua Werner Von Siemens</span>
+                                        <span class="ng-binding">, 111</span>
+                                        <span class="ng-binding"></span>
+                                        <span class="ng-binding"> - São Paulo</span>
+                                        <span class="ng-binding"></span>
+                                        <span class="ng-binding"></span>
+                                        <br>
+                                        <span class="fa fa-clock-o"></span> Horário de saída: 08:00
+                                    </span>
+
+                                </li>
+
+                                <!-- <li ng-repeat="row_ in itens track by UniqueTracking($index, detalheItensVeiculo.ORDEM_ENTREGA)" as-sortable-item class="as-sortable-item"></li> -->
+                                <!-- <li ng-repeat="item in items track by UniqueTracking($index, item.ORDEM_ENTREGA)"> -->
+                                <li class="ng-scope" ng-repeat="row_ in detalheItensVeiculo track by $index">
+
+
+                                    <!-- SEQUENCIA -->
+                                    <span class="routeIndexSequencia ng-binding ng-scope " data-ng-class="{'green':row_.IDENT_TIPO_DOCUMENTOS ==='E','purple':row_.IDENT_TIPO_DOCUMENTOS ==='C'}"
+                                        tooltip-placement="right" tooltip="cliente">
+                                        <!-- {{$index+1}} - -->
+                                        {{row_.ORDEM_ENTREGA}}
+                                    </span>
+
+
+                                    <span class="singleRoute ng-scope" style="border-left:3px solid;">
+                                        <span style="display:block; border-top: 1px grey ;padding-top:10px;font-weight:600;padding-bottom:7px;" class="ng-binding">
+                                            <span class="fa fa-user"></span> {{row_.DESTINATARIO}}
+                                        </span>
+
+
+                                        <span class="fa fa-map-marker"></span>
+
+                                        <span class="ng-binding">{{row_.ENDERECO | upper}} </span>
+                                        <span class="ng-binding"></span>
+                                        <span class="ng-binding"> {{row_.CIDADE}} </span>
+                                        <!-- <span class="ng-binding">-{{row_.uf}} </span>
+                                                                            <span class="ng-binding"> CEP: {{row_.Cep}} </span> -->
+                                        <br>
+                                        <!-- <span class="ng-binding ng-scope">
+                                                                                <span class="fa fa-clock-o"></span> Horário de chegada previsto: {{row_.ChegadaPrevista}}
+                                                                                <br>
+                                                                            </span> -->
+                                        <span class="ng-binding ng-scope">
+                                            {{row_.IDENT_TIPO_DOCUMENTOS}} -
+                                            <span data-ng-class="{ 'fa fa-Delivery fa-3x green1':row_.IDENT_TIPO_DOCUMENTOS ==='E','fa fa-truck fa-3x purple1':row_.IDENT_TIPO_DOCUMENTOS ==='C'}">
+                                            </span>
+
+                                            <span data-ng-class="{ 'fa fa-hand-o-right fa-2x green1':row_.IDENT_TIPO_DOCUMENTOS ==='E','fa fa-hand-o-left fa-2x purple1':row_.IDENT_TIPO_DOCUMENTOS ==='C'}"></span>
+
+                                            <button type="button" class="btn btn-danger" ng-click="removeServico($index)" style="margin-left: 20px">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                            <br>
+                                        </span>
+
+                                    </span>
+
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>

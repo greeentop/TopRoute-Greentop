@@ -1,0 +1,493 @@
+<!-- MODAL CONFERENCIA -->
+<div id="divModalConferencia" class="sidenavConferencia" style="z-index: 99;    overflow: hidden; background:white;"
+  ng-keypress="sair($event)">
+
+
+  <div
+    style="width: 100%;height: 507x;background: rgb(28, 53, 93);;display: inline-flex;box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);border: solid 2px #1c355d;border-left: none;border-right: none;">
+    <!-- TOOLBAR COM O SCANNER E BOTOES -->
+
+
+    <div class="w3-row" style="width: 100%">
+
+    <!-- LOCALIZAR E SCANNER -->
+    <div class="w3-col w3-container" style="width: 60%;margin-top: 10px;margin-bottom: 5px;border-radius: 15px 15px 0 0;">
+      <div style="    text-align: center ;display: inline-flex">
+        <span style="color: white;padding-right: 10px ; font-size: 20px;"> Scanner</span>
+        <input type="text" class="scannerConferencia" id="txtScannerConferencia" name="fname"
+          ng-keypress="onKeyUpTxtScannerConferencia($event)">
+        <!-- </div> -->
+    
+        <!-- AVISOS E DESCRICOES -->
+        <!-- <div class="w3-col w3-container" style="width: 15%;margin-top: 23px;padding: 0;"> -->
+        <p class="ng-binding" style="color: white; font-size: 20px; margin-left: 10px;">
+          {{servicosRotaConferencia.length}}
+          Serviços</p>
+      </div>
+    </div>
+
+      <!-- BOTOES  -->
+      <div class="w3-col w3-container" style="width: 20%;">
+
+        <!-- <img alt="" src="img/ico/last_grid.png"
+          style="width: 3em;height: 3em;cursor: pointer;margin-left: 10px;margin-top: 3px;border-radius: 50%;"
+          ng-click="excluirServicoVeiculoCaixaRota('voltaGridPrincipal')"> -->
+          <div class="tooltip">
+            <span class="tooltiptextBotton">
+              <p>
+              troca veiculo
+              </p>
+            </span>
+            <img alt="" src="img/ico/last_grid.png"
+              style="text-align: left;width: 2.5em;height: 2.5em;cursor: pointer;border-radius: 50%;"
+              ng-click="showGridBottomSheet()" role="button" tabindex="0">
+          </div>
+
+          <div class="tooltip">
+            <span class="tooltiptextBotton">
+              <p>
+                Descarregar documento(s) selecionado(s) da caixa de rota
+              </p>
+              <p>
+                voltar para o grid principal
+              </p>
+            </span>
+            <img alt="" src="img/ico/last_grid.png"
+              style="text-align: left;width: 2.5em;height: 2.5em;cursor: pointer;border-radius: 50%;"
+              ng-click="excluirServicoVeiculoCaixaRota('voltaGridPrincipal')" role="button" tabindex="0">
+          </div>
+
+        <!-- <img alt="" src="img/ico/veiculo_clear.png"
+          style="width: 3em;height: 3em;cursor: pointer;margin-left: 50px;margin-top: 3px;border-radius: 50%;"
+          ng-click="excluirServicoVeiculoCaixaRota('descarregarVeiculoCaixa')"> -->
+          <div class="tooltip">
+            <span class="tooltiptextBotton">
+              <p>
+                Descarregar documento(s) selecionado(s) do veículo.
+              </p>
+              <p>
+                Mantem documento(s) selecionado(s) na caixa de rotas
+              </p>
+            </span>
+            <img alt="" src="img/ico/veiculo_clear.png" 
+            style="text-align: left;width: 2.5em;height: 2.5em;cursor: pointer;border-radius: 50%;" 
+            ng-click="excluirServicoVeiculoCaixaRota('descarregarVeiculoCaixa')" role="button" tabindex="0">
+          </div>
+
+
+          <div class="tooltip">
+            <span class="tooltiptextBotton" style="left: 100px;"> Inverter seleção </span>
+            <img ng-show="inverterSelecao==false" ng-click="trocaselecao()" alt="Inverte seleção" src="img/ico/trocaSelect11.png" style="width: 2.5em;height: 2.5em;cursor: pointer;" role="button" tabindex="0" aria-hidden="false">
+            <img ng-show="inverterSelecao==true" ng-click="trocaselecao()" alt="Inverte seleção" src="img/ico/trocaSelect22.png" style="width: 2.5em; height: 2.5em; cursor: pointer;" role="button" tabindex="0" aria-hidden="true" class="ng-hide">
+          </div>
+
+
+      </div>
+
+    
+      <!-- BOTAO SALVAR CONFERENCIA E  FECHAR -->
+      <div class="w3-col  w3-container" style="    width: 20%;margin-top: 9px;padding: 0;padding-left: 17%;">
+        <div>
+          <button style="margin-right: 8em;color: white;background: #FF5722;"class="btn btn-green smallBtn pull-right ng-scope" data-ng-click="salvarStatusConferencia()">Salvar conferência</button>
+        </div>
+
+        <!-- limparSelecionados_coferencia -->
+        <div style="    position: absolute;margin-left: 24px">
+          <span onclick="closeConferencia()" class="w3-button w3-display-topright botaoFechar"
+            data-ng-click="closeDivConferencia();salvarStatusConferencia()">
+
+            <span
+              style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+          </span>
+        </div>
+        <!-- <div class="closebtn" onclick="closeConferenciaFull()" ng-click="clearMemory('conferencia')">&times;</div> -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- grid principal com todas as ordens -->
+  <div class="w3-row" style="    margin-left: 13px;margin-right: 16px;">
+
+    <div class="panel-body" ID="divGridDocumentosPanelConferenciaALl">
+      <div class="col-md-12" style="    padding-top: 10px;">
+
+        <!-- grid principal com todas as ordens -->
+        <section id="sectionDocsConferenciaAll">
+          <!-- <div class="container" > -->
+          <div id="divTableDocumentosConferenciaAll" style="height: 200px; overflow: auto;">
+            <table class="table table-hover	table-sm" style="font-size: 12px;   margin-top: 0;" id="tableDocumentosConferenciaAll">
+              <thead>
+                <tr class="header">
+                  <th ng-click="ordenarPor('IDENT_VEICULOS')">
+                    <div style="width: 42px;height: 37px">Veículo
+                    </div>
+                  </th>
+                  <th ng-click="ordenarPor('NR_DOCUMENTO_FORMATADO')" style="text-align: left">
+                    <div style="width: 42px;height: 37px">DOC
+                    </div>
+                  </th>
+
+                  <th ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')" style="text-align: center">
+                    <div style="width: 42px;height: 37px">TP.
+                    </div>
+                  </th>
+
+                  <th ng-click="ordenarPor('ORDEM_ENTREGA')" style="text-align: center">
+                    <div style="width: 42px;height: 37px">OR.
+                    </div>
+                  </th>
+
+                  <th ng-click="ordenarPor('REMETENTE')">
+                    REMENTENTE
+                    <div>REMENTE</div>
+                  </th>
+                  <th ng-click="ordenarPor('DESTINATARIO')">
+                    DESTINATARIO
+                    <div>DESTINATARIO</div>
+                  </th>
+                  <th ng-click="ordenarPor('ROTA')">
+                    ROTA
+                    <div>ROTA</div>
+                  </th>
+                  <th ng-click="ordenarPor('CIDADE')">
+                    CIDADE
+                    <div>CIDADE</div>
+                  </th>
+                  <th ng-click="ordenarPor('ENDERECO')">
+                    ENDEDEREÇO
+                    <div>ENDEREÇO</div>
+                  </th>
+                  <th ng-click="ordenarPor('BAIRRO')">
+                    BAIRRO
+                    <div>BAIRRO</div>
+                  </th>
+                  <th ng-click="ordenarPor('CEP')" style="text-align: left">
+                    <div style="width: 62px;height: 37px">CEP
+                    </div>
+                  </th>
+                  <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                    <div style="width: 42px;height: 37px">EM
+                    </div>
+                  </th>
+                  <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                    <div style="width: 42px;height: 37px">MX
+                    </div>
+                  </th>
+                  <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                    <div style="width: 42px;height: 37px">VOL
+                    </div>
+                  </th>
+                  <th ng-click="ordenarPor('PESO')" style="text-align: right">
+                    <div style="width: 42px;height: 37px;">P
+                    </div>
+                  </th>
+
+                  <th ng-click="ordenarPor('PESO_REAL')" style="text-align: right; color: white">
+                    <div style="width: 42px;height: 37px;">P.R
+                    </div>
+                  </th>
+
+                  <th ng-click="ordenarPor('VALOR')" style="text-align: right">
+                    <div style="width: 78px;height: 37px;">Valor
+
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  ng-repeat="item in servicosRotaConferencia  | filter : searchText |orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index  "
+                  ng-class="{'selectedConferecia'       :item.FL_CONFERIDO      ==  true,
+                                    'emVeiculoCaixa'          :item.IDENT_VEICULOS    !=  '',
+                                    'orfaConferencia'         :item.IDENT_VEICULOS    ==  '',
+                                    'selectedVeiculoConferido':item.selected          ==  true}">
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 60;">{{item.IDENT_VEICULOS |uppercase }}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 70;">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 30;">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 30;">{{item.ORDEM_ENTREGA}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 170;">{{item.REMETENTE |uppercase}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 170;">{{item.DESTINATARIO |uppercase}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 40;">{{item.ROTA}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 150;">{{item.CIDADE}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 200;">{{item.ENDERECO |uppercase}},{{item.NR_ENDERECO}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 150;">{{item.BAIRRO |uppercase}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 60;">{{item.CEP}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 40;text-align: right">{{item.DT_EMISSAO}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 40;text-align: right">{{item.DT_MAXIMA}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 40;text-align: right">{{item.QT_VOLUME}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 40;text-align: right">{{item.PESO}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 40;text-align: right">{{item.PESO_REAL}}</td>
+                  <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                    style="width: 50;text-align: right">{{item.VALOR}}</td>
+                  <td style="width: 0;text-align: right ; display: none">{{item.COD_DOCUMENTO}}</td>
+                  <td style="width: 0;text-align: right ; display: none">{{item.COD_VEICULOS}}</td>
+                  <td style="width: 0;text-align: right ; display: none">{{item.COD_BARRAS}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- GRID COM OS VEICULOS  E SEUS RESPECTIVOS SERVICOS  RELACIONADOS AO VEICULO -->
+  <div class="w3-bar "
+    style="background-color:white!important;margin-top: 6px;box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);border-left: none;border-right: none;"
+    id="painelVeiculos">
+
+    <div ng-repeat="vei  in veiculosRetorno" class="w3-bar-item tablink" style="width: 220;"
+      id="{{ 'textTab-' + vei.COD_VEICULOS }}">
+
+      <div class="w3-bar-item tablink" style="width: 210px;" id="tablink-2333"> 
+        <img alt="" src="img/ico/pickingList.png" style="width: 50px;height: 50px;position: absolute;    cursor: pointer;margin-top: -23px;margin-left: -8px;" 
+        ng-show="vei.qtdConferido == vei.servicos.length" 
+        ng-click="pickingList(vei.COD_ROTEIRIZACAO , vei , vei.NR_PLACA)" 
+        role="button" 
+        tabindex="0" 
+        aria-hidden="false">
+    
+        <div class="placaMercosul bloco " style="border: 3px solid #1c355d">
+          <div class="placaDescEmpresa">
+            <span style="margin-left: 3px"> SOLISTICA</span>
+            <img alt="" src="img/brasil.png" style="margin-left: 19px;margin-top: -10px;position: absolute;">
+          </div>
+          <div class="placaParticular">
+            <span style="color: #1c355d;margin-right: 5px;margin-left: -49px;" class="ng-binding">
+              {{vei.IDENT_VEICULOS}}
+            </span>
+            <span ng-class="{'borange':vei.qtdConferido < vei.servicos.length,
+                            'bgreenConf':vei.qtdConferido == vei.servicos.length}"
+                  style="color: #616161;position: absolute;background: #1c355d;border-radius: 12%;font-size: 15px;margin-top: 1px;font-weight: bold;padding-left: 2px;border-radius: 13%;margin-left: 4px;">
+
+            <img alt="" src="img/ico/check.png" style="width: 20px; height: 20px;"
+                  ng-show="vei.qtdConferido == vei.servicos.length">
+
+            <span ng-class="{'gray':vei.qtdConferido < vei.servicos.length,
+                            'greenConf':vei.qtdConferido == vei.servicos.length}">{{vei.qtdConferido }}</span>
+            <span ng-class="{'orange':vei.qtdConferido < vei.servicos.length,
+                            'greenConf':vei.qtdConferido == vei.servicos.length}">/</span>
+            <span ng-class="{'orange':vei.qtdConferido < vei.servicos.length,
+                            'greenConf':vei.qtdConferido == vei.servicos.length}"
+                  style="padding-right: 2px;">{{vei.servicos.length}}
+            </span>                    
+    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+
+    <!-- VEICULO ENVOLVIDOS NO RETORNO DA ROUTEASY -->
+    <div ng-repeat="v in veiculosRetorno">
+      <div id="{{ 'textField-' + v.COD_VEICULOS }}" class="w3-container city w3-animate-opacity hide">
+
+        <div class="w3-row" style="margin-top: 9px">
+          <div class="panel-body" ID="divGridDocumentosPanelConferenciaVeiculo">
+            <div class="col-md-12">
+              <!-- grid principal com todas as ordens -->
+              <section class="" id="myconference"
+                style="font-family: monospace; border-radius: 4px 4px 4px 4px;     padding-left: 7px;padding-right: 7px; border: solid #e74c22;">
+                <!-- <div class="container" > -->
+                <div id="divTableDocumentosConferencia">
+                  <table class="table table-hover	table-sm" style="font-size: 12px;;margin-top: 0;" id="tableDocumentosConferencia">
+                    <thead>
+                      <tr class="header">
+                        <th ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')">
+                          Veículo
+                          <div>Veículo.</div>
+                        </th>
+                        <th>
+                          NR-DOC
+                          <div>NR.DOC</div>
+                        </th>
+
+                        <th>
+                          TP
+                          <div>TP</div>
+                        </th>
+
+                        <th>
+                          OR.
+                          <div>OR.</div>
+                        </th>
+
+                        <th ng-click="ordenarPor('REMETENTE')">
+                          REMENTENTE
+                          <div>REMENTE</div>
+                        </th>
+                        <th ng-click="ordenarPor('DESTINATARIO')">
+                          DESTINATARIO
+                          <div>DESTINATARIO</div>
+                        </th>
+                        <th ng-click="ordenarPor('ROTA')">
+                          ROTA
+                          <div>ROTA</div>
+                        </th>
+                        <th ng-click="ordenarPor('CIDADE')">
+                          CIDADE
+                          <div>CIDADE</div>
+                        </th>
+                        <th ng-click="ordenarPor('ENDERECO')">
+                          ENDEDEREÇO
+                          <div>ENDEREÇO</div>
+                        </th>
+                        <th ng-click="ordenarPor('BAIRRO')">
+                          BAIRRO
+                          <div>BAIRRO</div>
+                        </th>
+                        <th ng-click="ordenarPor('CEP')" style="text-align: left">
+                          <div style="width: 62px;height: 37px">CEP
+                          </div>
+                        </th>
+                        <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                          <div style="width: 42px;height: 37px">EM
+                          </div>
+                        </th>
+                        <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                          <div style="width: 42px;height: 37px">MX
+                          </div>
+                        </th>
+                        <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                          <div style="width: 42px;height: 37px">VOL
+                          </div>
+                        </th>
+                        <th ng-click="ordenarPor('PESO')" style="text-align: right">
+                          <div style="width: 42px;height: 37px;">P
+                          </div>
+                        </th>
+
+                        <th ng-click="ordenarPor('PESO_REAL')" style="text-align: right; color: white">
+                          <div style="width: 42px;height: 37px;">P.R
+                          </div>
+                        </th>
+
+                        <th ng-click="ordenarPor('VALOR')" style="text-align: right">
+                          <div style="width: 57px;height: 37px;">Valor
+
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" no td-->
+                      <tr
+                        ng-repeat="item in v.servicos  | filter : searchText |orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index  "
+                        ng-class="{'selected'    :item.FL_CONFERIDO || item.selected  ==  true,
+                                        'emVeiculo'    :item.IDENT_VEICULOS    !=  '',
+                                        'orfa'         :item.IDENT_VEICULOS    ==  ''}">
+                        <td style="width: 60;">{{item.IDENT_VEICULOS |uppercase }}</td>
+                        <td style="width: 70;">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                        <td style="width: 30;">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                        <td style="width: 30;">
+                          <div
+                            style="width: 20px;height: 19px;border-radius: 50%;background: #FF5722;color: #dcdee1;border: solid 2px #1c355d;text-align: center;">
+                            {{item.ORDEM_ENTREGA}}
+                          </div>
+                        </td>
+                        <td style="width: 170;">{{item.REMETENTE |uppercase}}</td>
+                        <td style="width: 170;">{{item.DESTINATARIO |uppercase}}</td>
+                        <td style="width: 40;">{{item.ROTA}}</td>
+                        <td style="width: 150;">{{item.CIDADE}}</td>
+                        <td style="width: 200;">{{item.ENDERECO |uppercase}},{{item.NR_ENDERECO}}</td>
+                        <td style="width: 150;">{{item.BAIRRO |uppercase}}</td>
+                        <td style="width: 60;">{{item.CEP}}</td>
+                        <td style="width: 40;text-align: right">{{item.DT_EMISSAO}}</td>
+                        <td style="width: 40;text-align: right">{{item.DT_MAXIMA}}</td>
+                        <td style="width: 40;text-align: right">{{item.QT_VOLUME}}</td>
+                        <td style="width: 40;text-align: right">{{item.PESO}}</td>
+                        <td style="width: 40;text-align: right">{{item.PESO_REAL}}</td>
+                        <td style="width: 50;text-align: right">{{item.VALOR}}</td>
+                        <td style="width: 0;text-align: right ; display: none">{{item.COD_DOCUMENTO}}</td>
+                      </tr>
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </section>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- TOTALIZADOR FINAL NO RODAPÉ -->
+    <div class="w3-col  w3-container" ng-show="contadorSelecteds.qtd_Selecionados > 0"  style="padding: 0px; text-align: right; display: flex;margin-top: 15px ;color: rgb(28,52,73);;"  aria-hidden="false">
+      <div style="width: 90%;;display: inline-flex;justify-content: space-evenly;color: rgb(28,52,73);;">
+        <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+          TOTAL SELECIONADO(S)</span>
+        <div class="caixaTotalizadorSelecionadosConferencia ng-binding">
+          {{contadorSelecteds.qtd_Selecionados}}
+        </div>
+        <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+          TOTAL VOLUME(S)</span>
+        <div class="caixaTotalizadorSelecionadosConferencia ng-binding">
+          {{contadorSelecteds.qtd_volumes}}
+        </div>
+        <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+          TOTAL PESO(S)</span>
+        <div class="caixaTotalizadorSelecionadosConferencia ng-binding">
+          {{contadorSelecteds.qtd_Peso}}
+        </div>
+
+        <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+          TOTAL PESO REAL</span>
+        <div class="caixaTotalizadorSelecionadosConferencia ng-binding">
+          {{contadorSelecteds.qtd_PesoReal}}
+        </div>
+
+        <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+          TOTAL VLR FRETE</span>
+        <div class="caixaTotalizadorSelecionadosConferencia ng-binding">
+          {{contadorSelecteds.qtd_ValorFrete}}
+        </div>
+        <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+          TOTAL VLR MERCADORIA</span>
+        <div class="caixaTotalizadorSelecionadosConferencia ng-binding">
+          {{contadorSelecteds.qtd_ValorMecaria}}
+        </div>
+      </div>
+
+      <div style="width: 10%;">
+        <div ng-show="rowsSelecteds.length >0 " aria-hidden="false" class="" style="">
+          <button class="button default" ng-click="limparSelecionados()">
+            <i class="fas fa-broom"></i>
+            Limpar</button>
+          <!-- <button class="button success" style="color: white;background: #FF5722;"
+            ng-click="salvarSelecionados()">Aplicar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

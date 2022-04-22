@@ -1,0 +1,280 @@
+
+.vehiclesPreSetup, .depotsPreSetup {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.vehiclesPreSetup .modal-dialog {
+    width: 100%;
+}
+
+.vehiclesPreSetup .alert {
+    max-width: 780px;
+    margin: 10px -20px 0 0;
+    padding: 5px 15px;
+}
+
+.vehiclesPreSetup .noData {
+    text-align: center;
+    border: 2px dashed $gray-veryLightGrey;
+    padding: 20px 0 30px;
+    margin-top: 0;
+}
+
+.vehiclesPreSetup .myFleet .fa-circle {
+    font-size: 5px;
+    color: $gray-nobel;
+    vertical-align: middle;
+    margin: 0 3px;
+}
+
+.vehiclesPreSetup .loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding-top: 20%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.vehiclesPreSetup .myFleet small {
+    font-size: 85%;
+    color: #A2A2A2;
+}
+
+.vehiclesPreSetup .boxWide {
+    max-height: calc(100vh - 185px);
+    overflow: hidden;
+    padding: 15px 20px;
+}
+
+.vehiclesPreSetup .boxFit {
+    max-height: calc(100vh - 185px);
+    overflow: hidden;
+}
+
+.vehiclesPreSetup .rightLine {
+    border-right: 1px solid $white-gainsboro;
+}
+
+.vehiclesPreSetup .edit-vehicles.table {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.vehiclesPreSetup .edit-vehicles input, .vehiclesPreSetup .edit-vehicles select {
+    width: 290px;
+    float: right;
+}
+
+.vehiclesPreSetup .table-hover>tbody>tr>td:last-child, .vehiclesPreSetup .table-hover>tbody>tr>th:last-child {
+    border-bottom: 1px solid $white-gainsboro;
+}
+
+.vehiclesPreSetup .edit-vehicles>tbody>tr>th, .vehiclesPreSetup .edit-vehicles>tbody>tr>td {
+    border-top: 0;
+}
+
+.vehiclesPreSetup .dots {
+    font-size: 42px;
+    display: block;
+}
+
+.vehiclesPreSetup, .depotsPreSetup {
+    width: 95%;
+    height: 92%;
+    background-color: transparent;
+    margin-top: 2%;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 0;
+}
+
+.vehiclesPreSetup.modal {
+    background-color: $white-white;
+}
+
+.vehiclesPreSetup, .depotsPreSetup .modal-body {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.vehiclesPreSetup .availableResources {
+    max-height: calc(100vh - 225px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.vehiclesPreSetup .col-md-2 {
+    margin-left: -10px;
+    padding-right: 0;
+}
+
+.vehiclesPreSetup .vehicle {
+    width: 130px;
+    height: 140px;
+    border-radius: 4px;
+    padding: 20px 0;
+    margin: 3px;
+    float: left;
+    text-align: center;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    -moz-opacity: 0.4;
+    -khtml-opacity: 0.4;
+    opacity: 0.4;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.vehiclesPreSetup .vehicle:hover {
+    cursor: pointer;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+    box-shadow: inset 0 0 10px $gray-nobel;
+    background-image: url('/lib/routeasy/images/bg-v.png');
+}
+
+.vehiclesPreSetup .myFleet a {
+    color: $gray-veryLightGrey;
+    margin: 0 5px;
+    text-decoration: none;
+    -webkit-transition: color .2s ease;
+    -o-transition: color .2s ease;
+    transition: color .2s ease;
+}
+
+.vehiclesPreSetup .myFleet .pull-right {
+    margin-top: 13px;
+    font-size: 20px;
+    color: $white-gainsboro;
+}
+
+.vehiclesPreSetup .myFleet a:hover {
+    color: $gray-nobel;
+    -webkit-transition: color .2s ease;
+    -o-transition: color .2s ease;
+    transition: color .2s ease;
+}
+
+.vehiclesPreSetup .myFleet {
+    max-height: calc(100vh - 225px);
+    overflow: auto;
+}
+
+.total-vehicles {
+    margin: 10px 0 0;
+    font-size: 18px;
+    color: rgb(62, 201, 203);
+}
+
+.singleVehicle {
+    border-left: 5px solid $gray-veryLightGrey;
+    margin: 5px 0;
+    padding: 11px;
+    background-color: $white-whiteSmoke;
+    text-align: left;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.singleVehicle:hover {
+    background-color: $green-waterLeaf;
+    border-left: 5px solid $green-mediumSeaGreen;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.singleVehicle .vehicleTitle {
+    font-size: 16px;
+    color: #444;
+}
+
+.singleVehicle small {
+    font-size: 45%;
+    color: $gray-dimGray;
+    vertical-align: middle;
+}
+
+.singleVehicle img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.vehiclesPreSetup p {
+    color: $gray-dimGray;
+    margin: auto;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.error-block span {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+
+.vehiclesPreSetup .vehicle .addToMyFleet {
+    width: 130px;
+    height: 55px;
+    border-radius: 4px;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.vehiclesPreSetup .nav-tabs, .depotsPreSetup .nav-tabs {
+    display: none;
+}
+
+.vehiclesPreSetup .edit-vehicles input, .depotsPreSetup .edit-depots input {
+    height: 35px;
+    margin-bottom: 0;
+}
+
+.depotsPreSetup .edit-depots .input {
+    width: 200px;
+    float: right;
+}
+
+.vehiclesPreSetip .edit-vehicles .table>tbody>tr>td {
+    border: 0 !important;
+}
+
+.vehiclesPreSetup .myFleet form {
+    width: 100%;
+}
+
+.vehiclesPreSetup .greenfield {
+    background-color: $green-mediumSeaGreen;
+    width: 100%;
+    height: 250px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.vehiclesPreSetup .vehicleCard {
+    text-align: center;
+    height: calc(100vh - 145px);
+    padding-top: 20px;
+}
+
+.vehiclesPreSetup .vehicleCard span {
+    font-size: 22px;
+    display: block;
+}

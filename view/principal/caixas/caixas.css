@@ -1,0 +1,15 @@
+.footer {
+    padding-right: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 98.5%;
+    text-align: center;
+    /* left: 10%; */
+    margin-bottom: 9px;
+    padding-bottom: 7px;
+}
+
+
+.CaixaMerge{
+    width: 78px;
+}

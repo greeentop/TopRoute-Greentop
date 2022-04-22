@@ -1,0 +1,40 @@
+
+<!-- LIMPAR VEICULO  -->
+<div class="form-group">
+        <div class="row">
+            <div class="col-md-12 w3-container">
+                <div id="id04" class="w3-modalItens">
+    
+    
+                    <div class="w3-modal-contentitens w3-card-4 w3-animate-zoom">
+                        <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                                <span class="fas fa-window-close fa2x" 
+                                    onclick="document.getElementById('id04').style.display='none'" 
+                                    style="color:red;margin-left: 99%;font-size: 24px">
+                                </span>
+                                <h2 style="    margin-top: -33px;  font-size: 20px;    text-align: center;">
+                                    Confirmar descarregar veículo(s)</h2>
+                            </header>
+    
+                            <h2 style="font-size: 20px;padding: 10px;margin: -76px 0 -8px 8px;">
+                                {{msg="Esta ação retorna todos os serviços ao grid principal(Armazém)?"}}
+                            </h2>
+    
+    
+                            <button type="button" class="btn btn-primary"
+                                 ng-click="limparGrid()"
+                                 style="width: 79px; color: white;background-color: #1c355d;border-color: #357ebd;margin: 0 0 0 35%;"
+                                onclick="document.getElementById('id04').style.display='none'">confirmar</button>
+                            
+                            <button type="button" class="btn btn-danger" style="color: white;background-color: #cd1515;border-color: #dd4646;margin: 0px 0 0 0%;"
+                                onclick="document.getElementById('id04').style.display='none'">Cancelar</button>
+    
+                    </div>
+    
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+            

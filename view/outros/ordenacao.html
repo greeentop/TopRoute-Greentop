@@ -1,0 +1,51 @@
+<style>
+    #customers {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+
+
+<div class="content">
+
+   <table id="customers" ng-show="!delay">
+        <thead>
+            <th>index</th>
+            <th>ordem</th>
+            <th>nome</th>
+        </thead>
+
+        <tbody ng-repeat="planet in planets">
+            <tr drag-to-reorder="planets">
+                <td>{{$index}}</td>
+                <td>{{planet.ORDEM_ENTREGA}}</td>
+                <td>{{planet.DESTINATARIO}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>

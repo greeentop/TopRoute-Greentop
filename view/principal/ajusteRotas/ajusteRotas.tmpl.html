@@ -1,0 +1,252 @@
+<style>
+    md-dialog md-dialog-content {
+        order: 1;
+        flex-direction: column;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .contentGridPrincipal {
+        height: 100%;
+    }
+    
+    md-toolbar.md-default-theme:not(.md-menu-toolbar),
+    md-toolbar:not(.md-menu-toolbar) {
+        background-color: rgb(255, 255, 255);
+        color: rgba(255, 255, 255, 0.87);
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        position: inherit;
+        border-bottom: solid 2px #e6570f;
+    }
+    
+    md-dialog {
+        /* opacity: 1; */
+        /* min-width: 234px; */
+        /* max-height: 98%; */
+        position: relative;
+        overflow: auto;
+        box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        max-height: 99%;
+        max-width: 99%;
+        margin-top: 10;
+        height: 98%;
+        width: 98%;
+    }
+    
+    .md-tab {
+        font-size: 14px;
+        text-align: center;
+        line-height: 24px;
+        padding: 12px 24px;
+        transition: background-color 0.35s cubic-bezier(0.35, 0, 0.25, 1);
+        cursor: pointer;
+        white-space: nowrap;
+        position: relative;
+        text-transform: uppercase;
+        float: left;
+        font-weight: 500;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 67px;
+        width: 190px;
+    }
+    
+    md-tabs-canvas {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        height: 70px;
+    }
+    
+    md-pagination-wrapper {
+        height: 70px;
+        display: flex;
+        transition: -webkit-transform 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+        transition: transform 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+        transition: transform 0.5s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+        position: absolute;
+        left: 0;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    
+    .md-tab.md-active {
+        cursor: default;
+        /* background: rgb(28, 53, 93); */
+        background: gray;
+    }
+</style>
+
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+
+        <!-- TOOLBAR COM O SCANNER E BOTOES -->
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Scanner</h2>
+                <span flex></span>
+
+                <!-- LOCALIZAR E SCANNER -->
+                <div class="w3-col w3-container">
+                    <div style="text-align: left">
+                        <input type="text" class="scannerConferencia" id="fnameConferencia" name="fname" ng-model="txtScanner" ng-keypress="onKeyUpTxtScannerConferencia($event)" data-ng-click="mouseTeste($event)">
+                    </div>
+                </div>
+
+                <!-- BOTOES  -->
+                <div class="w3-col w3-container" style="width: 100%;text-align: left;">
+
+                    <img alt="" src="img/ico/last_grid.png" style="text-align: left;width: 3em;height: 3em;cursor: pointer;border-radius: 50%;" ng-click="excluirServicoVeiculoCaixaRota('voltaGridPrincipal')">
+
+                    <img alt="" src="img/ico/veiculo_clear.png" style="text-align: left;width: 3em;height: 3em;cursor: pointer;border-radius: 50%;" ng-click="excluirServicoVeiculoCaixaRota('descarregarVeiculoCaixa')">
+                </div>
+
+
+
+                <md-button class="md-raised md-warn" ng-click="excluirServicoVeiculoCaixaRota('voltaGridPrincipal')" style="background:  #e6570f ;   width: 24em;">
+                    <md-tooltip md-direction="bottom">
+                        Esvaziar a caixa de rota
+                    </md-tooltip>
+                    Esvaziar caixa
+                </md-button>
+                <md-button class="md-raised md-warn" ng-click="cancel()" data-ng-click="salvarStatusConferencia()" style="background:  #f71100; width: 24em;">
+                    Fechar
+                </md-button>
+
+
+
+            </div>
+        </md-toolbar>
+
+        <!-- GRID COM TODAS AS ORDENS A SER BIPADAS -->
+        <md-dialog-content style="height: 45em;">
+
+            <!-- grid principal com todas as ordens -->
+            <div class="w3-row" style="margin-left: 13px;margin-right: 16px;padding-top: 25px;">
+                <div class="panel-body" ID="">
+                    <div class="col-md-12">
+                        <section id="sectionDocsConferenciaAll">
+                            <div style="height: 532px;overflow: auto;">
+                                <table class="table table-hover	table-sm" style="font-size: 12px;" id="tableDocumentosConferenciaAll">
+                                    <thead>
+                                        <tr class="header">
+                                            <th ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')">
+                                                Veículo
+                                                <div>Veículo.</div>
+                                            </th>
+                                            <th>
+                                                NR-DOC
+                                                <div>NR.DOC</div>
+                                            </th>
+
+                                            <th>
+                                                TP
+                                                <div>TP</div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('ORDEM_ENTREGA')">
+                                                OR.
+                                                <div>OR.</div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('REMETENTE')">
+                                                REMENTENTE
+                                                <div>REMENTE</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('DESTINATARIO')">
+                                                DESTINATARIO
+                                                <div>DESTINATARIO</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('ROTA')">
+                                                ROTA
+                                                <div>ROTA</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('CIDADE')">
+                                                CIDADE
+                                                <div>CIDADE</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('ENDERECO')">
+                                                ENDEDEREÇO
+                                                <div>ENDEREÇO</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('BAIRRO')">
+                                                BAIRRO
+                                                <div>BAIRRO</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('CEP')" style="text-align: left">
+                                                <div style="width: 62px;height: 37px">CEP
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                                                <div style="width: 42px;height: 37px">EM
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                                                <div style="width: 42px;height: 37px">MX
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                                                <div style="width: 42px;height: 37px">VOL
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('PESO')" style="text-align: right">
+                                                <div style="width: 42px;height: 37px;">P
+                                                </div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('PESO_REAL')" style="text-align: right; color: white">
+                                                <div style="width: 42px;height: 37px;">P.R
+                                                </div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('VALOR')" style="text-align: right">
+                                                <div style="width: 78px;height: 37px;">Valor
+
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in servicosRotaConferencia  | filter : searchText |orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index  " ng-class="{'selectedConferecia'   :item.FL_CONFERIDO      ==  true,
+                                 'emVeiculoCaixa'       :item.IDENT_VEICULOS    !=  '',
+                                 'orfaConferencia'      :item.IDENT_VEICULOS    ==  '',
+                                  'selectedVeiculoConferido'            :item.selected          ==  true}">
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 60;">{{item.IDENT_VEICULOS |uppercase }}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 70;">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 30;">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 30;">{{item.ORDEM_ENTREGA}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 170;">{{item.REMETENTE |uppercase}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 170;">{{item.DESTINATARIO |uppercase}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;">{{item.ROTA}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 150;">{{item.CIDADE}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 200;">{{item.ENDERECO |uppercase}},{{item.NR_ENDERECO}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 150;">{{item.BAIRRO |uppercase}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 60;">{{item.CEP}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.DT_EMISSAO}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.DT_MAXIMA}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.QT_VOLUME}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.PESO}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.PESO_REAL}}</td>
+                                            <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')" style="width: 50;text-align: right">{{item.VALOR}}</td>
+                                            <td style="width: 0;text-align: right ; display: none">{{item.COD_DOCUMENTO}}</td>
+                                            <td style="width: 0;text-align: right ; display: none">{{item.COD_VEICULOS}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </section>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </md-dialog-content>
+
+    </form>
+</md-dialog>

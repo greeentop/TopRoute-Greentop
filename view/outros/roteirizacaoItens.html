@@ -1,0 +1,740 @@
+
+
+
+<!-- LIMPAR VEICULO  -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 w3-container">
+            <div id="id04" class="w3-modalItens">
+                <div class="w3-modal-contentitens w3-card-4 w3-animate-zoom">
+                    <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                        <span class="fas fa-window-close fa2x" onclick="document.getElementById('id04').style.display='none'" style="color:red;margin-left: 99%;font-size: 24px">
+                        </span>
+                        <h2 style="    margin-top: -20px;  font-size: 20px;    text-align: center;">
+                            Confirmar descarregar veículo(s)</h2>
+                    </header>
+
+                    <h2 style="font-size: 20px;padding: 10px;margin: -76px 0 -8px 8px;">
+                        {{msg="Esta ação retorna todos os serviços ao grid principal(Armazém)?"}}
+                    </h2>
+
+                    <button type="button" class="btn btn-primary" ng-click="limparGrid()" style="width: 79px; color: white;background-color: #1c355d;border-color: #357ebd;margin: 0 0 0 35%;"
+                        onclick="document.getElementById('id04').style.display='none'">confirmar</button>
+
+                    <button type="button" class="btn btn-danger" style="color: white;background-color: #cd1515;border-color: #dd4646;margin: 0px 0 0 0%;"
+                        onclick="document.getElementById('id04').style.display='none'">Cancelar</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL UP -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 w3-container">
+            <div id="id03" class="w3-modalItens">
+
+
+                <div class="w3-modal-contentitens w3-card-4 w3-animate-zoom">
+                    <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                        <span class="fas fa-window-close fa2x" onclick="document.getElementById('id03').style.display='none'" style="color:red;margin-left: 99%;font-size: 24px">
+                        </span>
+                        <h2 style="    margin-top: -20px;  font-size: 20px;    text-align: center;">Confirmar exclusão</h2>
+                    </header>
+
+                    <h2 style="font-size: 20px;padding: 10px;margin: -76px 0 -8px 8px;">
+                        {{msg="Retirar as ordens selecionadas do veículo?"}}
+                    </h2>
+
+
+                    <button type="button" class="btn btn-primary" ng-click="excluirOrdemVeiculo()" style="width: 79px; color: white;background-color: #1c355d;border-color: #357ebd;margin: 0 0 0 35%;"
+                        onclick="document.getElementById('id03').style.display='none'">OK</button>
+
+                    <button type="button" class="btn btn-danger" style="color: white;background-color: #cd1515;border-color: #dd4646;margin: 0px 0 0 0%;"
+                        onclick="document.getElementById('id03').style.display='none'">Cancelar</button>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL DOWN -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 w3-container">
+            <div id="id02" class="w3-modalItens">
+
+
+                <div class="w3-modal-contentitens w3-card-4 w3-animate-zoom">
+                    <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                        <span class="fas fa-window-close fa2x" onclick="document.getElementById('id02').style.display='none'" style="color:red;margin-left: 99%;font-size: 24px">
+                        </span>
+                        <h2 style="    margin-top: -20px;  font-size: 20px;    text-align: center;">Confirmar Inclusão</h2>
+                    </header>
+
+                    <h2 style="font-size: 20px;padding: 10px;margin: -76px 0 -8px 8px;">{{msg=" Confirmar o envio do(s) serviço(s) de entrega(s) e coleta(s) para o veículo selecionado?"}}
+                    </h2>
+
+
+                    <button type="button" class="btn btn-primary" ng-click="inserirOrdemVeiculo()" style="width: 79px;color: white;background-color: #1c355d;border-color: #357ebd;margin: 0 0 0 35%;"
+                        onclick="document.getElementById('id02').style.display='none'">OK</button>
+
+                    <button type="button" class="btn btn-danger" style="color: white;background-color: #cd1515;border-color: #dd4646;margin: 0px 0 0 0%;"
+                        onclick="document.getElementById('id02').style.display='none'">Cancelar</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- LISTA DE SERVIÇOS E LISTA DE VEICULOS ROTEIRIZAÇÃO -->
+<div class="form-group row w3-container">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-8 w3-container" ng-show="habilitarConfiguracoes==true">
+                <div id="teste" class="w3-modal">
+
+                    <div class="col-md-12" style="margin-top: 10%;     margin-left: 26%;width: 409px;">
+                        <div class="panel panel-Azul bloco" style=" border:   1px solid rgb(28, 53, 93)">
+                            <div class="fundoAzulPrincipal panel-headingtela " style="background: rgb(28, 53, 93);text-align: center;border-radius: 6px 6px 0px 0px">
+                                <div style="text-align: center">
+                                    <h3 class="panel-title" style="color:orange;margin-top: 3%;font-weight: bold;">
+                                        CONFIGURAÇÕES CTE - ALTERAR ROTA
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div style="margin-top: 4px;">
+                                    <span style="    font-size: 14px; font-weight: bold; font-family: '-webkit-body';color:#1c355d">ALTERAR ROTA :</span>
+                                    <select class="form-control form-control-lg" style="width: 55%;position: absolute;margin-top: -32px;margin-left: 130px;background: #1c355d;color: orange;border-radius: 12px;"
+                                        ng-model="rotaDistribuica" ng-options="rot.COD_ROTAS_DISTRIBUICAO + ' ( ' + (rot.DS_ROTAS_DISTRIBUICAO) + ' )' for rot in rotasDistribuicao | orderBy:'COD_ROTAS_DISTRIBUICAO'"
+                                        ng-change="trocarRotaDistribuicao(rotaDistribuica)" ng-click="trocarRotaDistribuicao(rotaDistribuica)">
+                                        <option value="">Selecione uma Rota</option>
+                                    </select>
+                                </div>
+
+                                <!-- <hr style="margin-bottom: -79px;border: 0;border-top: 1px solid #7b7b7b">
+                                <div style="width: 247px;height: 48px;position: absolute;margin-top: 95px; ">
+                                    
+                                    <span style="    font-size: 17px; font-weight: bold; font-family: '-webkit-body';margin-left: -5px;color: #1c355d">ROTEIRIZAR:</span>
+                                    <label class="switch" data-ng-click="bloquearServicoConfiguracao()">
+                                        <input type="checkbox" checked="" checked ng-model="chkBloqueio">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div> -->
+                                <hr style="margin-bottom: -162px;border: 0;border-top: 1px solid #7b7b7b;">
+
+                                <div style="   height: 200px; text-align: center">
+                                    <div style="   margin-left: 25%;margin-top: 42%;position: absolute;">
+                                        <button class="w3-button w3-center w3-border " 
+                                        style="width: 79px;color: white;background-color: #284779;border-color: #ff7f27;height: 33px;border-radius: 5px"
+                                            onclick="document.getElementById('teste').style.display='none'" 
+                                            ng-click="putRotasDistribuicao()"
+                                            title="Salvar configurações">OK
+                                        </button>
+
+                                        <button type="button" class="btn btn-danger" style="color: white;background-color: #cd1515;border-color: #dd4646;" 
+                                        onclick="document.getElementById('teste').style.display='none'">Cancelar</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-12" style="margin: -79px 0 0 0px">
+    <!-- DOCUMENTOS -->
+    <div class="col-md-9">
+        <div class="col-md-12">
+
+            <div class="panel panel-Azul bloco" style="margin: 0px 0 0 -9px; border:   1px solid rgb(28, 53, 93) ">
+
+                <div class="fundoAzulPrincipal panel-headingtela " style=" border-radius: 5px 5px 0px 0px;">
+
+                    <div class="col-md-6" style="display: flex;/*background: red*/;height: -webkit-fill-available;">
+
+
+                        <spam style="color:white; font-size:15px;    margin-top: 18px; ;display: flex;    width: inherit;">
+                            QTD. SERVIÇOS ENTR. E COL. ({{result.length }})
+                        </spam>
+
+                        <!-- CAMPO BUSCAR -->
+                        <!-- ng-keypress="search($event)" -->
+                        <div class="submit-line" style="margin-right: 0;    width: inherit;">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid" id="txtbuscardoc" ng-keypress="onKeyUpTxtScan_Veiculo($event)"
+                                ng-model="searchText" ng-change="search()" placeholder="{{textoFind}}">
+                            <button class="submit-lente" type="submit" ng-click="habilitarScanner()" ng-class="{'desabilitaScanner':Scanner==false,'habilitaScanner':Scanner==true}">
+                                <i class="fas fa-barcode"></i>
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-6" style="display: flex;/*background: green*/;height: -webkit-fill-available;">
+
+                        <div >
+                            <div class="dash" style="color:oldlace;  cursor: pointer " ng-click="filtroveiculo('emVeiculo')" title="Em Veículo" ng-class="{'imgEmVeiculoHabilitado' : chkveiculoev==true,'imgEmVeiculoDesabilitado'  :chkveiculoev==false}">
+                                <input type="checkbox" ng-model="chkveiculoev" checked style="display: none">
+
+                            </div>
+                        </div>
+
+                        <div >
+                            <div class="dash" style="color:oldlace; cursor: pointer;" ng-click="filtroveiculo('orfa')" title="Em Armazém" ng-class="{'imgOrfaHabilitado' : chkveiculoO==true,'imgOrfaDesabilitado'  :chkveiculoO==false}">
+                                <input type="checkbox" ng-model="chkveiculoO" checked style="display: none">
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+                            <div class="dash" style="color:oldlace; cursor: pointer" ng-click="filtroveiculo('bloqueado')" title="Não Roteirizar" ng-class="{'imgBloqueHabilitado' : chkveiculoB==true,'imgBloqueDesabilitado'  :chkveiculoB==false}">
+                                <input type="checkbox" value="Bike" ng-model="chkveiculoB" checked style="display: none">
+                            </div>
+                        </div>
+
+          
+                        
+
+                        <div>
+
+                                <!-- BOTAO CONFIGURAÇAO  -->
+                                <button style="font-size:16px; background: white" 
+                                    type="button" 
+                                    class="btn btn-primary  btn-xs" 
+                                    ng-disabled="selectedRows.length <= 0"
+                                    onclick="document.getElementById('teste').style.display='block'"
+                                    ng-click="CarrregarRotasDistribuicaoFilias()"
+                                    title="Configurações em serviços selecionados com status Em Armazém">
+                                    <i class="fas fa-sliders-h" style="font-size:24px;color:#da6c22" placeholder=" teste"></i>
+                                </button>
+    
+                            </div>
+
+
+
+                        <!-- FILTROS GRID -->
+                        <!-- <div class="botoeFitros bloco" 
+                                            ng-class="{'imgEmVeiculoHabilitado' : ev==false,'imgEmVeiculoDesabilitado'  : ev==true}"     
+                                            ng-click="mostrarFiltro('emVeiculo')"
+                                            title="Em Veículo">
+                                        </div>
+                                        <div class="botoeFitros bloco" 
+                                            ng-class="{'imgOrfaHabilitado'  : orf==false,'imgOrfaDesabilitado'      : orf==true}" 
+                                            ng-click="mostrarFiltro('orfa')"
+                                            title="Em Armazém">
+                                        </div>
+                    
+                                        <div class="botoeFitros bloco" 
+                                            ng-class="{'imgBloqueHabilitado'    : block==false,'imgBloqueDesabilitado'  : block==true}"
+                                            ng-click="mostrarFiltro('bloqueado')" 
+                                            title="Não Roteirizar">
+                                        </div> -->
+
+
+                        <!-- BOTAO CONFIGURAÇAO  -->
+                        <!-- <div title="Configurações em serviços selecionados com status Em Armazém">
+                                            <button style="font-size:16px; background: white;margin: 20px 0 0 92%" type="button" class="btn btn-primary  btn-xs" ng-disabled="habilitarConfiguracoes==false"
+                                                onclick="document.getElementById('id01').style.display='block'" ng-click="CarrregarRotasDistribuicaoFilias()">
+                                                <i class="fas fa-sliders-h" style="font-size:24px;color:#da6c22" placeholder=" teste"></i>
+                                            </button>
+                                        </div> -->
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="panel-body">
+                    <div id="divGridDocumentos" class="col-md-12" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}">
+
+                        <table class="table " style="border-radius: 0px 0px 0px 0px; font-size: 9px;" id="gridDocumentos" arrow-selector>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> VEÍCULO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('COD_DOCUMENTO')">COD. CONHECIMENTO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('COD_DOCUMENTO')"> NR DOCUMENTO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> TP</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('ORDEM_ENTREGA')"> ORDEM</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('REMETENTE')"> REMETENTE</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('DESTINATARIO')"> DESTINATÁRIO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('ROTA')"> RT</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('CIDADE')"> CIDADE</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('ENDERECO')"> ENDEREÇO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('BAIRRO')"> BAIRRO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('DT_EMISSAO')"> EM.</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('DT_MAXIMA')"> MAX.</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('QT_VOLUME')"> VOL.</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('PESO')"> PESO</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('PESO_REAL')"> PESO REAL</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('VALOR')"> VALOR</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="" ng-click="ordenarPor('status')"> Status</a>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <!-- selected1'    :$index                  ==  selectedRow, -->
+                            <tbody>
+                                <tr ng-repeat="item in result  | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index" ng-class="  {       'selected1'    :$index                  ==  selectedRow,
+                                                                        'selected'     :item.selected          ==  true,
+                                                                        'naoRoteirizar':item.FL_ROTEIRIZAR     ==  false, 
+                                                                        'emVeiculo'    :item.IDENT_VEICULOS    !=  '',
+                                                                        'orfa'         :item.IDENT_VEICULOS    ==  '' && item.FL_ROTEIRIZAR==true}"
+                                     ng-click="setClickedRow($index,$event)">
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.IDENT_VEICULOS |uppercase }}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)" >{{item.COD_DOCUMENTO}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.ORDEM_ENTREGA}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.REMETENTE |uppercase}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.DESTINATARIO |uppercase}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.ROTA}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.CIDADE}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.ENDERECO |uppercase}} , {{item.NR_ENDERECO}} </td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.BAIRRO |uppercase}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.DT_EMISSAO}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.DT_MAXIMA}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.QT_VOLUME}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.PESO}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.PESO_REAL}}</td>
+                                    <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.VALOR | currency}} </td>
+                                    <td style="cursor:pointer" data-ng-click="roteirizacaoAcao($index)">
+                                        <div ng-class="{'circuloEmVeiculo'   :   item.status=='emVeiculo',
+                                                                                                                                                    'circuloEmArmazem'   :   item.status=='orfa',
+                                                                                                                                                    'circuloBloqueado'   :   item.status=='bloqueado' }">
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- VEICULOS -->
+    <div class="col-md-3">
+        <div class="col-md-12">
+
+            <div class="panel panel-Azul bloco" style=" border:   1px solid rgb(28, 53, 93)">
+
+                <div class="fundoAzulPrincipal panel-headingtela " style="background: rgb(28, 53, 93);">
+
+                    <!-- <div class="col-sm-6"></div> -->
+                    <div>
+                        <h3 class="panel-title" style="color:white">
+                            QTD. {{listaVeiculos.length }}
+                        </h3>
+                        <!-- </div> -->
+                        <!-- <div class="col-sm-6"> -->
+
+                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="criterioDeBusca" style="border: 1px solid #cccccc; background: white;width: 100px "
+                            placeholder="Buscar">
+
+
+                        <!-- botoeFitros bl oco imgEmVeiculoHabilitado -->
+                        <!-- ng-class="{'imgEmVeiculoHabilitado' : ev==false,'imgEmVeiculoDesabilitado'  : ev==true}"  -->
+                        <!-- <div class="botoeFitros bloco" 
+                                            
+                                            ng-click="mostrarFiltro('emVeiculo')" 
+                                            title="Limpar serviço(s) do(s) veículo(s)"
+                                            onclick="document.getElementById('id04').style.display='block'" >
+                                        </div> -->
+
+                        <div onclick="document.getElementById('id04').style.display='block'" class="clearVeiculos" title="Limpar serviço(s) do(s) veículo(s)"></div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="panel-body">
+                    <div class="grid" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}" style="    margin-left: -2px;">
+
+
+
+                        <div ng-repeat="vei in listaVeiculos | filter:criterioDeBusca" ng-class="{'marcar':vei.selected==true}">
+                            <div class="placaMercosul bloco" ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )" style="cursor:pointer;margin: 3% 0 -3% 0% ;    border: 3px solid #1c355d; ">
+                                <div class="placaDescEmpresa">
+                                    <span style="margin-left: 3px"> SOLISTICA</span>
+                                    <img alt="" src="img/brasil.png" style="margin: -17px 0 0 97px;width: 18px;">
+                                </div>
+                                <div class="placaParticular">
+                                    <i class="fas fa-truck fa-2x" style="color: #1c355d"></i>
+                                    EMF-8385
+                                </div>
+                            </div>
+
+                            <!-- <div class="button " style="width: 57px;margin: -33px 0 0 136px; cursor:default" ng-class="{'temServ': vei.QTD_CTRC >0 ,'veiculozerado':vei.QTD_CTRC <=0}">
+
+                                <i class="fa fa-map-marker fa-2x"></i>
+
+                                <div style="margin-top: -36px;margin-left: 5px;" ng-class="{'clearance': vei.QTD_CTRC >0 ,'clearance1':vei.QTD_CTRC <=0}">
+                                    {{vei.QTD_CTRC}}
+                                </div>
+                            </div> -->
+
+                            <!-- OCUPACAO VEICULO -->
+                            <div style="width: 87px;height: 55px;     margin: -41px 0 0 175px; cursor:default" class="" ng-class="  {'colorCargaCarregada0'     : vei.OCUPACAO ==0
+                                                                                                    ,'colorCargaCarregada1'  : vei.OCUPACAO >0
+                                                                                                    ,'colorCargaCarregada2'  : vei.OCUPACAO >=20
+                                                                                                    ,'colorCargaCarregada3'  : vei.OCUPACAO >=30
+                                                                                                    ,'colorCargaCarregada4'  : vei.OCUPACAO >=40
+                                                                                                    ,'colorCargaCarregada5'  : vei.OCUPACAO >=50
+                                                                                                    ,'colorCargaCarregada6'  : vei.OCUPACAO >=60
+                                                                                                    ,'colorCargaCarregada7'  : vei.OCUPACAO >=70
+                                                                                                    ,'colorCargaCarregada8'  : vei.OCUPACAO >=80
+                                                                                                    ,'colorCargaCarregada9'  : vei.OCUPACAO >=90
+                                                                                                    ,'colorCargaCarregada10' : vei.OCUPACAO >=100}">
+                                <span style="margin: 0px 0 0 28px;  font-weight: bold;color: rgb(28, 53, 93);    font-size: 16px;"> {{vei.OCUPACAO}} %</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<div ng-show="dadosVeiculo.length > 0">
+
+    <!-- SETAS -->
+    <div class="col-md-12  w3-container" style="text-align: center">
+        <button style="font-size:16px; background: #1c355d;border-radius: 33px; border: 3px solid #ff7f27;width: 46px;height: 46px"
+            type="button" class="btn btn-primary  btn-md" onclick="document.getElementById('id02').style.display='block'" title="Enviar para Veículo">
+            <i class="fa fa-arrow-circle-down"></i>
+        </button>
+        <button style="font-size:16px; background: #1c355d;border-radius:33px;border: 3px solid #ff7f27;width: 46px;height: 46px"
+            type="button" class="btn btn-primary  btn-md" onclick="document.getElementById('id03').style.display='block'" title="Devolver para o Armazém">
+            <i class="fas fa-arrow-circle-up" style="text-align: center"></i>
+        </button>
+
+
+        <span class="help-block">Você pode selecionar com
+            <b>Ctrl + Clique em uma linha sem soltar o Ctrl clique em outra</b>,
+            <b>Ctrl + M (Selecinar Todos)</b>,
+            <b>Ctrl + L (Limpar seleção)</b>
+
+        </span>
+
+
+    </div>
+
+
+
+    <div class="col-md-12">
+
+        <!-- CARRETA -->
+        <div class="col-md-9">
+            <div class="col-md-12" style="margin-top: 4px;">
+
+                <div class="panel panel-Azul bloco" style="margin: 0px 0 0 -9px; border:   1px solid rgb(28, 53, 93) ">
+
+                    <div class="fundoAzulPrincipal panel-headingtela " style=" border-radius: 5px 5px 0px 0px;">
+
+                        <div class="col-md-12">
+
+                            <div class="col-md-6">
+
+                                <div ng-show="itensVeiculoSelecionado.length > 0">
+
+                                    <span style="color:white;height: 2px"> Scanner Docs</span>
+
+
+                                    <input type="text"
+                                     class="form-control ng-pristine ng-untouched ng-valid" id="txtbuscardocVeiculo"
+                                      style="border: 1px solid #cccccc; background: white;width:273px"
+                                        placeholder="Buscar codigo de barras" ng-keypress="scnnerDocs($event)">
+                                    <i class="fas fa-barcode" style="margin: -35px 0 0 231px;position: absolute;font-size: 36px;color: black;"></i>
+
+
+                                    <div ng-class="{'inverteselecao1': troca==false ,'inverteselecao2':troca==true}" data-ng-click="trocaSelecao()" title="Inverter Seleção">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="col-md-6" style="    margin-top: 42px; ">
+
+                                <!-- <div >
+                                            <div>
+                                                <div onclick="document.getElementById('id04').style.display='block'" class="clearVeiculos" title="Limpar serviço(s) do(s) veículo(s)"></div>
+                                            </div>
+                                        </div> -->
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="panel-body" style="height: 308px;">
+
+                        <div id="divGridDocumentos1" ng-class="{'ajustatela'   :itensVeiculoSelecionado.length > 0}">
+                            <table class="table" arrow-selector style="border-radius: 0px 0px 0px 0px; font-size: 9px" ng-show="itensVeiculoSelecionado.length > 0"
+                                id="table">
+                                <caption style="text-align: center;">SERVIÇOS VEICULO</caption>
+
+                                <tbody ng-repeat="item in itensVeiculoSelecionado " toggler-id>
+
+                                    <tr drag-to-reorder="itensVeiculoSelecionado" ng-click="setClickedRowGridVeiculo($index)" style="cursor:pointer" ng-class="{'selectedvei':item.selected==true}">
+                                        <td>{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                                        <td>{{item.COD_DOCUMENTO}}</td>
+                                        <td>{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                                        <td>{{item.ORDEM_ENTREGA}}</td>
+                                        <td>{{item.REMETENTE |uppercase}}</td>
+                                        <td>{{item.DESTINATARIO |uppercase}}</td>
+                                        <td>{{item.ROTA}}</td>
+                                        <td>{{item.ENDERECO |uppercase}} , {{item.NR_ENDERECO}} </td>
+                                        <td>{{item.CIDADE}}</td>
+                                        <td>{{item.BAIRRO |uppercase}}</td>
+                                        <td>{{item.PESO}}</td>
+                                        <td>{{item.PESO_REAL}}</td>
+                                        <td>{{item.VALOR | currency}} </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div id="divGridDocumentos" class="col-md-12" style="border-radius: 0px 0 60px 60px;height: 280px;">
+                                <div class="cavalovazio" ng-show="itensVeiculoSelecionado.length == 0">
+
+                                    <div class="logoBauSolistica" style="    width: 438px;height: 287px;"></div>
+
+                                    <div class="logoBauExpresso" style="    width: 153px;height: 46px;"></div>
+                                    <div class="logoBauAtlas" style="    width: 183px;height: 46px;"></div>
+                                    <div class="logoBauAtlas" style="    width: 183px;height: 46px;"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bloco" style="background: #424040;margin:387px 0px 0px 125px;border-radius: 0px 0px 50px 50px ;width: 113px;height: 51px;position: absolute;"></div>
+            <div class="bloco" style="background: #424040;margin:387px 0px 0px 300px;border-radius: 0px 0px 50px 50px ;width: 113px;height: 51px;position: absolute;"></div>
+
+        </div>
+
+        <!-- VEICULOS -->
+        <div class="col-md-3" >
+
+            
+
+            <a href="" ng-click="fecharCaminhao()" 
+                style="font-size: xx-large;position: absolute;margin-left: 84%;color: red; cursor: pointer;z-index: 99" > 
+                <i class="fas fa-times-circle" style="cursor: pointer"></i> </a>
+            <div class="col-md-12" style="margin-top: 4px;">
+                <div class="panel panel-Azul bloco" style="border: 8px solid rgb(28, 53, 93);border-radius: 25px 166px 26px 19px;background: #1c355d;">
+
+
+                    <!-- <div class="fundoAzulPrincipal panel-headingtela " style="background: rgb(28, 53, 93);"> -->
+                    <!-- <div >
+        
+                        
+                        <div>
+                            <h3 class="panel-title" style="color:white">
+                                QTD. {{listaVeiculos.length }}
+                            </h3>
+        
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid" ng-model="criterioDeBusca" style="border: 1px solid #cccccc; background: white;width: 100px "
+                                placeholder="Buscar">
+        
+                            <div onclick="document.getElementById('id04').style.display='block'" class="clearVeiculos" title="Limpar serviço(s) do(s) veículo(s)"></div>
+        
+        
+                        </div>
+                    </div> -->
+
+
+                    <div class="panel-body" style="height: 373px">
+
+
+                            <div class="placaMercosul bloco" ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )" style="cursor:pointer;margin: 3% 0 -3% 0% ;     border: 3px solid;border-color: #ff7f27">
+                                <div class="placaDescEmpresa">
+                                    <span style="margin-left: 3px"> SOLISTICA</span>
+                                    <img alt="" src="img/brasil.png" style="margin: -17px 0 0 97px;width: 18px;">
+                                </div>
+                                <div class="placaParticular">
+                                    <i class="fas fa-truck fa-2x" style="color: #1c355d"></i>
+                                    {{dadosVeiculo.NR_PLACA_FORMATADA}}
+                                </div>
+                            </div>
+                          
+                            
+                            <div class="identCavalo">ID: {{dadosVeiculo.IDENT_VEICULOS}} </div>
+
+                            <!-- ABRIR MAPA -->
+                            <div ng-class="{'mostrarMapa':quantidadeCtrc > 0 , 'naoMostrarMapa':quantidadeCtrc==0}" ng-click="openRtng(veiculoSel.COD_ROTEIRIZACAO, veiculoSel.COD_VEICULOS,quantidadeCtrc)">
+                            </div>
+
+
+                            
+                            <div>
+                                    <div class="row">
+                                        <div class="dash" style="margin-left: 13px;margin-top: 0px;position:absolute ">
+                                            <span class="fab fa-dropbox" style="margin:9px 0 0 0"></span>
+                                            <span class="textoDash"> Qtd serviços:
+                                                <span style="color: #d8d8d8">{{quantidadeCtrc}}</span>
+                                            </span>
+            
+                                        </div>
+                                    </div>
+            
+                                    <div class="row">
+                                        <div class="dash" style="margin-left: 13px;margin-top: 55px;;position:absolute">
+                                            <span class="fas fa-tachometer-alt" style="margin:9px 0 0 0"></span>
+                                            <span class="textoDash"> Peso total:
+                                                <span style="color: #d8d8d8">{{PESOTotal}} kg</span>
+                                            </span>
+                                        </div>
+                                        <!-- capaciodade -->
+                                    </div>
+            
+            
+                                    <div class="row">
+                                        <div class="dash" style="margin-left: 13px;margin-top: 111px;;position:absolute">
+                                            <span class="fas fa-battery-empty" style="margin:9px 0 0 0"></span>
+                                            <span class="textoDash"> Ocupação:
+                                                <span style="color: #d8d8d8"> {{capacidadePercent}} %</span>
+                                            </span>
+                                        </div>
+            
+                                    </div>
+            
+                                    <div class="row">
+                                        <div class="dash" style="margin-left: 13px;margin-top: 167px;;position:absolute">
+                                            <span class="fas fa-road" style="margin:9px 0 0 0"></span>
+                                            <span class="textoDash"> Distancia:
+                                                <span style="color: #d8d8d8">{{kmDistaniaVeiculo}} KM</span>
+                                            </span>
+                                        </div>
+            
+                                    </div>
+            
+                                </div>                            
+
+                            <!-- <div class="logoBauExpresso"></div> -->
+
+                        <!-- <div class="grid" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}" style="    margin-left: -2px;">
+        
+        
+        
+                            <div ng-repeat="vei in listaVeiculos | filter:criterioDeBusca" ng-class="{'marcar':vei.selected==true}">
+                                <div class="placaMercosul bloco" ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )" style="cursor:pointer;margin: 3% 0 -3% 0% ;    border: 3px solid #1c355d; ">
+                                    <div class="placaDescEmpresa">
+                                        <span style="margin-left: 3px"> SOLISTICA</span>
+                                        <img alt="" src="img/brasil.png" style="margin: -17px 0 0 97px;width: 18px;">
+                                    </div>
+                                    <div class="placaParticular">
+                                        <i class="fas fa-truck fa-2x" style="color: #1c355d"></i>
+                                        {{vei.IDENT_VEICULOS}}
+                                    </div>
+                                </div>
+        
+                                <div class="button " style="width: 57px;margin: -33px 0 0 136px; cursor:default" ng-class="{'temServ': vei.QTD_CTRC >0 ,'veiculozerado':vei.QTD_CTRC <=0}">
+        
+                                    <i class="fa fa-map-marker fa-2x"></i>
+        
+                                    <div style="margin-top: -36px;margin-left: 5px;" ng-class="{'clearance': vei.QTD_CTRC >0 ,'clearance1':vei.QTD_CTRC <=0}">
+                                        {{vei.QTD_CTRC}}
+                                    </div>
+                                </div>
+        
+        
+                                <div style="width: 87px;height: 55px;     margin: -41px 0 0 175px; cursor:default" class="" ng-class="  {'colorCargaCarregada0'     : vei.OCUPACAO ==0
+                                                                                                ,'colorCargaCarregada1'  : vei.OCUPACAO >0
+                                                                                                ,'colorCargaCarregada2'  : vei.OCUPACAO >=20
+                                                                                                ,'colorCargaCarregada3'  : vei.OCUPACAO >=30
+                                                                                                ,'colorCargaCarregada4'  : vei.OCUPACAO >=40
+                                                                                                ,'colorCargaCarregada5'  : vei.OCUPACAO >=50
+                                                                                                ,'colorCargaCarregada6'  : vei.OCUPACAO >=60
+                                                                                                ,'colorCargaCarregada7'  : vei.OCUPACAO >=70
+                                                                                                ,'colorCargaCarregada8'  : vei.OCUPACAO >=80
+                                                                                                ,'colorCargaCarregada9'  : vei.OCUPACAO >=90
+                                                                                                ,'colorCargaCarregada10' : vei.OCUPACAO >=100}">
+                                    <span style="margin: 0px 0 0 28px;  font-weight: bold;color: rgb(28, 53, 93);    font-size: 16px;"> {{vei.OCUPACAO}} %</span>
+                                </div>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

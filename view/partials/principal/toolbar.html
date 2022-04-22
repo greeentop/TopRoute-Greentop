@@ -1,0 +1,60 @@
+<style>
+    md-toolbar.md-default-theme:not(.md-menu-toolbar),
+    md-toolbar:not(.md-menu-toolbar) {
+        background-color: rgb(255, 255, 255);
+        color: rgba(255, 255, 255, 0.87);
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        position: fixed;
+        border-bottom: solid 2px #006400;
+    }
+    
+    md-bottom-sheet.md-grid {
+        height: 30em;
+    }
+</style>
+
+<md-toolbar>
+
+    <div class="md-toolbar-tools">
+        <!-- <img src="img/IconeparafundoAzul.png" style="width: 93px; margin-top: -3px;"> -->
+        <img src="img/LogoGreentop.png" style="width: 12em; ">
+
+
+
+        <h2 flex md-truncate style="padding-left: 50px;"> {{usuarioLogado.FilialSetada.NM_FILIAIS}}
+            <span class="green-secundary" style="font-weight: 900; padding-left: 10; font-size: 16px;"> Serviços :
+                {{usuarioLogado.FilialSetada.ROTEIRIZACAO_SELECIONADA.TotalItens}}</span>
+
+            <span class="green-secundary" style=" font-size: 30px;    margin-left: 56px; font-weight: 900; padding-left: 10; font-size: 16px;">
+                ROTEIRIZAÇÃO [{{usuarioLogado.FilialSetada.ROTEIRIZACAO_SELECIONADA.CODIGO_ROTEIRIZACAO}}]
+            </span>
+
+
+        </h2>
+        <h1>
+            <span class="blue-primary">
+            </span>
+        </h1>
+
+
+        <div class="green-secundary">
+            {{usuarioLogado.NM_FUNCIONARIOS}}
+        </div>
+
+        <md-button class="md-fab" aria-label="Eat cake" style="background: #337b33;" ng-click="home()">
+            <md-tooltip md-direction="bottom">
+                Voltar para home
+            </md-tooltip>
+
+            <md-icon md-svg-src="img/ico/homepage1.svg" style="color: white;"></md-icon>
+        </md-button>
+
+
+        <md-button aria-label="Go Back" ng-click="logoff()">
+            Sair
+        </md-button>
+        <span style="font-size: 12px; color: #337b33;">
+            {{usuarioLogado.Version}}
+        </span>
+    </div>
+</md-toolbar>

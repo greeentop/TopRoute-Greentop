@@ -1,0 +1,671 @@
+<style>
+  .clienteSelect {
+    border: none;
+    border-bottom: 2px solid rgb(231, 76, 34);
+    width: 400px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: white;
+    background-color: #616161;
+    /* background-image: url(../../img/ico/searchicon24.png); */
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .parent1 {
+    height: 9%;
+    /* background-color: grey; */
+    /* font-size: 1.6em; */
+
+    margin-top: -264px;
+    position: absolute;
+    margin-left: 77px;
+  }
+
+  .left1 {
+    margin-left: 33.6%;
+    float: left;
+    /* background-color: rgba(76, 175, 80, 0.54); */
+    ;
+    height: 96%;
+    overflow-x: auto;
+    margin-top: 19px;
+  }
+
+
+  .leftImg {
+    background: transparent url(img/ico/excel.png)no-repeat center;
+    width: 93px;
+    height: 58px;
+    border-radius: 11px;
+    cursor: pointer;
+  }
+
+  .rightImg {
+    background: transparent url(img/ico/pdfGerar.jpg)no-repeat center;
+    width: 132px;
+    height: 58px;
+    border-radius: 11px;
+    cursor: pointer;
+  }
+
+
+  .right1 {
+    margin-right: 35.7%;
+    float: right;
+    /* background-color: rgba(255, 0, 0, 0.44); */
+    height: 96%;
+    overflow-x: auto;
+    margin-top: 19px;
+  }
+
+
+  .parent {
+    margin-top: 2%;
+    height: 80%;
+
+    /* background-color: grey; */
+    /* font-size: 1.6em; */
+  }
+
+  .left {
+    margin-left: 2%;
+    float: left;
+    height: 96%;
+    width: 46%;
+    overflow-x: auto;
+    background-color: rgba(76, 175, 80, 0.54);
+  }
+
+  .spamtitle {
+    margin-left: 2%;
+
+  }
+
+  .right {
+    margin-right: 2%;
+    float: right;
+    background-color: rgba(255, 0, 0, 0.44);
+    height: 96%;
+    width: 46%;
+    overflow-x: auto;
+    margin-top: 19px;
+  }
+
+  .parent span {
+    display: table;
+  }
+
+  .parent em {
+    display: table-cell;
+    vertical-align: middle;
+
+  }
+
+  .text {
+    font-size: 100%;
+    border: solid 1px gainsboro;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: gray;
+    width: 73%;
+  }
+
+  .box-2 {
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .box-manifesto {
+    display: block;
+  }
+
+  .box-baixa-routeasy {
+    display: block;
+
+  }
+
+
+  .card-tree {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #EF9A9A;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 5px;
+    height: 100%;
+  }
+
+
+  .card {
+    /* width: 150%; */
+    /* Set width of cards */
+    display: flex;
+    /* Children use Flexbox */
+    flex-direction: column;
+    /* Rotate Axis */
+    border: 1px solid #EF9A9A;
+    /* Set up Border */
+    border-radius: 4px;
+    /* Slightly Curve edges */
+    overflow: hidden;
+    /* Fixes the corners */
+    margin: 5px;
+    /* Add space between cards */
+    margin-left: 20px;
+    height: 64%;
+  }
+
+  .card-header {
+    color: oldlace;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid #e74c22;
+    background-color: #1c355d;
+    padding: 5px 10px;
+    height: 57px;
+  }
+
+  .card-main {
+
+    /* height: 1;  */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 16px 8px;
+    height: 100%;
+    background: white;
+
+  }
+
+
+  .card-main-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    background: #F5F5F5;
+    height: 100%;
+  }
+
+  .material-icons {
+    font-size: 36px;
+    color: #D32F2F;
+    margin-bottom: 5px;
+  }
+
+  .main-description {
+    color: #D32F2F;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .input-group{
+    width: auto;
+    background: grey;
+}
+.form-control{
+  color: grey;
+}
+
+.input-group-addon{
+
+  width: auto;
+}
+
+.fundotext{
+    width: 350px;
+}
+
+.form-settings {
+    width: 99.4%;
+    margin: 3px auto 3px 4px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.box {
+    border: 1px solid #ebedf0;
+    background-color: #fff;
+    padding: 10px 40px;
+    margin: 5px auto 0;
+}
+
+
+.form-settings h2 {
+    margin: 10px 0 20px;
+    padding: 0 5px 15px;
+    border-bottom: 1px solid #eee;
+}
+.title-settings, .menu-item, .form-settings h2 {
+    font-size: 15px;
+    color: #6d6e71;
+}
+
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+
+
+.form-horizontal .custom-control, .form-horizontal .ui-select-multiple.ui-select-bootstrap input.ui-select-search, .ui-select-multiple.ui-select-bootstrap .form-horizontal input.ui-select-search {
+    margin-bottom: 5px;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    transition: all .8s ease;
+    color: rgba(255, 165, 0,0.8);
+}
+
+.custom-control, .ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+    width: 100%;
+    height: 34px;
+    padding: 0;
+    background: #fff;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0) 98%,#3EC9CB 2%);
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 98%,#3EC9CB 2%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-radius: 0;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    transition: all .8s ease;
+}
+.custom-control, .ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+    width: 100%;
+    height: 34px;
+    padding: 0 10px;
+    background: #fff;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0) 98%,#00796b 2%);
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 98%,#00796b 2%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-radius: 0;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    transition: all .8s ease;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+
+.form-settings {
+    width: 99.4%;
+    margin: 3px auto 3px 4px;
+    display: inline-block;
+    padding: 10px;
+}
+.boxr {
+    border: 1px solid #ebedf0;
+    background-color: #fff;
+    padding: 10px 40px;
+    margin: 5px auto 0;
+    /* width: 86%; */
+}
+ applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,  caption,  article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+@media screen  and (min-width:2134px){
+
+  #cardManifestos{
+    height: 74%;
+  }
+
+  #imgsmaps{
+    position: absolute;
+  }
+
+}
+
+</style>
+
+
+
+<!-- MODAL CONFERENCIA -->
+<div id="divModalConferenciaServiceBotica" class="sidenavConferencia"
+  style="z-index: 99;    overflow: hidden; background:#1c3449;" ng-keypress="sair($event)">
+
+
+  <div
+    style="width: 100%;height: 507x;background: rgb(28, 53, 93);;display: inline-flex;box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);border: solid 2px #1c355d;border-left: none;border-right: none;">
+    <!-- TOOLBAR COM O SCANNER E BOTOES -->
+
+    <div class="w3-row" style="width: 100%">
+
+      <!-- LOCALIZAR E SCANNER -->
+      <div class="w3-col w3-container"
+        style="width: 79%;margin-top: 10px;margin-bottom: 5px;border-radius: 15px 15px 0 0;">
+        <div style="    text-align: center ;display: inline-flex">
+          <span style="color: white;padding-right: 10px ; font-size: 20px;"> Local baixa</span>
+
+          <!-- <select name="cliente" id="box" class="clienteSelect" ng-model="q" ng-change="change()">
+            <option> TODOS</option>
+            <option ng-repeat="item in clientesDistinct | orderBy : 'REMETENTE' "> {{item.REMETENTE}} ({{item.qtd}})
+            </option>
+          </select> -->
+
+          <!-- <p class="ng-binding" style="color: white; font-size: 20px; margin-left: 10px;">
+            QTD REMETENTES : {{clientesDistinct.length}} -->
+
+        
+            
+        </div>
+      </div>
+
+
+      <!-- BOTAO SALVAR CONFERENCIA E  FECHAR -->
+      <div class="w3-col  w3-container" style="    width: 20%;margin-top : 9px;padding: 0;padding-left: 17%;">
+
+
+        <div style="    position: absolute;margin-left: 24px">
+          <span onclick="closeConferencia()" class="w3-button w3-display-topright botaoFechar"
+            data-ng-click="closeDivConferencia();salvarStatusConferencia()">
+
+            <span
+              style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div style="width: 100%;display: inline-flex;height: 94.2%;">
+
+    <div style="width: 25%;">
+
+      
+
+
+      <div class="card-tree">
+        <div class="card-header"style="display: flex;align-items: center;" >REMETENTES</div>
+        <div class="card-main" style="    width: 100%;">
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+              <div style="width: 100%;height: 723px;overflow: overlay;">
+                <div
+                  style="position: absolute;left: 0;width: 25%;height: 80%;overflow: overlay;margin-top: -12px;margin-left: 5px;border-style: dashed;border: dashed 1px #8080806b;"
+                  id="tvtp" js-tree="treeConfig" should-apply="applyModelChanges()" ng-model="treeView"
+                  tree="treeInstance" tree-events-obj="treeEventsObj">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 37%;">
+
+      <div class="card" id="cardManifestos" >
+        <div class="card-header" style="color: #e74c22;display: flex;align-items: center;">DADOS MANIFESTO</div>
+        <div class="card-main">
+          <!-- <i class="material-icons">hot_tub</i>
+            <div class="main-description">Hot Tub</div> -->
+
+
+          <div style="width: 100% ;">
+            <!-- documentoClicado.COD_DOCUMENTO -->
+            <div class="form-settings boxr">
+              <form name="forms.userProfile">
+                <h2> Informações do(s) manifesto(s)</h2>
+                <div class="form-horizontal col-md-6">
+                  <fieldset>
+                    <div class="form-group">
+                      <label for="firstName">Remetente
+                      </label>
+                      <input type="text" id="firstName" name="firstName" class="custom-control" data-ng-model="_user.remetente"
+                        placeholder="Nome do remetente" readonly="true"  >
+                    </div>
+                    <div class="form-group">
+                      <label for="lastName">Destinatáro
+                      </label>
+                      <input type="text" id="lastName" name="lastName" class="custom-control" data-ng-model="_user.destinatario"
+                        placeholder="Nome do destinatário" required="">
+                    </div>
+                    <div class="form-group" style="display: flex;"> 
+                      <label for="Veiculo">Veiculo</label>
+                      <input type="text" id="Veiculo" name="veiculo" class="custom-control" data-ng-model="_user.veiculo"
+                        placeholder="indentity do veículo" disabled="">
+
+                        <label for="Motorista">Motorista</label>
+                        <input type="text" id="Motorista" name="Motorista" class="custom-control" data-ng-model="_user.motorista"
+                          placeholder="Nome do motorista" disabled="">
+                    </div>
+
+                    <div class="form-group" style="display: flex;"> 
+                      <label for="dtMaxima">Data máxima</label>
+                      <input type="text" id="dtMaxima" name="dtMaxima" class="custom-control" data-ng-model="_user.dtMaxima"
+                        placeholder="Data máxima" disabled="">
+
+                        <label for="retornos">Retornos</label>
+                        <div  style="background-color: #D32F2F;border-radius: 50%;width: 30px;height: 30px;text-align: center;margin-top: 10;align-items: center;justify-content: center;display: flex;margin-left: 27px;color: white;font-size: x-large;">
+                        <p>2</p>
+                      </div>
+                        <!-- <input type="text" id="retornos" name="retornos" class="custom-control" data-ng-model="_user.veiculo"
+                          placeholder="Nome do motorista" disabled="">
+                       -->
+                    </div>
+
+                  </fieldset>
+                </div>
+
+              </form>
+            </div>
+   
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width: 37%;">
+
+
+
+      <div class="card" id="cardManifestos">
+        <div class="card-header" style="color: #66BB6A;display: flex;align-items: center;">DADOS BAIXA ROUTEASY</div>
+        <div class="card-main">
+          <!-- <i class="material-icons">hot_tub</i>
+              <div class="main-description">Hot Tub</div> -->
+      
+              <div style="width: 100% ;">
+                <!-- documentoClicado.COD_DOCUMENTO -->
+                <div class="form-settings boxr">
+                  <form name="forms.userProfile">
+                    <h2> Informações baixa(s) integradas ROUTEASY</h2>
+                    <div class="form-horizontal col-md-6">
+                      <fieldset>
+                        <div class="form-group" style="display: flex;" >
+                          <label for="status">Status
+                          </label>
+                          <input type="text" id="status" name="status" class="custom-control" data-ng-model="_user.remetente"
+                            placeholder="Nome do cliente" readonly="true"  >
+                        </div>
+                        <div class="form-group" style="display: flex;" >
+                          <label for="firstNameCliente">Cliente
+                          </label>
+                          <input type="text" id="firstNameCliente" name="firstNameCliente" class="custom-control" data-ng-model="_user.remetente"
+                            placeholder="Nome do cliente" readonly="true"  >
+                        <!-- </div>
+                        <div class="form-group"> -->
+                          <label for="notafiscal">NF
+                          </label>
+                          <input type="text" id="notafiscal" name="notafiscal" class="custom-control" data-ng-model="_user.destinatario"
+                            placeholder="Nota Fiscal" required="">
+
+
+                            <label for="notafiscal">App baixa
+                            </label>
+                            <input type="text" id="notafiscal" name="notafiscal" class="custom-control" data-ng-model="_user.destinatario"
+                              placeholder="Mobile" required="">
+
+                        </div>
+                        <div class="form-group" style="display: flex;"> 
+                          <label for="Veiculo">Veiculo</label>
+                          <input type="text" id="Veiculo" name="veiculo" class="custom-control" data-ng-model="_user.veiculo"
+                            placeholder="XXX-0000" disabled="">
+        
+                            <label for="Motorista">Motorista</label>
+                            <input type="text" id="Motorista" name="Motorista" class="custom-control" data-ng-model="_user.motorista"
+                              placeholder="Nome do motorista" disabled="">
+                        </div>
+        
+                        <div class="form-group" style="display: flex;"> 
+                          <label for="dtMaxima">Data baixa</label>
+                          <input type="text" id="dtMaxima" name="dtMaxima" class="custom-control" data-ng-model="_user.dtMaxima"
+                            placeholder="Data da baixa" disabled="">
+        
+                            <label for="retornos">Retornos</label>
+                            <div  style="background-color: #D32F2F;border-radius: 50%;width: 30px;height: 30px;text-align: center;margin-top: 10;align-items: center;justify-content: center;display: flex;margin-left: 27px;color: white;font-size: x-large;">
+                            <p>2</p>
+                          </div>
+                            <!-- <input type="text" id="retornos" name="retornos" class="custom-control" data-ng-model="_user.veiculo"
+                              placeholder="Nome do motorista" disabled="">
+                           -->
+                        </div>
+        
+                      </fieldset>
+                    </div>
+        
+                  </form>
+                </div>
+        
+        
+        
+              </div>
+
+        </div>
+      </div>
+
+      <div id="imgsmaps">
+        <div class="card" style="/* height: 31%; *//* align-items: center; */display: contents;/* position: absolute; *//* margin-left: -13px; */">
+        
+          <div class="panel-heading" style="margin-left:  -617%;;color: white;">
+            <i class="glyphicon glyphicon-tree-conifer"></i> Mapa local da baixa
+          </div>
+          <div
+            style="background-color: rgb(221,44,0);border: solid 1px gray;padding: 5px;margin-left: 5px;margin-bottom: 5px;/* height: 84px; *//* width: 70px; */border-radius: 50%;cursor: pointer;position: absolute;margin-left: -645%;;margin-top: 31px;">
+            <img src="img/ico/mapas.png" alt="some text" style="height: 200px;width: 200px;border-radius: 50%;">
+          </div>
+        </div>
+  
+  
+  
+        <div style="display: flex;position: absolute;margin-left: -400%;" >
+          <div class="card" style="align-items: center;border: none;">
+          
+            <div class="panel-heading" style="position: absolute;color: white;">
+              <i class="glyphicon glyphicon-tree-conifer"></i> IMG 1
+            </div>
+            <div
+              style="background-color: rgb(221,44,0);border: solid 1px gray;padding: 5px;margin-left: 5px;margin-bottom: 5px;border-radius: 13%;cursor: pointer;margin-left: 0%;margin-top: 31px;">
+              <img src="img/ico/semfoto.png" alt="some text" style="height: 200px;width: 200px;border-radius: 28%; padding: 6px;">
+            </div>
+          </div>
+          <div class="card" style="align-items: center;border: none;">
+          
+            <div class="panel-heading" style="position: absolute;color: white;">
+              <i class="glyphicon glyphicon-tree-conifer"></i> IMG 2
+            </div>
+            <div
+              style="background-color: rgb(221,44,0);border: solid 1px gray;padding: 5px;margin-left: 5px;margin-bottom: 5px;border-radius: 13%;cursor: pointer;margin-left: 0%;margin-top: 31px;">
+              <img src="img/ico/semfoto.png" alt="some text" style="height: 200px;width: 200px;border-radius: 28%; padding: 6px;">
+            </div>
+          </div>
+          <div class="card" style="align-items: center;border: none;">
+          
+            <div class="panel-heading" style="position: absolute;color: white;">
+              <i class="glyphicon glyphicon-tree-conifer"></i> IMG 3
+            </div>
+            <div
+              style="background-color: rgb(221,44,0);border: solid 1px gray;padding: 5px;margin-left: 15px;margin-bottom: 5px;border-radius: 13%;cursor: pointer;margin-left: 0%;margin-top: 31px;">
+              <img src="img/ico/IconeparafundoAzul.png" alt="some text"  style="height: 200px;width: 200px;border-radius: 28%; padding: 6px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="card">
+        <div class="card-header">IMAGENS DA BAIXA</div>
+        <div class="card-main-img">
+          <div class="panel-body">
+            <div ng-show="MostraimgBaixa">
+              <img src="{{imgBaixa}}" alt="some text" width=900 height=900>
+            </div>
+  
+            <div ng-show="!MostraimgBaixa">
+              <img src="img/ico/semfoto.png" alt="some text" width=900 height=900>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,247 @@
+tirado do grid inicia da tela
+<div class="col col-sidebar">
+    <!-- <div class="teste">col sidebar</div> -->
+    <section class="grid-Veiculos">
+            <div ng-repeat="r in rotas">
+            <!-- <input type="checkbox" name="sel" id=""> -->
+
+            <div class="placaMercosul bloco" ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )" style="cursor:pointer;margin: 3% 0 -3% 0% ;    border: 3px solid #1c355d; ">
+                <div class="placaDescEmpresa">
+                    <span style="margin-left: 3px"> SOLISTICA</span>
+                    <img alt="" src="img/brasil.png" style="margin: -17px 0 0 97px;width: 18px;">
+                    
+                </div>
+                <div class="placaParticular">
+                    <i class="fas fa-truck fa-2x" style="color: #1c355d"></i>
+                    <!-- {{vei.IDENT_VEICULOS}} -->
+                </div>
+            </div>
+
+            <div class="button " style="width: 57px;margin: -33px 0 0 136px; cursor:default" ng-class="{'temServ': vei.QTD_CTRC >0 ,'veiculozerado':vei.QTD_CTRC <=0}">
+
+                <i class="fa fa-map-marker fa-2x"></i>
+
+                <div style="margin-top: -36px;margin-left: 5px;" ng-class="{'clearance': vei.QTD_CTRC >0 ,'clearance1':vei.QTD_CTRC <=0}">
+                    {{vei.QTD_CTRC}}
+                </div>
+            </div>
+
+            <i class="fas fa-file-pdf fa-2x" style="margin:-25px 0 14px 174px ;color:#de2525"></i>
+
+            <!-- OCUPACAO VEICULO -->
+            <!-- <div style="width: 87px;height: 55px;     margin: -41px 0 0 175px; cursor:default" class="" ng-class="  {'colorCargaCarregada0'     : vei.OCUPACAO ==0
+                                                                                    ,'colorCargaCarregada1'  : vei.OCUPACAO >0
+                                                                                    ,'colorCargaCarregada2'  : vei.OCUPACAO >=20
+                                                                                    ,'colorCargaCarregada3'  : vei.OCUPACAO >=30
+                                                                                    ,'colorCargaCarregada4'  : vei.OCUPACAO >=40
+                                                                                    ,'colorCargaCarregada5'  : vei.OCUPACAO >=50
+                                                                                    ,'colorCargaCarregada6'  : vei.OCUPACAO >=60
+                                                                                    ,'colorCargaCarregada7'  : vei.OCUPACAO >=70
+                                                                                    ,'colorCargaCarregada8'  : vei.OCUPACAO >=80
+                                                                                    ,'colorCargaCarregada9'  : vei.OCUPACAO >=90
+                                                                                    ,'colorCargaCarregada10' : vei.OCUPACAO >=100}">
+                <span style="margin: 0px 0 0 28px;  font-weight: bold;color: rgb(28, 53, 93);    font-size: 16px;"> {{vei.OCUPACAO}} %</span>
+            </div> -->
+
+            </div>
+        
+        
+        
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+grid principal com as caixas
+           <section class="grid-1">
+            
+
+                
+            
+                <div ng-repeat="r in rotas">
+                  <!-- <input type="checkbox" name="sel" id=""> -->
+            
+                  
+                  <div class="item">
+                      <div class="itemHeader">
+                          <span>
+                            {{$index}}
+                          </span>
+                        </div>
+                
+            
+                        
+                        <div class="itemBody">
+                          <p>
+                            {{r.length}} Serviços
+                          </p>
+                        </div>
+                        
+                        <div class="itemFooter">
+                          <span style="    color: #f9f9f9;font-size: 12px;">
+                            Nome Rota
+                          </span>
+                        </div>
+                  </div>
+
+
+                  
+                </div>
+
+                <!-- ARMAZEM -->
+                <div class="item" style="background-image: linear-gradient(to bottom, rgb(255, 237, 16), #1c355d 86%);">
+                    <div class="itemHeader">
+                        <span >
+                            <i class="fas fa-home"style="margin: 5px"></i>
+                        </span>
+                      </div>
+              
+          
+                      
+                      <div class="itemBody">
+                        <p>
+                          {{r.length}} ARMAZEM
+                        </p>
+                      </div>
+                      
+                      <div class="itemFooter">
+                        <span style="    color: #f9f9f9;font-size: 12px;">
+                          ARMAZEM
+                        </span>
+                      </div>
+                </div>
+
+
+                <!-- NÃO ROTEIRIZAR -->
+                <div class="item" style="    background-image: linear-gradient(to bottom, rgb(249, 56, 56), #1c355d 90%);">
+                    <div class="itemHeader">
+                        <span >
+                            <i class="fas fa-ban"style="margin: 5px ; "></i>
+                        </span>
+                      </div>
+              
+          
+                      
+                      <div class="itemBody">
+                        <p>
+                          {{r.length}} BLOQUEADO
+                        </p>
+                      </div>
+                      
+                      <div class="itemFooter">
+                        <span style="    color: #f9f9f9;font-size: 12px;">
+                          BLOQUEADO
+                        </span>
+                      </div>
+                </div>
+
+              </section>
+
+
+
+
+grid tirado
+
+
+  <!-- <div id="divGridDocumentos" class="col-md-12" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}">
+              <caption>Linguagens</caption>
+                <table class="table " style="border-radius: 0px 0px 0px 0px; font-size: 9px;" id="gridDocumentos" arrow-selector>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> VEÍCULO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('COD_DOCUMENTO')">COD. CONHECIMENTO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('COD_DOCUMENTO')"> NR DOCUMENTO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> TP</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('ORDEM_ENTREGA')"> ORDEM</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('REMETENTE')"> REMETENTE</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('DESTINATARIO')"> DESTINATÁRIO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('ROTA')"> RT</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('CIDADE')"> CIDADE</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('ENDERECO')"> ENDEREÇO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('BAIRRO')"> BAIRRO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('DT_EMISSAO')"> EM.</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('DT_MAXIMA')"> MAX.</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('QT_VOLUME')"> VOL.</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('PESO')"> PESO</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('PESO_REAL')"> PESO REAL</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('VALOR')"> VALOR</a>
+                            </th>
+                            <th scope="col">
+                                <a href="" ng-click="ordenarPor('status')"> Status</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in rotaSelecionada.servicos  | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index" ng-class="  {       'selected1'    :$index                  ==  selectedRow,
+                                                                'selected'     :item.selected          ==  true,
+                                                                'naoRoteirizar':item.FL_ROTEIRIZAR     ==  false, 
+                                                                'emVeiculo'    :item.IDENT_VEICULOS    !=  '',
+                                                                'orfa'         :item.IDENT_VEICULOS    ==  '' && item.FL_ROTEIRIZAR==true}"
+                             ng-click="setClickedRow($index,$event)">
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.IDENT_VEICULOS |uppercase }}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)" >{{item.COD_DOCUMENTO}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.ORDEM_ENTREGA}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.REMETENTE |uppercase}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.DESTINATARIO |uppercase}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.ROTA}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.CIDADE}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.ENDERECO |uppercase}} , {{item.NR_ENDERECO}} </td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.BAIRRO |uppercase}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.DT_EMISSAO}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.DT_MAXIMA}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.QT_VOLUME}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.PESO}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.PESO_REAL}}</td>
+                            <td ng-click="setClickedRowGridDocumentos($index,$event)">{{item.VALOR | currency}} </td>
+                            <td style="cursor:pointer" data-ng-click="roteirizacaoAcao($index)">
+                                <div ng-class="{'circuloEmVeiculo'   :   item.status=='emVeiculo',
+                                  'circuloEmArmazem'   :   item.status=='orfa',
+                                  'circuloBloqueado'   :   item.status=='bloqueado' }">
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->

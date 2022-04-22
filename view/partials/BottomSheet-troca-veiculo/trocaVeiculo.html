@@ -1,0 +1,181 @@
+<md-bottom-sheet class="md-grid" layout="column" style=" padding: 0px 0px 0px 0px;     height: 18em;        background-color: #e6570f ">
+    <div layout="row" layout-align="center center" ng-cloak style="background:#e6570f;color: white;">
+        <span ng-click="fechaTrocaVeiculo()" class="w3-button w3-display-topright botaoFechar">
+      <span style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">×</span>
+        </span>
+        <h4>Arraste para baixo ou precione press ESC para fechar</h4>
+
+
+
+        <div layout-align="left" style="    width: 72%; text-align: right;    display: flex;">
+
+            <div flex layout="row" layout-align="center center" class="demo-swipe" md-swipe-down="onSwipeDown($event, $target)" style="width: white">
+                <md-input-container flex="70">
+                    <label style="color: white;">ESCOLHA UM VEÍCULO</label>
+                    <md-select ng-model="filial" style=" color: white;margin-left: 23%;">
+                        <md-option ng-repeat="item in itens | orderBy : 'IDENT_VEICULOS' " value="{{item.COD_VEICULOS}}" style="color: black;" ng-click="veiculoEscolhidoTroca(item.COD_VEICULOS)">
+                            {{item.IDENT_VEICULOS}} - {{item.MODELO}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+
+            <md-button style="background: rgb(28, 53, 73);" class="md-raised md-warn" ng-click="salvarTrocaVeiculo()">
+                Salvar troca
+            </md-button>
+        </div>
+    </div>
+
+    <div ng-cloak layout="row">
+        <div flex layout="row">
+
+
+
+            <div style="    width: 100%;    background: #3c3939;height: 115%;">
+                <!-- <i class="material-icons">hot_tub</i>
+          <div class="main-description">Hot Tub</div> -->
+
+
+                <div style="width: 100% ;">
+                    <!-- documentoClicado.COD_DOCUMENTO -->
+                    <div class="form-settings boxr" style="background: #1c3449;color: white;padding-top: 22px;height: 94%;">
+
+                        <div style="margin-top: -5px;">
+                            <!-- style="cursor:default;border: 3px solid #1c355d;" -->
+                            <div class="placaDescEmpresa bloco " style="    margin-top: -1px;text-align: center;border-radius: 3px 3px 0px 0px;width: 102px; margin-left: 15px;border: 1px solid black;height: 16px; ">
+                                <div class="">
+                                    <span style="margin-left: -11px"> SOLISTICA</span>
+                                    <img alt="" src="img/brasil.png" width="23" height="23" style="margin-top: -5px;position: absolute; margin-left: 11px">
+                                </div>
+                                <div class="placaparticularMercosul">
+                                    <span style="color: black;margin-left: -31px;font-weight: bold;margin-top: 7px;position: absolute;" class="ng-binding">
+                      {{veiculoSelecionado.IDENT_VEICULOS}}
+                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tooltip" style="margin-left: 32%;margin-top: -23px;">
+
+                            <span class="tooltiptext">Conferir serviços</span>
+                            <div style="width: 87px; ; cursor: pointer; height: 60px; " ng-class=" {'veiculoSelecionado' : veiculoSelecionado.OCUPACAO ==0
+                                                    ,'colorCargaCarregada1'  : veiculoSelecionado.OCUPACAO >0
+                                                    ,'colorCargaCarregada2'  : veiculoSelecionado.OCUPACAO >=20
+                                                    ,'colorCargaCarregada3'  : veiculoSelecionado.OCUPACAO >=30
+                                                    ,'colorCargaCarregada4'  : veiculoSelecionado.OCUPACAO >=40
+                                                    ,'colorCargaCarregada5'  : veiculoSelecionado.OCUPACAO >=50
+                                                    ,'colorCargaCarregada6'  : veiculoSelecionado.OCUPACAO >=60
+                                                    ,'colorCargaCarregada7'  : veiculoSelecionado.OCUPACAO >=70
+                                                    ,'colorCargaCarregada8'  : veiculoSelecionado.OCUPACAO >=80
+                                                    ,'colorCargaCarregada9'  : veiculoSelecionado.OCUPACAO >=90
+                                                    ,'colorCargaCarregada10' : veiculoSelecionado.OCUPACAO >=100}" role="button" tabindex="0" class="colorCargaCarregada1">
+                                <span style="margin: 0px 0 0 28px;  font-weight: bold;font-size: 16px;" class="ng-binding">
+                    {{veiculoSelecionado.OCUPACAO}} %</span>
+                            </div>
+                            <span style="color: white;
+                font-size: 18px;
+                margin-left: 105%;
+                position: absolute;
+                margin-top: -31%;">ORIGEM</span>
+
+
+                        </div>
+
+                        <fieldset style="margin-top: -8%;margin-left: 66%;">
+                            <div class="form-group" style="display: inline-grid;">
+                                <label for="retornos">Qtd Serviço(s)</label>
+                                <div style="background-color: #e6570f;border-radius: 50%;width: 30px;height: 30px;text-align: center;align-items: center;justify-content: center;display: flex;color: white;font-size: x-large;border: solid 1px white;margin-left: 27px;">
+                                    <p>
+                                        {{veiculoSelecionado.servicos.length}}
+                                    </p>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- divisoria -->
+        <md-divider style="    color: #e6570f;border: solid 31px;    background: #e6570f; ">
+
+            <div class="tooltip">
+                <span class="tooltiptextleft">Conferencia de serviços </span>
+                <img class="w3-grayscale-max" src="img/ico/setaDireita.png" alt="" width="35" height="35" style="cursor: pointer;margin-right: 5px" ng-click="showAdvancedConfServices()" role="button" tabindex="0">
+            </div>
+        </md-divider>
+
+        <!-- veiculo DESTINO DA TROCA -->
+        <div flex style="background: #3c3939;text-align: center;height: 115%;">
+
+            <h1 ng-show="!veiculoSelecionadoParaTroca" style="font-size: large; color: #ffffff1a;margin-top: 40px;">SELECIONE UM VEICULO!</h1>
+            <div style="    width: 100%;    background: #3c3939;">
+                <!-- documentoClicado.COD_DOCUMENTO -->
+                <div ng-show="veiculoSelecionadoParaTroca" class="form-settings boxr" style="background: #1c3449;color: white;padding-top: 22px;height: 94%;">
+
+                    <div style="margin-top: -5px;">
+                        <!-- style="cursor:default;border: 3px solid #1c355d;" -->
+                        <div class="placaDescEmpresa bloco " style="    margin-top: -1px;text-align: center;border-radius: 3px 3px 0px 0px;width: 102px; margin-left: 15px;border: 1px solid black;height: 16px; ">
+                            <div class="">
+                                <span style="margin-left: -11px"> SOLISTICA</span>
+                                <img alt="" src="img/brasil.png" width="23" height="23" style="margin-top: -5px;position: absolute; margin-left: 11px">
+                            </div>
+                            <div class="placaparticularMercosul">
+                                <span style="color: black;margin-left: -31px;font-weight: bold;margin-top: 7px;position: absolute;" class="ng-binding">
+                    {{veiculoSelecionadoParaTroca.IDENT_VEICULOS}}
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tooltip" style="margin-top: -23px;">
+
+                        <span class="tooltiptext">Conferir serviços</span>
+                        <div style="width: 87px; ; cursor: pointer; height: 60px; " ng-class=" {'colorCargaCarregada0' : veiculoSelecionadoParaTroca.OCUPACAO ==0
+                                                        ,'colorCargaCarregada1'  : veiculoSelecionadoParaTroca.OCUPACAO >0
+                                                        ,'colorCargaCarregada2'  : veiculoSelecionadoParaTroca.OCUPACAO >=20
+                                                        ,'colorCargaCarregada3'  : veiculoSelecionadoParaTroca.OCUPACAO >=30
+                                                        ,'colorCargaCarregada4'  : veiculoSelecionadoParaTroca.OCUPACAO >=40
+                                                        ,'colorCargaCarregada5'  : veiculoSelecionadoParaTroca.OCUPACAO >=50
+                                                        ,'colorCargaCarregada6'  : veiculoSelecionadoParaTroca.OCUPACAO >=60
+                                                        ,'colorCargaCarregada7'  : veiculoSelecionadoParaTroca.OCUPACAO >=70
+                                                        ,'colorCargaCarregada8'  : veiculoSelecionadoParaTroca.OCUPACAO >=80
+                                                        ,'colorCargaCarregada9'  : veiculoSelecionadoParaTroca.OCUPACAO >=90
+                                                        ,'colorCargaCarregada10' : veiculoSelecionadoParaTroca.OCUPACAO >=100}" role="button" tabindex="0" class="colorCargaCarregada1">
+                            <span style="margin: 0px 0 0 28px;  font-weight: bold;font-size: 16px;" class="ng-binding">
+                  {{veiculoSelecionadoParaTroca.OCUPACAO}} %</span>
+                        </div>
+                        <span style="    color: white;
+              font-size: 18px;
+              position: absolute;
+              margin-top: -31%;
+              margin-left: 55%;">DESTINO</span>
+
+                    </div>
+
+
+                    <fieldset style="margin-top: -8%;margin-left: 66%;">
+                        <div class="form-group" style="display: inline-grid;">
+                            <label for="retornos">Qtd Serviço(s)</label>
+                            <div style="background-color: #e6570f;border-radius: 50%;width: 30px;height: 30px;text-align: center;align-items: center;justify-content: center;display: flex;color: white;font-size: x-large;border: solid 1px white;margin-left: 27px;">
+                                <p class="ng-binding">
+                                    {{veiculoSelecionadoParaTroca.servicos.length}}
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</md-bottom-sheet>

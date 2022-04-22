@@ -1,0 +1,121 @@
+<style>
+
+  
+  .localizarVeiculo:focus {
+    width: 90%;
+    background-color: white;
+    border-bottom: 2px solid rgb(231,76,34);
+    font-size: 16px;
+    content: '';
+  }
+  
+    .localizarVeiculo {
+      /* border: darkblue; */
+      border-bottom: 2px solid rgb(231, 76, 34);
+      width: 90%;
+      box-sizing: border-box;
+      /* border: 2px solid #ccc; */
+      /* border-radius: 4px; */
+      font-size: 16px;
+      /* background-color: #1c355d; */
+      /* background-color: rgb(28,52,73); */
+      /* background-image: url(../../img/ico/search.svg); */
+      /* background-image: url(../../img/ico/searchicon24.png); */
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      padding: 12px 20px 3px 40px;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+      text-align: center;
+    }
+  
+  
+    .md-dialog1 {
+      opacity: 0;
+      /* min-width: 240px; */
+      max-width: 80%;
+      max-height: 80%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+  }
+  </style>
+  <md-dialog aria-label="Mango (Fruit)"  class="md-dialog1" style="    width: 44%;">
+    <form ng-cloak>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Adicionar Veículo(s) na roteirização</h2>
+          <span flex></span>
+          <!-- answer('paulo') ; -->
+          <md-button ng-click="incluirVeiculo()" style="margin-right: 8em;color: white;background: #FF5722;   left: 26%;"> 
+            salvar
+          </md-button>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="cancel()">
+            <md-icon md-svg-src="img/ico/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+  
+      <md-dialog-content>
+        <div class="md-dialog-content" style="    margin-top: 3em">
+          <h1>Digite uma placa ou Ident do veículo </h1>
+          <p>
+            <div>
+              <input type="text" placeholder="Digite uma placa ou ident do veículo" class="localizarVeiculo"
+                id="txtveiculoDigitado" ng-model="veiculoDigitado">
+              <md-icon md-svg-src="img/ico/search.svg" aria-label="localizar" style="cursor: pointer;"
+                ng-click="findVeiculo(veiculoDigitado)"></md-icon>
+            </div>
+  
+  
+          </p>
+  
+          <p>
+  
+  
+            <div style="DISPLAY: FLEX;WIDTH: 90%;flex-wrap: wrap;">
+  
+              <div style="margin-top: 10px; padding: 20px"  ng-repeat="veiculo in dadosVeiculos " >
+                <!-- style="cursor:default;border: 3px solid #1c355d;" -->
+                <div class="placaDescEmpresa bloco "
+                  style="    margin-top: -1px;text-align: center;border-radius: 3px 3px 0px 0px;width: 102px; margin-left: 15px;border: 1px solid black;height: 16px; ">
+                  <div class="">
+                    <span style="margin-left: -11px"> SOLISTICA</span>
+                    <img alt="" src="img/brasil.png" width="23" height="23"
+                      style="margin-top: -5px;position: absolute; margin-left: 11px">
+                  </div>
+                  <div class="placaparticularMercosul">
+                    <span style="color: black;margin-left: -31px;font-weight: bold;margin-top: 7px;position: absolute;">
+                      {{veiculo.IDENT_VEICULOS}}
+                    </span>
+                  </div>
+                </div>
+              </div>            
+            </div>
+           
+  
+          
+          </p>
+  
+          <br>
+  
+  
+          <div ng-repeat=" v in veiculosAdd">
+  
+          </div>
+  
+        </div>
+      </md-dialog-content>
+  
+      <md-dialog-actions layout="row">
+        <!-- <span flex></span> -->
+  
+        <!-- <md-button ng-click="answer('paulo')" style="margin-right: 8em;color: white;background: #FF5722;"> 
+          salvar
+        </md-button> -->
+      </md-dialog-actions>
+    </form>
+  </md-dialog>

@@ -1,0 +1,1575 @@
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+    
+    html {
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    section {
+        position: relative;
+        /* border: 2px solid #fa851e; */
+        padding-top: 37px;
+        /* background: rgb(28, 53, 93); */
+        background: #042804;
+        /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        /* border-radius: 2%; */
+        /* border-radius: 13px 13px 13px 13px; */
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: rgb(28, 53, 73);
+        font-family: 'Fira Sans', sans-serif;
+        color: #333;
+        font: 0.8em / 1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 0;
+    }
+    
+    code {
+        background-color: #9AA3AC;
+        padding: 0 8px;
+    }
+    
+    table {
+        border-spacing: 0;
+        width: 100%;
+        background: #9E9E9E;
+        color: #616161;
+        margin-top: -107px;
+        border-spacing: 0;
+    }
+    
+    th {
+        height: 0;
+        line-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        color: transparent;
+        border: none;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+    
+    th div {
+        position: absolute;
+        background: transparent;
+        color: #fff;
+        padding: 12px 0px;
+        top: 0;
+        /* margin-left: -25px; */
+        line-height: normal;
+        border-left: 1px solid #1c355d;
+    }
+    
+    th:first-child div {
+        border: none;
+    }
+    
+    th div:hover {
+        color: rgb(28, 135, 250);
+        font-size: 12px;
+    }
+    
+    tr:hover {
+        background: darkgray;
+    }
+    
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+    
+    button,
+    select {
+        text-transform: none;
+    }
+    
+    button {
+        overflow: visible;
+    }
+    
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+    
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    button {
+        -webkit-appearance: button;
+        -webkit-writing-mode: horizontal-tb !important;
+        text-rendering: auto;
+        color: buttontext;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: center;
+        align-items: flex-start;
+        cursor: default;
+        background-color: buttonface;
+        box-sizing: border-box;
+        margin: 0em;
+        font: 400 13.3333px Arial;
+        padding: 1px 6px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: buttonface;
+        border-image: initial;
+    }
+    
+    .form {
+        max-width: 350px;
+        margin: 10px auto;
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 16px;
+    }
+    
+    md-switch.md-default-theme.md-checked:not([disabled]).md-primary .md-bar,
+    md-switch.md-checked:not([disabled]).md-primary .md-bar {
+        background-color: #0f0;
+        border: solid white 1px;
+    }
+    
+    md-switch.md-default-theme.md-checked:not([disabled]).md-primary .md-thumb,
+    md-switch.md-checked:not([disabled]).md-primary .md-thumb {
+        background-color: rgb(249, 250, 250);
+    }
+    
+    md-bottom-sheet.md-grid {
+        z-index: 89;
+    }
+    
+    md-bottom-sheet {
+        height: 30em;
+    }
+    
+    .container {
+        overflow-y: auto;
+        max-height: 334px;
+        /* height: 400px; */
+        padding: 0 0px;
+        width: 100%;
+    }
+    
+    @-webkit-keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+    
+    @-webkit-keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+    
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+    
+    @media screen and (max-width:1600px) {
+        #divTableDocumentos {
+            height: 14em;
+            /* background-color: #dde934; */
+        }
+        #divTableDocumentosConferencia {
+            height: 14em;
+            /* background-color: #dde934; */
+        }
+    }
+    
+    @media screen and (max-width:1777px) {
+        #divTableDocumentos {
+            height: 22em;
+        }
+        #divTableDocumentosConferencia {
+            height: 22em;
+            /* background-color: 1777px; */
+        }
+    }
+    
+    @media screen and (max-width:2000px) {
+        #divTableDocumentos {
+            height: 22em;
+            /* background-color: red; */
+        }
+        #divTableDocumentosConferencia {
+            height: 22em;
+            /* background-color: 2000px; */
+        }
+    }
+    
+    @media screen and (max-width:2133px) {
+        #divTableDocumentos {
+            height: 22em;
+            /* background-color:  #00796b;; */
+        }
+        #divTableDocumentosConferencia {
+            height: 12em;
+            overflow-x: auto;
+            /* background-color: 2133px; */
+        }
+    }
+    
+    @media screen and (min-width:2134px) {
+        #divTableDocumentos {
+            height: 54em;
+            /* background-color: #00796b; */
+        }
+        #cardManifestosd {
+            height: 85%;
+        }
+    }
+</style>
+
+<div ng-include='"view/partials/principal/toolbar.html"' ng-controller="toolbarController">
+</div>
+
+<!-- PRINCIPAL -->
+<section id="sectionPrincipal">
+
+    <div class="w3-container" style="margin: -9px 0 0 0;padding-top: 4em ;">
+
+        <div class="w3-row">
+            <div class="w3-col">
+                <!-- DETALHE  /  FIND E FILTROS -->
+                <div class="w3-row" style="display: flex;    height: 7em; ">
+
+                    <!-- primeira coluna com o limpar e o botao de filtros -->
+                    <div class="w3-col " style="text-align: left; ">
+                        <md-button class="md-icon-button test-tooltip" aria-label="Refresh" ng-click="limparGridPrincial()" style=" border-radius: 50%;background: #ffbd47;border: solid rgb(228 77 35) 3px;">
+                            <md-tooltip md-direction="right" style="background: #e74c22;color: white; font-size: 12px;">
+                                <p>
+                                    Limpar grid
+                                </p>
+                            </md-tooltip>
+                            <md-icon md-svg-src="img/ico/limparGrid.svg" style="width: 32px; height: 32px; margin-bottom: 10px;">
+                            </md-icon>
+                        </md-button>
+
+                        <!-- filtros -->
+                        <div class="tooltip">
+
+                            <div style=" position: absolute;margin-top: -23px;">
+                                <div ng-show="UsuarioLogado.FilialSetada.filtroAtivos.length >0">
+
+                                    <div style="background-color: #1c355d;border-radius: 50%;width: 20px;height: 20px;text-align: center;margin-top: -16px;justify-content: center;display: flex;color: white;position: absolute;z-index: 2;   border: solid 2px #E65710; cursor: pointer;">
+                                        <p>{{UsuarioLogado.FilialSetada.filtroAtivos.length}}</p>
+                                    </div>
+
+                                    <div data-ng-click="limparFilfro()" style="background-color: red;border-radius: 50%;width: 15px;height: 15px;margin-top: -16px;align-items: center;justify-content: center;display: flex;color: white;font-size: larger;position: absolute;margin-left: 22px;z-index: 2;border: solid 2px #E65710;cursor: pointer;">
+                                        <p>x</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img alt="Roteirizar" src="img/ico/filtro-grid1.png" ng-click="modal('Filtros')" style="width: 4em;height: 4em;cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- segunda coluna de localizar o documento  -->
+                    <div class="w3-col " style="text-align: center;  ">
+                        <!-- <div style="margin-top: 10px;margin-bottom: 5px;border-radius: 15px 15px 0 0;position: relative; background: red;"> -->
+                        <p style="margin: 1em;">
+                            <!-- <div style="text-align: center ;    text-align: center;position: absolute;margin-top: -110px;margin-left: 30%;"> -->
+                            <input type="text" class="scannerPrincipalOrange" id="scannerprincipal" ng-keypress="onKeyUpTxtScannerNovo($event)">
+                            <!-- </div> -->
+                        </p>
+                        <!-- </div> -->
+                    </div>
+
+                    <!--terceira coluna com o Adiconar veiculos e a menu lateral de veiculos -->
+                    <div class="w3-col " style="text-align: right;">
+
+                        <div class="tooltip">
+                            <span class="tooltiptextleft">Adicionar veículo(s) </span>
+                            <img class="w3-grayscale-max" src="img/ico/addVeiculos.png" alt="" width="35" height="35" style="cursor: pointer;margin-right: 5px" ng-click="showAdvanced($event)">
+                        </div>
+
+                        <div class="tooltip">
+                            <span class="tooltiptextleft">Menu lateral veículo(s) </span>
+                            <img class="w3-grayscale-max" src="img/ico/veiculos_New.png" alt="" width="60" height="60" style="cursor: pointer;margin-right: 5px" ng-click="toggleSidenav();menuLateralVeiculos()">
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <!-- TABELA COM TODOS OS SERVICOS -->
+                <div class="panel-body" ID="divGridDocumentosPanel">
+                    <div class="col-md-12">
+
+                        <section class="" id="sectionDocs" style="font-family: monospace; border-radius: 4px 4px 4px 4px;     padding-left: 7px;padding-right: 7px; border: solid white;">
+
+                            <!-- <div class="container" > -->
+                            <div id="divTableDocumentos">
+                                <table style="margin-top: 0px;" class="table table-hover	table-sm" style="font-size: 12px;" id="tableDocumentos">
+                                    <thead>
+                                        <tr class="header">
+                                            <th ng-click="ordenarPor('IDENT_VEICULOS')">
+                                                Veículo
+                                                <div>Veículo.</div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('NR_DOCUMENTO_FORMATADO')" style="text-align: left">
+                                                <div style="width: 42px;height: 37px">DOC
+                                                </div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')" style="text-align: center">
+                                                <div style="width: 42px;height: 37px">TP.
+                                                </div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('NR_MAC_FORMATADO')" style="text-align: left">
+                                                <div style="width: 42px;height: 37px">MAC
+                                                </div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('ORDEM_ENTREGA')" style="text-align: center">
+                                                <div style="width: 42px;height: 37px">OR.
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('REMETENTE')">
+                                                REMENTENTE
+                                                <div>REMENTE</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('DESTINATARIO')">
+                                                DESTINATARIO
+                                                <div>DESTINATARIO</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('ROTA')" style="text-align: center">
+                                                <div style="width: 42px;height: 37px">ROTA
+                                                </div>
+                                            </th>
+
+                                            <th ng-click="ordenarPor('CIDADE')">
+                                                CIDADE
+                                                <div>CIDADE</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('ENDERECO')">
+                                                ENDEDEREÇO
+                                                <div>ENDEREÇO</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('BAIRRO')">
+                                                BAIRRO
+                                                <div>BAIRRO</div>
+                                            </th>
+                                            <th ng-click="ordenarPor('CEP')" style="text-align: left">
+                                                <div style="width: 62px;height: 37px">CEP
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('DT_EMISSAO')" style="text-align: center">
+                                                <div style="">EM
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('DT_MAXIMA')" style="text-align: center">
+                                                <div style="width: 42px;height: 37px">MX
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('QTD_RETORNO')" style="text-align: center">
+                                                <div style="width: 42px;height: 37px">RET
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('QT_VOLUME')" style="text-align: right">
+                                                <div style="">VOL
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('PESO')" style="text-align: center">
+                                                <div style="width: 42px;height: 37px;">P
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('PESO_REAL')" style="text-align: center; color: white">
+                                                <div style="width: 42px;height: 37px;">P.R
+                                                </div>
+                                            </th>
+                                            <th ng-click="ordenarPor('VALOR')" style="text-align: right">
+                                                <div style="width: 78px;height: 37px; ">Valor
+
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="tableDocumentosID-{{$index}}" ng-repeat="item in all  | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index " ng-class="  { 'selected'  :item.selected        == true,
+                                                      'orfaIni'   :item.ROTA_DOC_REAL   > 0,
+                                                      'orfa'      :item.ROTA_DOC_REAL   == null,
+                                                      'emVeiculo' :item.IDENT_VEICULOS   != ''  && item.ROTA_DOC_REAL   == null   }" ng-click="setClickedRow($index,$event,'tableDocumentos' , item)" ng-mouseover="mouseOvoer($event,$index , item)">
+
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 60;">
+                                                {{item.IDENT_VEICULOS |uppercase }}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 70;">
+                                                {{item.NR_DOCUMENTO_FORMATADO}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 30;text-align: center">
+                                                {{item.IDENT_TIPO_DOCUMENTOS}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 70;">
+                                                {{item.NR_MAC_FORMATADO}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center ; padding-left: 10px;">
+                                                <div style="width: 20px;height: 19px;border-radius: 50%;background: #FAFAFA;color: #1c345d;border: solid 2px #1c355d;text-align: center;    font-weight: 900;">
+                                                    {{item.ORDEM_ENTREGA}}
+                                                </div>
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 170;">
+                                                {{item.REMETENTE |uppercase}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 170;">
+                                                {{item.DESTINATARIO |uppercase}}
+                                            </td>
+
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center ;">
+                                                <div>
+                                                    {{item.ROTA}}
+                                                </div>
+                                            </td>
+
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 150;">
+                                                {{item.CIDADE}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 200;">
+                                                {{item.ENDERECO |uppercase}},{{item.NR_ENDERECO}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 150;">
+                                                {{item.BAIRRO |uppercase}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 60;">
+                                                {{item.CEP}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center">
+                                                {{item.DT_EMISSAO}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center ;">
+                                                <div ng-class="{'dtaMaximaVencida': item.DT_MAXIMA_AVISO =='MENOR','dtaMaximaIgual': item.DT_MAXIMA_AVISO =='IGUAL' }">
+                                                    {{item.DT_MAXIMA}}
+                                                </div>
+                                            </td>
+
+
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center ;">
+                                                <div ng-class="{'retAmarelo': item.QTD_RETORNO == 1,'retLaranja': item.QTD_RETORNO ==2 ,'retVermelho': item.QTD_RETORNO>2 }">
+                                                    {{item.QTD_RETORNO}}
+                                                </div>
+                                            </td>
+
+
+
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center">
+                                                {{item.QT_VOLUME}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center">
+                                                {{item.PESO}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 40;text-align: center">
+                                                {{item.PESO_REAL}}
+                                            </td>
+                                            <td ng-click="setClickedRowGridDocumentos($index,$event,item)" style="width: 50;text-align: right">
+                                                <span ng-class="{'acima50Mil': item.Valor_Acima_50_mil==true }">
+                          {{item.VALOR}}
+                        </span>
+                                            </td>
+                                            <td style="width: 0;text-align: right ; display: none">{{item.COD_BARRAS}}</td>
+                                            <td style="width: 0;text-align: right ; display: none">{{item.COD_DOCUMENTO}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </section>
+
+
+                        <div class="w3-row" style="margin: 13px  0 0 0 ">
+
+
+
+                            <div class="w3-col  w3-container" style="padding: 0;text-align: right;display: flex; " ng-show="rowsSelecteds.length >0 ">
+                                <div style="width: 90%;;display: inline-flex;justify-content: space-evenly;">
+                                    <span class="descricaoTotalSelecionados">
+                    TOTAL SELECIONADO(S)</span>
+                                    <div class="caixaTotalizadorSelecionados">
+                                        {{contadorSelecteds.qtd_Selecionados}}
+                                    </div>
+                                    <span class="descricaoTotalSelecionados">
+                    TOTAL VOLUME(S)</span>
+                                    <div class="caixaTotalizadorSelecionados">
+                                        {{contadorSelecteds.qtd_volumes}}
+                                    </div>
+                                    <span class="descricaoTotalSelecionados">
+                    TOTAL PESO(S)</span>
+                                    <div class="caixaTotalizadorSelecionados">
+                                        {{contadorSelecteds.qtd_Peso}}
+                                    </div>
+
+                                    <span class="descricaoTotalSelecionados">
+                    TOTAL PESO REAL</span>
+                                    <div class="caixaTotalizadorSelecionados">
+                                        {{contadorSelecteds.qtd_PesoReal}}
+                                    </div>
+
+                                    <span class="descricaoTotalSelecionados">
+                    TOTAL VLR FRETE</span>
+                                    <div class="caixaTotalizadorSelecionados">
+                                        {{contadorSelecteds.qtd_ValorFrete}}
+                                    </div>
+                                    <span class="descricaoTotalSelecionados">
+                    TOTAL VLR MERCADORIA</span>
+                                    <div class="caixaTotalizadorSelecionados">
+                                        {{contadorSelecteds.qtd_ValorMecaria}}
+                                    </div>
+                                </div>
+
+                                <div style="width: 10%;">
+                                    <div ng-show="rowsSelecteds.length >0 ">
+                                        <button class="button default" ng-click="limparSelecionados()">
+                      <i class="fas fa-broom"></i>
+                      Limpar</button>
+                                        <!-- <button class="button success" style="color: white;background: #FF5722;"
+                      ng-click="salvarSelecionados()">Aplicar</button> -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- RODAPÉ DAS CAIXAS DE ROTAS -->
+                        <div class="footer">
+
+                            <div ng-include='"view/principal/caixas/caixas.html"' ng-controller="caixasController"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <md-toolbar class="md-theme-indigo hideMenuLateralVeiculos" id="toolbarManuLateralVeiculos" style="z-index: 67;width: 534px;">
+
+            <div style="display: flex;">
+                <md-button ng-click="toggleSidenav();menuLateralVeiculos()" class="md-accent" style="background: red;color: white;width: min-content;margin-left: 81%;">
+                    Fechar
+                </md-button>
+
+
+                <div>
+                    <div style="    text-align: left;">
+                        <input type="text" class="findVeiculo" id="findVeiculo" name="fname" ng-model="locVeiculo" ng-keypress="onKeyUpTxtScanner($event)" style="color: black;">
+                    </div>
+                </div>
+            </div>
+            <div class="tooltip">
+                <span class="tooltiptextleft">Imprimir todos PickingList </span>
+                <img data-ng-click="printAllPickinglist()" alt="Imprimir todos pinkingList" src="img/ico/imprimir-todos.png" style="margin-left: 8px;margin-top: -47px;width: 3em;height: 3em;cursor: pointer;position: absolute;">
+            </div>
+
+        </md-toolbar>
+
+        <md-sidenav class="md-sidenav-right menuLateral" md-component-id="closeEventsDisabled" md-whiteframe="5" md-disable-close-events>
+            <div>
+                <md-content layout-margin="">
+
+                    <div style="margin-top:100px;">
+
+                        <div ng-repeat="veiculo  in lstVeiculos | orderBy:'IDENT_VEICULOS'| filter:locVeiculo">
+
+                            <div style=" padding-bottom: 9px;  margin-top: 10px; display: flex;    background: rgb(28, 52, 73); ;margin-bottom: 12px; border-bottom: solid  rgb(229,84,14) 2px">
+
+                                <div style="display: inline-grid;  margin-top: 10px ; cursor: pointer;">
+
+                                    <div class="tooltip">
+                                        <div ng-click="carregamentoManual($index, veiculo.COD_VEICULOS)">
+                                            <span class="tooltiptext" style="margin-left: 44px;">Carregar </span>
+                                            <img alt="" src="img/ico/carregar.png" style="    margin-left: 10px;margin-top: -10px;width: 60;height: 27px;">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="tooltip">
+                                        <div ng-click="descarregamentoManual($index, veiculo.COD_VEICULOS ,  veiculo)">
+                                            <span class="tooltiptext " style="margin-left: 44px;">Descarregar </span>
+                                            <img alt="" src="img/ico/descarregar.png" style="        margin-left: 10px;margin-top: -1px;width: 60;height: 27;">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div style="margin-top: 10px">
+                                    <!-- style="cursor:default;border: 3px solid #1c355d;" -->
+                                    <div class="placaDescEmpresa bloco " style="    margin-top: -1px;text-align: center;border-radius: 3px 3px 0px 0px;width: 102px; margin-left: 15px;border: 1px solid black;height: 16px; ">
+                                        <div class="">
+                                            <span style="margin-left: -11px"> SOLISTICA</span>
+                                            <img alt="" src="img/brasil.png" width="23" height="23" style="margin-top: -5px;position: absolute; margin-left: 11px">
+                                        </div>
+                                        <div class="placaparticularMercosul">
+                                            <span style="color: black;margin-left: -31px;font-weight: bold;margin-top: 7px;position: absolute;">
+                        {{veiculo.IDENT_VEICULOS}}
+                      </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- OCUPACAO VEICULO -->
+                                <div class="tooltip">
+                                    <span class="tooltiptext">Conferir serviços</span>
+                                    <div style="width: 87px; ; cursor: pointer; height: 60px; " ng-class=" {'colorCargaCarregada0' : veiculo.OCUPACAO ==0
+                                        ,'colorCargaCarregada1'  : veiculo.OCUPACAO >0
+                                        ,'colorCargaCarregada2'  : veiculo.OCUPACAO >=20
+                                        ,'colorCargaCarregada3'  : veiculo.OCUPACAO >=30
+                                        ,'colorCargaCarregada4'  : veiculo.OCUPACAO >=40
+                                        ,'colorCargaCarregada5'  : veiculo.OCUPACAO >=50
+                                        ,'colorCargaCarregada6'  : veiculo.OCUPACAO >=60
+                                        ,'colorCargaCarregada7'  : veiculo.OCUPACAO >=70
+                                        ,'colorCargaCarregada8'  : veiculo.OCUPACAO >=80
+                                        ,'colorCargaCarregada9'  : veiculo.OCUPACAO >=90
+                                        ,'colorCargaCarregada10' : veiculo.OCUPACAO >=100}" ng-click="openServicosVeiculoManual(veiculo); menuLateralVeiculos() " onclick="openConferenciaManualFull()">
+                                        <span style="margin: 0px 0 0 28px;  font-weight: bold;color: white;    font-size: 16px;">
+                      {{veiculo.OCUPACAO}} %</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="tooltip">
+                                    <!-- <span class="tooltiptextLeft">Tooltip text</span> -->
+
+                                    <!-- ng-click="pickingList(veiculo.COD_ROTEIRIZACAO , veiculo.IDENT_VEICULOS)"  -->
+                                    <div ng-show="veiculo.servicos.length >0" style="cursor: pointer;">
+                                        <!-- ng-click="InserirMapa(false,veiculo)" -->
+                                        <!-- onclick="openNavMapFull()" -->
+
+                                        <span class="tooltiptext">{{veiculo.servicos.length}} serviços geocodificados </span>
+
+                                        <img ng-show="veiculo.servicos.length >0" alt="Picking Lista carregamento" src="img/ico/rosadosVentos.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+
+
+
+                                        <div style="width: 3em;height: 3em;text-align: center;margin-top: -44px;margin-left: 6px;z-index: 33;">
+                                            <span style="color: white;font-weight: bold;font-size: 20px;font-weight: 900;text-shadow: 3px 1px 2px black;">
+                        {{veiculo.servicos.length}}
+                      </span>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="veiculo.servicos.length ==0">
+                                        <span class="tooltiptext">Nenhum serviço geocodificado</span>
+                                        <img ng-show="veiculo.servicos.length ==0" src="img/ico/rosadosVentos.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;opacity: 0.5">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="tooltip">
+
+                                    <div ng-show="veiculo.servicos.length ==0">
+                                        <span class="tooltiptext">Picking List</span>
+                                        <img alt="sem picking list para impressão" src="img/ico/pickingListNew.png" style="opacity: 0.5; cursor: no-drop;margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;">
+                                    </div>
+                                    <!-- <img ng-click="pickingList(veiculo.COD_ROTEIRIZACAO , veiculo.IDENT_VEICULOS)" -->
+
+                                    <div ng-show="veiculo.servicos.length >0">
+                                        <span class="tooltiptext">Picking List</span>
+                                        <img ng-click="pickingList(veiculo.COD_ROTEIRIZACAO ,veiculo, veiculo.IDENT_VEICULOS)" alt="Picking Lista carregamento" src="img/ico/pickingListNew.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+                                    </div>
+
+                                </div>
+
+                                <div class="tooltip">
+
+                                    <!-- ng-click="pickingList(veiculo.COD_ROTEIRIZACAO , veiculo.IDENT_VEICULOS)" -->
+                                    <div>
+                                        <span class="tooltiptext">Troca de veículo</span>
+                                        <img alt="Roteirizar" src="img/ico/inverterVeiculo.png" ng-click="showTrocaVeiculo(veiculo)" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+
+        </md-sidenav>
+
+    </div>
+</section>
+
+
+
+<!-- MODAL MAPA -->
+<div id="myMap" class="sidenavmapa" style="z-index: 124;    overflow: hidden;">
+
+    <div style="width: 100%; height: 50px; background: rgb(28, 53, 93)">
+
+        <div class="w3-row" style="display: flex">
+            <div class="w3-col" style="width: 30%">
+
+                <div style="position: absolute ;  padding-left: 10px">
+                    <input type="button" value="roteirizar" ng-click="InserirMapaExterno()">
+
+                </div>
+
+            </div>
+
+
+            <div class="w3-col" style="width: 50%;z-index: 125;position: absolute;margin-left: 200;">
+
+                <span ng-show="totalKM>0" style="color: white; font-size: 18px ; font-weight: bold ;    margin-top: 11px;position: absolute;">
+          Veiculo {{RotaVeiculoManual.MODELO}} Placa: {{RotaVeiculoManual.NR_PLACA}} vai rodar um total de {{totalKM}}
+          KM
+        </span>
+
+            </div>
+
+            <!-- <div class="w3-col" style="width: 20%">
+
+          <div style="position: absolute;
+          /* top: 6px; */
+          margin-left: 65%;
+          font-size: 24px;
+          /* margin-top: 42px; */
+          color: red;
+          width: 21px;
+          height: 32px;
+          background: white;
+          border-radius: 30%;
+          border: solid 1px;
+          text-align: center;
+          cursor: pointer;" onclick="closeNavMapFull()">&times;</div>
+          </div> -->
+
+            <div class="w3-col  w3-container" style="    width: 20%;margin-top: 12px;padding: 0;padding-left: 40%; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);">
+
+                <div style="    position: absolute;margin-left: 24px">
+                    <span onclick="closeNavMapFull()" class="w3-button w3-display-topright botaoFechar">
+            <span
+              style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+                    </span>
+                </div>
+                <!-- <div class="closebtn" onclick="closeConferenciaFull()" ng-click="clearMemory('conferencia')">&times;</div> -->
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- <ng-map id="mapa" zoom="14" center="-23.5256461, -46.6055707" map-type-control="false" class="map"
+    default-style="false" street-view-control="false" fullscreen-control="true" scaleControl="true"
+    full-screen-toggle="false" styles="{{get1()}}" default-style="">
+  </ng-map> -->
+
+
+
+</div>
+
+<!-- MODAL CONFERENCIA -->
+<!-- <div ng-include='"view/principal/conferencia/conferencia.html"' ng-controller="conferenciaController"></div> -->
+
+<div ng-include='"view/principal/conferencia/conferencia.html"' ng-controller="conferenciaController"></div>
+
+<div ng-include='"view/principal/conferenciaServices/conferencia-services.html"' ng-controller="conferenciaServices">
+</div>
+
+<!-- FILTROS -->
+<div id="idFiltros" class="w3-modal" style="background-color: rgba(0,0,0,0.9)">
+    <div class="w3-modal-content w3-animate-top w3-card-4" style="border: solid 2px  #112038!important; width: 63%; border-radius: 2%;">
+        <header class="w3-container w3-teal" style="    color: #fff!important;background-color: #112038!important; display: flex;    border-radius: 8px 8px 0px 0px;">
+            <span onclick="document.getElementById('idFiltros').style.display='none'" class="w3-button w3-display-topright botaoFechar">
+        <span
+          style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+            </span>
+            <h3>Filtros grid</h3>
+
+            <span style="position: absolute;top: -39px;font-size: 21px;font-weight: bold;">
+        <span style="color: orange">
+          [ FILTROS GRID ]
+        </span> {{rotaEnvioRoutesy.descricao}}
+            </span>
+
+        </header>
+        <div class="w3-container" style="height: 86.6%;">
+            <div>
+
+
+
+                <div>
+
+                    <div class="form-settings boxr" style="background: #ecf0f5; ">
+                        <form name="filtros" class="ng-pristine ng-invalid ng-invalid-required">
+
+
+                            <div class="card-main" style="height:  34%">
+                                <!-- <i class="material-icons">hot_tub</i>
+                  <div class="main-description">Hot Tub</div> -->
+
+
+                                <div style="width: 100% ;">
+                                    <!-- documentoClicado.COD_DOCUMENTO -->
+                                    <div class="form-settings boxr">
+                                        <form name="forms.userProfile" class="ng-pristine ng-invalid ng-invalid-required">
+
+                                            <div class="form-horizontal col-md-6">
+                                                <fieldset>
+
+
+
+                                                    <div class="form-group" style="display: flex; background: rgb(249, 250, 250); color: #112038!important;">
+
+                                                        <br>
+
+
+                                                        <label for="campo">Campo</label>
+                                                        <select class="custom-control ng-pristine ng-untouched ng-empty " id="campo" style="background: rgb(249, 250, 250); color: #112038!important" ng-model="filtroSelecionados.campo">
+                              <option style="background: rgb(249, 250, 250); color: #112038!important;"
+                                ng-repeat="item in opcaoFiltragemGridPrincipal" value="{{item.code}}">
+                                {{item.name}}<ption>
+                            </select>
+
+                                                        <label for="acao">ação</label>
+                                                        <select class="custom-control ng-pristine ng-untouched ng-empty " id="acao" style="background: rgb(249, 250, 250); color: #112038!important" ng-model="filtroSelecionados.acao">
+                              <option value="contem">Contem</option>
+                              <option value="igual">Igual</option>
+                              <option value="maior">Maior</option>
+                              <option value="menor">Menor</option>
+                            </select>
+
+
+                                                        <label for="valor">Conteudo</label>
+                                                        <input type="text" id="valor" name="valor" class="custom-control ng-pristine ng-untouched" style="background: rgb(249, 250, 250); color: #112038!important" placeholder="Digite o que procura" ng-model="filtroSelecionados.conteudo">
+
+                                                        <div class="tooltip">
+                                                            <span class="tooltiptextleft">Adicionar </span>
+                                                            <img class="w3-grayscale-max" src="img/ico/addVeiculos.png" alt="" width="35" height="35" style="cursor: pointer;margin-right: 5px" ng-click="adicionarFiltro() | uppercase" role="button" tabindex="0">
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- <input type="text" id="retornos" name="retornos" class="custom-control" data-ng-model="_user.veiculo"
+                                placeholder="Nome do motorista" disabled="">
+                             -->
+                                            </div>
+
+                                            </fieldset>
+
+
+                                            <fieldset>
+
+
+
+                                            </fieldset>
+
+                                            <!-- <ul class="list-group1">  
+                        <li ng-repeat="item in UsuarioLogado.FilialSetada.filtroAtivos">
+                          Ordem <span style="font-weight: 600;"> {{item.id}} </span>
+                          Campo <span style="font-weight: 600;"> {{item.campo}} </span>
+                          Ação <span style="font-weight: 600;">{{item.acao}}</span>
+                          Conteudo <span style="font-weight: 600;">{{item.conteudo}}</span>
+                          <span class="badge1">{{item.qtd}}</span>
+
+                          <div  ngIf="!item.selecionado" style="widows: 40px;height: 40px; border-radius: 50%; background: green;" > </div>
+                          <span style="cursor: pointer;" data-ng-click="filtroItemExcluir(item)">x</span>
+                        </li>
+
+                      </ul> -->
+                                    </div>
+
+
+                                    <style>
+                                        .qtdAchou {
+                                            background-color: #112038;
+                                            color: #ffa500;
+                                            font-weight: bold;
+                                            font-size: 80%;
+                                            border-radius: 10em;
+                                            min-width: 1.5em;
+                                            padding: 0.65em;
+                                            text-align: center;
+                                            border: solid 2px orange;
+                                            width: 40px;
+                                            height: 50px;
+                                        }
+                                        
+                                        .selectedFiltro {
+                                            width: 20px;
+                                            height: 20px;
+                                            border-radius: 50%;
+                                            background: green;
+                                            text-align: centerc;
+                                        }
+                                        
+                                        .w3-border-red,
+                                        .w3-hover-border-red:hover {
+                                            border-color: #fa851e!important;
+                                            margin-left: 0px;
+                                            margin-top: 11px;
+                                            background: #112038!important;
+                                            color: orange !important;
+                                        }
+                                    </style>
+                                    <table class="table table-hover	table-sm" style="font-size: 14x ;margin-top: 0px;" id="tableFilter">
+                                        <tr style="background: #3C454C; color: white;">
+                                            <td style="width: 100px;">
+                                                Ordem
+                                            </td>
+                                            <td style="width: 100px;">
+                                                Campo
+                                            </td>
+                                            <td style="width: 100px;">
+                                                Ação
+                                            </td>
+                                            <td style="width: 326px;">
+                                                Conteudo
+                                            </td>
+                                            <td style="width: 100px; ">
+                                                Qtd
+                                            </td>
+                                            <td style="  text-align: center; width: 60px;">
+                                                Ativo
+                                            </td>
+                                            <td style=" text-align: center;">
+                                                Botões
+                                            </td>
+                                        </tr>
+                                        <tbody>
+                                            <tr style="background: #ecf0f5; padding-top: 10px;" ng-repeat="item in UsuarioLogado.FilialSetada.filtroAtivos | orderBy: 'ordem'  " drag-to-reorder="veiculoManualServicos">
+                                                <td style="width: 100px;padding-bottom: 10px;;padding-top: 10px;">{{item.id}}</td>
+                                                <td style="width: 100px;padding-bottom: 10px;;padding-top: 10px">{{item.campo}}</td>
+                                                <td style="width: 100px;padding-bottom: 10px;;padding-top: 10px">{{item.acao}}</td>
+                                                <td style="width: 326px;padding-bottom: 10px;;padding-top: 10px">{{item.conteudo}}</td>
+
+                                                <td style="width: 100px;">
+                                                    <span class="qtdAchou">{{item.qtd}}</span>
+                                                </td>
+                                                <td style="width: 60px; text-align: -webkit-center;">
+
+                                                    <div ng-class="{ 'emVeiculoManual':item.IDENT_VEICULOS  !=  '',
+                          'selectedFiltro'       :item.selecionado        ==true }"> </div>
+                                                </td>
+                                                <td style="text-align: center;  ">
+                                                    <div style="   display: inline-flex; padding-left: 10px;  ">
+
+                                                        <!-- <div style="cursor: pointer; padding-right: 10px;"  data-ng-click="filtroItemAcoes(item ,'Selecionar') " style="padding-left: 5px;">Sel</div> -->
+                                                        <div style="cursor: pointer;padding-right: 10px" data-ng-click="filtroItemAcoes(item ,'Excluir') " style="padding-left: 5px;">Excluir</div>
+                                                    </div>
+                                                </td>
+                                        </tbody>
+                                    </table>
+
+                                    </form>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <div style="width: 100%; text-align: center;">
+
+                                <button class="w3-btn w3-white w3-border w3-border-red w3-round-large " placeholder="localizar" ng-click="filtrarGrid(filtros)">
+            Aplicar
+          </button>
+                            </div>
+
+
+                    </div>
+
+                    </form>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+
+
+
+<div id="loading" class="w3-modal" style="width: 100%;height: 100%;background: rgb(0 0 0 / 89%);color: rgb(243 102 20);z-index: 2147483647;font-size: 3em;text-align: center;">
+
+    <span> Aguarde ....</span>
+
+</div>
+
+<!-- ENVIAR ROTA INDIVIDUAL -->
+<div id="id01" class="w3-modal" style="background-color: rgba(0,0,0,0.7)">
+    <div class="w3-modal-content w3-animate-top w3-card-4" style="border: solid 2px orange; width: 30%; border-radius: 5%;    margin-top: 10%;">
+        <header class="w3-container w3-teal" style="    color: #fff!important;background-color: #112038!important; display: flex;    border-radius: 8px 8px 0px 0px;">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright botaoFechar">
+
+        <span
+          style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+            </span>
+            <h3>Enviar Routesy</h3>
+
+            <span style="position: absolute;top: -39px;font-size: 21px;font-weight: bold;">
+        <span style="color: orange">
+          [ {{rotaEnvioRoutesy.cod_roteirizacao}} ]
+        </span> {{rotaEnvioRoutesy.descricao}}
+            </span>
+
+
+
+            <p>
+                <button class="w3-btn w3-white w3-border w3-border-red w3-round-large " placeholder="Enviar Routeasy" ng-click="enviarRouteasy(rotaEnvioRoutesy.rota)">
+          <!-- ng-click="enviarRouteasy(rotaEnvioRoutesy.rota);atualizaEnviados(rotaEnvioRoutesy.cod_roteirizacao)" -->
+          <img src="img/ico/send.png" alt="" width="20" height="20" style="cursor: pointer; ">
+        </button>
+            </p>
+
+
+        </header>
+        <div class="w3-container">
+
+            <p>
+
+                <img src="img/ico/cubs.png" alt="" width="30" height="31" style="cursor: pointer;margin-right: 5px;    border-block-end: inherit;"> {{rotaEnvioRoutesy.totalServices}} serviços com total de {{rotaEnvioRoutesy.pesoTotal}} (kg)
+            </p>
+            <hr style="    border-top: 1px solid #112038;margin: 0;">
+            <p>
+                <img src="img/ico/coleta.png" alt="" width="40" height="21" style="cursor: pointer;margin-right: 5px;    border-block-end: inherit;"> {{rotaEnvioRoutesy.totalServicesColeta}} coletas com total de {{rotaEnvioRoutesy.pesoColeta}} (kg)
+            </p>
+            <p>
+                <img src="img/ico/entrega.png" alt="" width="40" height="21" style="cursor: pointer;margin-right: 5px;    border-block-end: inherit;"> {{rotaEnvioRoutesy.totalServicesEntrega}} entregas com tota de {{rotaEnvioRoutesy.pesoEntrega}} (kg)
+            </p>
+        </div>
+        <footer class="w3-container w3-teal" style="    color: #fff!important;background-color: #112038!important;    border-radius: 0px 0px 8px 8px;">
+            <p style="color: #ffffff9e;font-size: 12px;text-align: center;"> Integração ambientes :(<span style="color: orange">Solistica</span> & <span style="color: seagreen">Routeasy</span> )
+                <br> {{rotaEnvioRoutesy.cod_roteirizacao}} - {{rotaEnvioRoutesy.descricao}} </p>
+        </footer>
+    </div>
+</div>
+
+
+<!-- <div ng-include='"view/principal/menuLateral/menuLateral.html"'  ng-controller="toolbarController"></div> -->
+
+
+<!-- MENU LATERAL VEICULO -->
+<div id="veiculos">
+
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-right menuLateralVeiculos" style="display:none;right:0; width: 500px ;background: rgb(46,87,152);     box-shadow: 0 8px 10px -5px rgba(0,0,0,0.2), 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12);border-left: solid 2px #1c355d; z-index: 4;"
+        id="rightMenu">
+
+        <div class="w3-bar-item w3-large" style="display: inline-flex;position: fixed;    z-index: 1;     border-bottom: solid 2px #1c355d; background: #333333">
+
+            <div class="w3-row">
+                <div style="width: 20%;margin-top: 23px;padding: 0;">
+
+                    <div style=" position: fixed;margin-left: 24px">
+                        <span onclick="closeRightMenu()" class="w3-button w3-display-topright botaoFechar">
+
+              <span
+                style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div style="width: 80%;margin-top: 23px;padding: 0; ">
+
+                    <div style="    text-align: center;">
+                        <input type="text" class="findVeiculo" id="findVeiculo" name="fname" ng-model="locVeiculo" ng-keypress="onKeyUpTxtScanner($event)">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div style=" margin-top: 95px; height: auto; ">
+
+            <div ng-repeat="veiculo  in lstVeiculos | orderBy:'IDENT_VEICULOS'| filter:locVeiculo">
+
+
+                <div style=" padding-bottom: 9px;  margin-top: 10px; display: flex;    background: rgb(46, 87, 152) ;margin-bottom: 12px; border-bottom: solid  rgb(229,84,14) 2px">
+
+                    <div style="display: inline-grid;  margin-top: 10px ; cursor: pointer;">
+
+                        <div class="tooltip">
+                            <div ng-click="carregamentoManual($index, veiculo.COD_VEICULOS)">
+                                <span class="tooltiptext" style="margin-left: 44px;">Carregar </span>
+                                <img alt="" src="img/ico/carregar.png" style="    margin-left: 10px;margin-top: -10px;width: 60;height: 27px;">
+                            </div>
+                        </div>
+
+
+                        <div class="tooltip">
+                            <div ng-click="descarregamentoManual($index, veiculo.COD_VEICULOS)">
+                                <span class="tooltiptext " style="margin-left: 44px;">Descarregar </span>
+                                <img alt="" src="img/ico/descarregar.png" style="        margin-left: 10px;margin-top: -1px;width: 60;height: 27;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top: 10px">
+                        <!-- style="cursor:default;border: 3px solid #1c355d;" -->
+                        <div class="placaDescEmpresa bloco " style="    margin-top: -1px;text-align: center;border-radius: 3px 3px 0px 0px;width: 102px; margin-left: 15px;border: 1px solid black;height: 16px; ">
+                            <div class="">
+                                <span style="margin-left: -11px"> SOLISTICA</span>
+                                <img alt="" src="img/brasil.png" width="23" height="23" style="margin-top: -5px;position: absolute; margin-left: 11px">
+                            </div>
+                            <div class="placaparticularMercosul">
+                                <span style="color: black;margin-left: -31px;font-weight: bold;margin-top: 7px;position: absolute;">
+                  {{veiculo.IDENT_VEICULOS}}
+                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- OCUPACAO VEICULO -->
+                    <div class="tooltip">
+                        <span class="tooltiptext">Conferir serviços</span>
+                        <div style="width: 87px; ; cursor: pointer; height: 60px; " ng-class=" {'colorCargaCarregada0' : veiculo.OCUPACAO ==0
+                          ,'colorCargaCarregada1'  : veiculo.OCUPACAO >0
+                          ,'colorCargaCarregada2'  : veiculo.OCUPACAO >=20
+                          ,'colorCargaCarregada3'  : veiculo.OCUPACAO >=30
+                          ,'colorCargaCarregada4'  : veiculo.OCUPACAO >=40
+                          ,'colorCargaCarregada5'  : veiculo.OCUPACAO >=50
+                          ,'colorCargaCarregada6'  : veiculo.OCUPACAO >=60
+                          ,'colorCargaCarregada7'  : veiculo.OCUPACAO >=70
+                          ,'colorCargaCarregada8'  : veiculo.OCUPACAO >=80
+                          ,'colorCargaCarregada9'  : veiculo.OCUPACAO >=90
+                          ,'colorCargaCarregada10' : veiculo.OCUPACAO >=100}" ng-click="openServicosVeiculoManual(veiculo)" onclick="openConferenciaManualFull()">
+                            <span style="margin: 0px 0 0 28px;  font-weight: bold;color: white;    font-size: 16px;">
+                {{veiculo.OCUPACAO}} %</span>
+                        </div>
+
+                    </div>
+
+                    <div class="tooltip">
+                        <!-- <span class="tooltiptextLeft">Tooltip text</span> -->
+                        <!-- ng-click="InserirMapa(false,veiculo)" -->
+                        <div ng-show="veiculo.servicos.length >0" style="cursor: pointer;" onclick="openNavMapFull()">
+                            <span class="tooltiptext">{{veiculo.servicos.length}} serviços geocodificados </span>
+
+                            <img ng-show="veiculo.servicos.length >0" alt="Picking Lista carregamento" src="img/ico/rosadosVentos.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+
+                            <div style="width: 3em;height: 3em;text-align: center;margin-top: -39px;margin-left: 6px;z-index: 33;">
+                                <span style="color: white;font-weight: bold;font-size: 20px;font-weight: 900;text-shadow: 3px 1px 2px black;">
+                  {{veiculo.servicos.length}}
+                </span>
+                            </div>
+                        </div>
+
+                        <div ng-show="veiculo.servicos.length ==0">
+                            <span class="tooltiptext">Nenhum serviço geocodificado</span>
+                            <img ng-show="veiculo.servicos.length ==0" src="img/ico/rosadosVentos.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;opacity: 0.5">
+                        </div>
+
+                    </div>
+
+
+                    <div class="tooltip" style="cursor: pointer;">
+                        <div ng-show="veiculo.servicos.length ==0" style="cursor: pointer;">
+                            <span class="tooltiptext">Picking List</span>
+                            <img alt="sem picking list para impressão" src="img/ico/pickingListNew.png" style="opacity: 0.5; cursor: no-drop;margin-left: 8px;margin-top: 7px;width: 3em;height: 3em; cursor: pointer; ">
+                        </div>
+
+                        <div ng-show="veiculo.servicos.length >0" style="cursor: pointer;">
+                            <span class="tooltiptext">Picking List</span>
+                            <img ng-click="pickingList(veiculo.COD_ROTEIRIZACAO ,veiculo, veiculo.IDENT_VEICULOS)" alt="Picking Lista carregamento" src="img/ico/pickingListNew.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- abrir pontos mapa -->
+                    <!-- <div>
+            <img alt="Abrir pontos no mapa" src="img/ico/point.png"
+              style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;"
+              ng-click="InserirMapa(false,veiculo)"
+              onclick="openNavMapFull()">
+          </div> -->
+
+                    <!-- abrir rotas -->
+                    <!-- <div>
+            <img ng-click="pickingList(veiculo.COD_ROTEIRIZACAO , veiculo.IDENT_VEICULOS)"
+              alt="Picking Lista carregamento" src="img/ico/road.png"
+              style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+          </div> -->
+
+
+                    <!-- ng-click="pickingList(veiculo.COD_ROTEIRIZACAO , veiculo.IDENT_VEICULOS)"  -->
+                    <div class="tooltip">
+                        <div>
+                            <span class="tooltiptext">Roteirizar(Desabilitado) </span>
+                            <img alt="Roteirizar" src="img/ico/router1.png" style=" opacity: 0.5; margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- MODAL CONFERENCIA MANUAL -->
+<div id="myConferenciaManual" class="sidenavConferencia" style="z-index: 99;    overflow: hidden;background: rgb(28,52,73);">
+
+    <div style="width: 100%;height: 507x;background: #616161;display: inline-flex;box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);border: solid 2px #1c355d;border-left: none;border-right: none;">
+
+        <div class="w3-container" style="width: 100%">
+            <div class="w3-col">
+                <div class="w3-row">
+                    <div class="w3-col w3-container" style="width: 20%;width: 20%;margin-top: 23px;padding: 0;">
+                        <p class="ng-binding" style="color: white; font-size: 20px"> {{veiculoManualServicos.length}} Serviços
+                        </p>
+                    </div>
+                    <!-- <div class="w3-col w3-container"            style="width:60%; height: 6%; background: #E65100; color: white;margin-top: 10px;border-radius: 15px  15px 0 0;border: solid 2px #fa851e;    border-bottom: none;">-->
+                    <div class="w3-col w3-container" style="width: 60%;margin-top: 10px;margin-bottom: 5px;border-radius: 15px 15px 0 0;">
+                        <p>
+
+                        </p>
+                        <div style="    text-align: center">
+                            <input type="text" class="scannerConferencia" id="fnameConferenciaManual" name="fname" ng-keypress="onKeyUpTxtScannerConferenciaManual($event)">
+                        </div>
+                        <p></p>
+                    </div>
+                    <div class="w3-col  w3-container" style="    width: 20%;margin-top: 9px;padding: 0;padding-left: 19%;">
+
+
+
+                        <div style="    position: absolute;margin-left: 24px">
+                            <span onclick="closeConferenciaManualFull()" ng-click="fecharVeiculoManual(veiculoManual);menuLateralVeiculos();limparSelecionadosVeiculos()" class="w3-button w3-display-topright botaoFechar">
+                <span
+                  style="  color: black;  font-size: 30px;font-weight: bold;margin-left: -9px;position: absolute;margin-top: -9px;">&times;</span>
+                            </span>
+                        </div>
+                        <!-- <div class="closebtn" onclick="closeConferenciaFull()" ng-click="clearMemory('conferencia')">&times;</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="w3-row">
+        <!-- GRID COM OS VEICULOS  E SEUS RESPECTIVOS SERVICOS  RELACIONADOS AO VEICULO -->
+        <div class="w3-bar " ng-click="mouseOvoer($event,1)" style="background-color: rgb(231,76,34)!important;margin-top: 13px;border-left: none;border-right: none;" id="painelVeiculos">
+
+
+
+
+            <div class="w3-row" style="display: flex">
+                <div class="w3-col" style="width: 30%;">
+
+                    <div class="w3-bar-item tablink" style="width: 181px; margin-left:  60px" id="{{ 'tablink-' + veiculoManual.COD_VEICULOS }}">
+
+                        <img alt="" src="img/ico/pickingList.png" style="width: 50px;height: 50px;position: absolute;;cursor: pointer;margin-top: -22px" ng-show="vei.qtdConferido == vei.servicos.length" ng-click="pickingList(veiculoManual.COD_ROTEIRIZACAO ,veiculoManual, veiculoManual.IDENT_VEICULOS)">
+
+                        <div class="placaMercosul bloco " style="border: 3px solid #1c355d">
+                            <div class="placaDescEmpresa">
+                                <span style="margin-left: 3px"> SOLISTICA</span>
+                                <img alt="" src="img/brasil.png" style="margin-left: 19px;margin-top: -10px;position: absolute;">
+                            </div>
+                            <div class="placaParticular">
+                                <span style="color: #1c355d;margin-right: 5px;margin-left: -49px;">
+                  {{veiculoManual.NR_PLACA}}
+                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="w3-col" style="width: 30%;background: #1c355d ; display: flex;">
+                    <div>
+                        <div class="tooltip">
+                            <span class="tooltiptextleft"> Inverter seleção </span>
+                            <img ng-show="inverterSelecao==false" ng-click="trocaselecao(veiculoManual)" alt="Inverte seleção" src="img/ico/trocaSelect11.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+                            <img ng-show="inverterSelecao==true" ng-click="trocaselecao(veiculoManual)" alt="Inverte seleção" src="img/ico/trocaSelect22.png" style="margin-left: 8px;margin-top: 7px;width: 3em;height: 3em;cursor: pointer;">
+                        </div>
+
+
+                        <div class="tooltip">
+                            <span class="tooltiptextleft">Remover do veículo </span>
+
+                            <img ng-click="saveSectionManual(veiculoManual)" alt="Remover do veículo" src="img/ico/veiculo_clear.png" style="width: 3em;height: 3em;cursor: pointer;margin-left: 50px;margin-top: 3px;border-radius: 50%;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-col" style="width: 40%;  background: #1c355d">
+                    <div>
+                        <button style="margin-right: 8em;color: white;background: #FF5722;" class="btn btn-green smallBtn pull-right ng-scope" data-ng-click="salvarOrdenacao()">Salvar
+              ordenação</button>
+
+                    </div>
+                    <!-- <button style="    margin-right: 24px;margin-top: 18px;color: white;background: #FF5722;font-size: 16;font-weight: bold;"
+            class="btn btn-green smallBtn pull-right ng-scope"
+            data-ng-click="saveSectionManual(veiculoManual);fecharVeiculoManual(veiculoManual)"
+            onclick="closeConferenciaManualFull()">Salvar</button> -->
+                </div>
+            </div>
+
+        </div>
+
+
+        <div>
+            <!-- <div class="w3-padding">Use any of the w3-animate-classes to fade, zoom or slide in tab content.</div> -->
+            <div>
+                <div id="{{ 'textField-' + veiculoManual.COD_VEICULOS }}" class="w3-container city w3-animate-opacity hide">
+                    <div class="row" style="display: -webkit-box;    ">
+                        Dados do veiculos
+                        <p>
+                            Qtd: {{veiculoManualServicos.length}} codigo: {{veiculoManual.COD_VEICULOS}} placa: {{veiculoManual.NR_PLACA}} ident: {{veiculoManual.IDENT_VEICULOS}}
+                        </p>
+                        <div style=" margin-left: 83%;display: flex; cursor: pointer;">
+                            pickin List <img src="img/ico/pdf.png" width="34px" height="30px" alt="">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="w3-row" style="    margin-left: 13px;margin-right: 16px;">
+        <div class="panel-body" ID="divGridDocumentosPanelConferenciaVeiculo">
+            <div class="col-md-12" style="border: solid #FF5722;">
+
+                <section class="myconferenceManual" style="    height: 546px;" style="font-family: monospace; border-radius: 4px 4px 4px 4px;     padding-left: 7px;padding-right: 7px; border: solid #e74c22;">
+                    <div class="containerConfManual">
+                        <div id="divTableDocumentosManual">
+                            <table class="table table-hover	table-sm" style="font-size: 12px ;margin-top: 0;" id="tableDocumentosConferenciaManual">
+                                <thead>
+                                    <tr class="header">
+                                        <th ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')">
+                                            Veículo
+                                            <div>Veículo.</div>
+                                        </th>
+                                        <th>
+                                            NR-DOC
+                                            <div>NR.DOC</div>
+                                        </th>
+
+                                        <th>
+                                            TP
+                                            <div>TP</div>
+                                        </th>
+
+                                        <th ng-click="ordenarPor('ORDEM_ENTREGA')">
+                                            OR.
+                                            <div>OR.</div>
+                                        </th>
+
+                                        <th ng-click="ordenarPor('REMETENTE')">
+                                            REMENTENTE
+                                            <div>REMENTE</div>
+                                        </th>
+                                        <th ng-click="ordenarPor('DESTINATARIO')">
+                                            DESTINATARIO
+                                            <div>DESTINATARIO</div>
+                                        </th>
+                                        <th ng-click="ordenarPor('ROTA')">
+                                            ROTA
+                                            <div>ROTA</div>
+                                        </th>
+                                        <th ng-click="ordenarPor('CIDADE')">
+                                            CIDADE
+                                            <div>CIDADE</div>
+                                        </th>
+                                        <th ng-click="ordenarPor('ENDERECO')">
+                                            ENDEDEREÇO
+                                            <div>ENDEREÇO</div>
+                                        </th>
+                                        <th ng-click="ordenarPor('BAIRRO')">
+                                            BAIRRO
+                                            <div>BAIRRO</div>
+                                        </th>
+                                        <th ng-click="ordenarPor('CEP')" style="text-align: left">
+                                            <div style="width: 62px;height: 37px">CEP
+                                            </div>
+                                        </th>
+                                        <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                                            <div style="width: 42px;height: 37px">EM
+                                            </div>
+                                        </th>
+                                        <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                                            <div style="width: 42px;height: 37px">MX
+                                            </div>
+                                        </th>
+                                        <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                                            <div style="width: 42px;height: 37px">VOL
+                                            </div>
+                                        </th>
+                                        <th ng-click="ordenarPor('PESO')" style="text-align: right">
+                                            <div style="width: 42px;height: 37px;">P
+                                            </div>
+                                        </th>
+
+                                        <th ng-click="ordenarPor('PESO_REAL')" style="text-align: right; color: white">
+                                            <div style="width: 42px;height: 37px;">P.R
+                                            </div>
+                                        </th>
+
+                                        <th ng-click="ordenarPor('VALOR')" style="text-align: right">
+                                            <div style="width: 78px;height: 37px;">Valor
+
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferencia');openLink_AJS($event, item.IDENT_VEICULOS)" -->
+                                    <!-- <tr ng-repeat="item in veiculoManualServicos  | filter : searchText |orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index " -->
+                                    <tr ng-repeat="item in veiculoManualServicos  | filter : searchText |orderBy: 'ORDEM_ENTREGA'  " ng-class="{ 'emVeiculoManual':item.IDENT_VEICULOS  !=  '',
+                                'selected'       :item.selected        ==true ,
+                                'orfaConferencia':item.IDENT_VEICULOS  ==  ''}" drag-to-reorder="veiculoManualServicos">
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 60;">{{item.IDENT_VEICULOS |uppercase }}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 70;">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 30;">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 30;">
+
+                                            <div style="width: 20px;height: 20px;border-radius: 50%;background: white;color: black;border: solid 2px #1c355d;text-align: center;font-weight: bold;font-size: 14px;">
+                                                {{item.ORDEM_ENTREGA}}
+                                            </div>
+                                        </td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 170;">{{item.REMETENTE |uppercase}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 170;">{{item.DESTINATARIO |uppercase}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;">{{item.ROTA}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 150;">{{item.CIDADE}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 200;">{{item.ENDERECO |uppercase}},{{item.NR_ENDERECO}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 150;">{{item.BAIRRO |uppercase}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 60;">{{item.CEP}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.DT_EMISSAO}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.DT_MAXIMA}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.QT_VOLUME}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.PESO}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 40;text-align: right">{{item.PESO_REAL}}</td>
+                                        <td ng-click="setClickedRowGridDocumentosConferenciaManual($index,$event,'tableDocumentosConferenciaAll')" style="width: 50;text-align: right">{{item.VALOR}}</td>
+                                        <td style="width: 0;text-align: right ; display: none">{{item.COD_DOCUMENTO}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- ng-show="contadorSelecteds.qtd_Selecionados ==0 " -->
+    <div class="w3-col  w3-container" ng-show="contadorSelectedsnew.qtd_Selecionados >0" style="padding: 0px; text-align: right; display: flex;margin-top: 15px ;    color: rgb(221,44,0);" aria-hidden="false">
+        <div style="width: 90%;;display: inline-flex;justify-content: space-evenly;">
+            <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+        TOTAL SELECIONADO(S)</span>
+            <div class="caixaTotalizadorSelecionados ng-binding">
+                {{contadorSelectedsnew.qtd_Selecionados}}
+            </div>
+            <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+        TOTAL VOLUME(S)</span>
+            <div class="caixaTotalizadorSelecionados ng-binding">
+                {{contadorSelectedsnew.qtd_volumes}}
+            </div>
+            <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+        TOTAL PESO(S)</span>
+            <div class="caixaTotalizadorSelecionados ng-binding">
+                {{contadorSelectedsnew.qtd_Peso}}
+            </div>
+
+            <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+        TOTAL PESO REAL</span>
+            <div class="caixaTotalizadorSelecionados ng-binding">
+                {{contadorSelectedsnew.qtd_PesoReal}}
+            </div>
+
+            <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+        TOTAL VLR FRETE</span>
+            <div class="caixaTotalizadorSelecionados ng-binding">
+                {{contadorSelectedsnew.qtd_ValorFrete}}
+            </div>
+            <span style="font-size: 11px;font-family: 'Fira Sans', sans-serif;    font-weight: 700;">
+        TOTAL VLR MERCADORIA</span>
+            <div class="caixaTotalizadorSelecionados ng-binding">
+                {{contadorSelectedsnew.qtd_ValorMecaria}}
+            </div>
+        </div>
+
+        <div style="width: 10%;">
+            <div ng-show="contadorSelectedsnew.qtd_Selecionados  >0 " aria-hidden="false" class="" style="">
+                <button class="button default" ng-click="limparSelecionadosVeiculos()">
+          <i class="fas fa-broom"></i>
+          Limpar</button>
+                <!-- <button class="button success" style="color: white;background: #FF5722;"
+          ng-click="salvarSelecionados()">Aplicar</button> -->
+            </div>
+        </div>
+    </div>
+
+
+</div>

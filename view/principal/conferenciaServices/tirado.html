@@ -1,0 +1,128 @@
+        <!-- <div class="container" > -->
+            <div id="divTableDocumentosConferenciaAll" style="height: 200px; overflow: auto;">
+                <table class="table table-hover	table-sm" style="font-size: 12px;" id="tableDocumentosConferenciaAll">
+                  <thead>
+                    <tr class="header">
+                      <th ng-click="ordenarPor('IDENT_VEICULOS')">
+                        <div style="width: 42px;height: 37px">Veículo
+                        </div>
+                      </th>
+                      <th ng-click="ordenarPor('NR_DOCUMENTO_FORMATADO')" style="text-align: left">
+                        <div style="width: 42px;height: 37px">DOC
+                        </div>
+                      </th>
+    
+                      <th ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')" style="text-align: center">
+                        <div style="width: 42px;height: 37px">TP.
+                        </div>
+                      </th>
+    
+                      <th ng-click="ordenarPor('ORDEM_ENTREGA')" style="text-align: center">
+                        <div style="width: 42px;height: 37px">OR.
+                        </div>
+                      </th>
+    
+                      <th ng-click="ordenarPor('REMETENTE')">
+                        REMENTENTE
+                        <div>REMENTE</div>
+                      </th>
+                      <th ng-click="ordenarPor('DESTINATARIO')">
+                        DESTINATARIO
+                        <div>DESTINATARIO</div>
+                      </th>
+                      <th ng-click="ordenarPor('ROTA')">
+                        ROTA
+                        <div>ROTA</div>
+                      </th>
+                      <th ng-click="ordenarPor('CIDADE')">
+                        CIDADE
+                        <div>CIDADE</div>
+                      </th>
+                      <th ng-click="ordenarPor('ENDERECO')">
+                        ENDEDEREÇO
+                        <div>ENDEREÇO</div>
+                      </th>
+                      <th ng-click="ordenarPor('BAIRRO')">
+                        BAIRRO
+                        <div>BAIRRO</div>
+                      </th>
+                      <th ng-click="ordenarPor('CEP')" style="text-align: left">
+                        <div style="width: 62px;height: 37px">CEP
+                        </div>
+                      </th>
+                      <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                        <div style="width: 42px;height: 37px">EM
+                        </div>
+                      </th>
+                      <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                        <div style="width: 42px;height: 37px">MX
+                        </div>
+                      </th>
+                      <th ng-click="ordenarPor('CEP')" style="text-align: right">
+                        <div style="width: 42px;height: 37px">VOL
+                        </div>
+                      </th>
+                      <th ng-click="ordenarPor('PESO')" style="text-align: right">
+                        <div style="width: 42px;height: 37px;">P
+                        </div>
+                      </th>
+    
+                      <th ng-click="ordenarPor('PESO_REAL')" style="text-align: right; color: white">
+                        <div style="width: 42px;height: 37px;">P.R
+                        </div>
+                      </th>
+    
+                      <th ng-click="ordenarPor('VALOR')" style="text-align: right">
+                        <div style="width: 78px;height: 37px;">Valor
+    
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      ng-repeat="item in documents  |  filter:{ REMENTENTE :q }  |orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index  "
+                      ng-class="{'saiuprarua'       :item.MANIFESTO_COD_CONHECIMENTOS >  0,
+                                  'naoSaiuPraRua'   :item.MANIFESTO_COD_CONHECIMENTOS ==  0 }">
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 60;">{{item.IDENT_VEICULOS |uppercase }}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 70;">{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 30;">{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 30;">{{item.ORDEM_ENTREGA}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 170;">{{item.REMETENTE |uppercase}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 170;">{{item.DESTINATARIO |uppercase}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 40;">{{item.ROTA}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 150;">{{item.CIDADE}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 200;">{{item.ENDERECO |uppercase}},{{item.NR_ENDERECO}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 150;">{{item.BAIRRO |uppercase}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 60;">{{item.CEP}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 40;text-align: right">{{item.DT_EMISSAO}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 40;text-align: right">{{item.DT_MAXIMA}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 40;text-align: right">{{item.QT_VOLUME}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 40;text-align: right">{{item.PESO}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 40;text-align: right">{{item.PESO_REAL}}</td>
+                      <td ng-click="setClickedRowConferencia($index,$event,'tableDocumentosConferenciaAll')"
+                        style="width: 50;text-align: right">{{item.VALOR}}</td>
+                      <td style="width: 0;text-align: right ; display: none">{{item.COD_DOCUMENTO}}</td>
+                      <td style="width: 0;text-align: right ; display: none">{{item.COD_VEICULOS}}</td>
+                      <td style="width: 0;text-align: right ; display: none">{{item.COD_BARRAS}}</td>
+    
+                    </tr>
+                  </tbody>
+                </table>
+              </div>

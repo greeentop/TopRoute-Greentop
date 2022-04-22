@@ -1,0 +1,1026 @@
+
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    label {
+        display: block;
+        width: 86px;
+        margin: -34px auto;
+        background: #CCC;
+        height: 23px;
+        border-radius: 40px;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #9e9e9e), to(#f4f4f4));
+        background: linear-gradient(to bottom, #9e9e9e 30%, #f4f4f4);
+        -webkit-box-shadow: 0 2px 0 0 #fff, 0 -2px 0 0 #969494;
+        box-shadow: 0 2px 0 0 #fff, 0 -2px 0 0 #969494;
+        position: relative;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+
+    label input {
+        display: none;
+    }
+
+    label div {
+        display: block;
+        width: 80px;
+        height: 33px;
+        position: absolute;
+        left: 50%;
+        top: 47%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #8b8c8e), to(#f4f4f4));
+        background: linear-gradient(to bottom, #8b8c8e 20%, #f4f4f4);
+        border-radius: 25px;
+    }
+
+    label div:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 17px;
+        width: 50px;
+        left: 2px;
+        top: 4px;
+        border-radius: 23px;
+        background: #828080;
+        -webkit-box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.8);
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.8);
+        -webkit-transition: .20s;
+        transition: .20s;
+    }
+
+    label i {
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #9e9e9e), to(#f4f4f4));
+        background: linear-gradient(to top, #9e9e9e 20%, #f4f4f4);
+        border-radius: 50%;
+        -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+        top: 1px;
+        left: -2px;
+        -webkit-transition: .25s;
+        transition: .25s;
+    }
+
+    label i:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        left: 3px;
+        top: 2px;
+        border-radius: 50%;
+        background: #d5d4d4;
+        z-index: 1;
+    }
+
+    label input:checked~i {
+        top: 1px;
+        left: 32px;
+    }
+
+    label input:checked+div:after {
+        background: #9aedbc;
+        -webkit-box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    label input:checked+div>.off {
+        color: transparent;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+    }
+
+    label input:checked+div>.on {
+        color: white;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    label:hover {
+        cursor: pointer;
+    }
+
+    label:focus,
+    label:active {
+        outline: 0;
+    }
+
+    .form-group2 {
+        margin-bottom: 0px;
+        margin: 6px 0 0 -42px;
+    }
+
+
+
+    .button {
+        background-color: none;
+        border: none;
+        color: none;
+        /* padding: 5px 8px; */
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 19px;
+        margin: 8px 2px;
+        cursor: pointer;
+    }
+
+    .button-carro {
+        width: 92px;
+    }
+
+    .button-carro-conteudo {
+        color: black;
+        margin: -20px 0px 0px -47px;
+        position: absolute;
+        font-size: 14px;
+    }
+
+    .button-servicos {
+        width: 27px;
+    }
+
+    .button-servicos-conteudo {
+        color: white;
+        margin: -31px 0 0 4px;
+        position: absolute;
+        font-size: 14px;
+    }
+
+    .naoRoteirizar {
+        background-color: rgba(237, 187, 187, 0.6);
+        color: black;
+        cursor: no-drop;
+    }
+
+    .orfa {
+        background-color: rgba(255, 228, 181, 0.42);
+        color: black;
+        cursor: pointer;
+    }
+
+    .emVeiculo { 
+        background-color:rgba(178, 227, 250, 0.47);;
+        color: black;
+        cursor: no-drop;
+    }
+
+    .emVeiculoNaoConferido{
+        background-color:grey;
+        color: honeydew;
+        cursor: no-drop;
+    }
+
+    .imgEmVeiculoHabilitado{
+            background: transparent url(../img/icon-toco.gif) ;
+            position: absolute;
+            margin: 0 0 0 45%;
+    }
+    .imgEmVeiculoDesabilitado{
+        background: transparent url(../img/icon-TocoD.png) ;
+        position: absolute;
+        margin: 0 0 0 45%;
+    }
+    
+   
+    .imgOrfaHabilitado{
+            background: transparent url(../img/icon-home.png) no-repeat left bottom;
+            MARGIN:0px 0 0 57%;
+            position: absolute;
+    }
+    .imgOrfaDesabilitado{
+        background: transparent url(../img/icon-homeD.png) no-repeat left bottom;
+        MARGIN:0px 0 0 57%;
+        position: absolute;
+    }
+
+
+    .imgBloqueHabilitado{
+
+        background:transparent url(../img/icon-bloqueio.gif);
+        MARGIN: 0px 0 0 68.5%;
+        position: absolute;
+    }
+
+
+
+    .imgteste{
+        background:transparent url(../img/trocaRota1.png);
+        MARGIN: 0px 0 0 68.5%;
+        position: absolute;
+    }
+
+
+
+    .imgBloqueDesabilitado{
+        background: transparent url(../img/icon-bloqueioD1.png);
+        MARGIN: 0px 0 0 68.5%;
+        position: absolute;
+        
+    }
+
+
+    .selectedvei {
+        background-color: rgba(124, 252, 177, 0.23);
+        color: black;
+        /* font-weight: bold; */
+        cursor: not-allowed;
+    }
+
+    .desable {
+        color: rgb(126, 123, 123);
+        cursor: not-allowed;
+    }
+
+    .habilitSetaDown {
+        color: green;
+        cursor: pointer;
+    }
+
+    .habilitSetaUp {
+        color: red;
+        cursor: pointer;
+    }
+
+    .ajustatela {
+        height: 280px;
+        overflow-y: scroll;
+    }
+
+    .ajustescroll {
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: none
+        /* overflow-y: scroll; */
+    }
+
+    .grid {
+        height: -webkit-fill-available;
+        overflow-y: scroll;
+        margin-left: -11px;
+    }
+
+    .titleAux {
+
+        color: rgb(218, 108, 34);
+        display: block;
+        line-height: 1em;
+        /* margin-top: 10px;
+    margin-left: 10px; */
+        margin: -36px 0px 0px 60px;
+    }
+
+    .titleDetalAux {
+        font-size: 1.0vmax;
+        margin-left: 10px;
+        margin: -20px 0px 0px 60px;
+    }
+
+    .titleDetalAux1 {
+        font-size: 1.0vmax;
+        margin-left: 10px;
+        margin: -22px 0px 0px 104px;
+    }
+
+    .placa {
+        border: double;
+        border-width: 4px;
+        background: #d8d3d3;
+        color: #636161;
+        width: fit-content;
+        text-decoration: none;
+        padding-top: 2px;
+        padding-left: 8%;
+
+    }
+
+    .list {
+        list-style: none outside none;
+        margin: 10px 0 30px;
+    }
+
+    .selecionado {
+        background-color: #9aedbc;
+    }
+
+
+
+    .bloco {
+        border-radius: 7px;
+        -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    }
+
+    .w3-modalItens {
+        z-index: 3;
+        /* display: none; */
+        padding-top: 16%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+        /* border-radius: 30px */
+
+
+
+
+        
+    }
+
+
+    .w3-modal-contentitens {
+        width: 99%;
+        /* height: 130%; */
+        margin: -5% auto;
+        background: #f1f1f1;
+
+    }
+
+
+
+
+    .painel {
+        position: absolute;
+        width: 293px;
+        height: 385px;
+        background: rgb(28, 53, 93);
+        margin-left: 10px;
+        margin: -12px 0 0px 83%;
+        border-radius: 30px
+    }
+
+    .detalhes {
+        position: absolute;
+        width: 276px;
+        height: 371px;
+        background: white;
+        margin-left: 20px;
+        margin: -5px 0 0px 83.5%;
+        border-radius: 8px;
+        /* z-index: 999999; */
+
+    }
+
+    .dash {
+        /* border-radius: 50px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(28, 53, 93);
+        border: 3px solid rgb(218, 108, 34);
+        float: left;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 2em;
+        font-size: 20px;
+        margin: 0 10px;
+        padding: 0;
+        margin-left: 25px;
+        margin-top: 6px; */
+
+            
+        border-radius: 50px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(28, 53, 93);
+        border: 3px solid rgb(218, 108, 34);
+        /* float: left; */
+        width: 50px;
+        height: 50px;
+        /* text-align: center; */
+        /* line-height: 1em; */
+        font-size: 20px;
+        margin: 0px 0px 0 50px;
+        padding: 8px;
+        /* margin-left: 25px; */
+        /* margin-top: -23px; */
+
+    }
+
+    .textoDash {
+        font-size: 17px;
+        color: rgb(218, 108, 34);
+        text-align: left;
+        position: absolute;
+        margin-left: 29px;
+        font-weight: 800;
+        width:  244px;
+    }
+
+    .starNumber {
+        margin-left: 10px;
+        color: #1c355d;
+    }
+
+    .bloco {
+
+        border-radius: 7px;
+        -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+
+
+    }
+
+    .bloconew {
+        margin: -47px 0 0 2px;
+        width: 99%;
+    }
+
+    .routeControls122 {
+
+        width: 40%;
+        float: right;
+        display: block;
+        padding: 10px 0;
+        margin-right: 0;
+        margin: 1px 17px 0 -11px;
+        width: 258px;
+        text-align: right;
+    }
+
+
+    .face {
+        content: "\f230";
+        font-family: FontAwesome;
+    }
+
+    .placaCinzaDetalhes {
+        border-style: 9px;
+        background: #d9dada;
+        width: 212px;
+        height: 70px;
+        border-radius: 7px;
+        font-size: 7px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #939598;
+        text-align: center;
+    }
+
+
+    .placaCinzaEmpresaDetalhe {
+        width: 119px;
+        height: 9px;
+        border-width: 1px;
+        border-color: black;
+        margin-top: 1px;
+        margin-left: 75px;
+        font-weight: 900;
+        font-size: 10px;
+    }
+
+    .placaCinzaNumeroDetalhe {
+        margin-top: 7px;
+        text-align: center;
+        font-size: 21px;
+        color: black;
+        font-weight: 800;
+        margin-left: 67px;
+    }
+
+    .eixoTraseiro {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: black;
+        margin: -21px 0 0 80px;
+    }
+
+    .eixoTraseiro1 {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: black;
+        margin: -66px 0 0 223px;
+    }
+
+    .eixoTraseiro2 {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: black;
+        margin: -66px 0 0 -81%;
+    }
+
+    .eixoCavalo {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: black;
+        margin:36px 0 0 1px; 
+        
+    }
+
+
+    .eixoLigarCavalo {
+        width: 24px;
+        height: 54px;
+        /* border-radius: 5px; */
+        background: #1c355d;
+        margin: -135px 0 0 -33px;
+    }
+
+
+
+    .mostrarVeiculo{
+        width: 54px;
+         display: block;
+          filter: grayscale(1);
+          
+    
+    }
+
+    .ladoalado{
+        float: left;
+        width: 30%;
+    }
+
+    
+
+
+	.bateria {
+			border-radius: 2px;
+			background-color: #f9f8f8;
+			border: 1px solid rgb(28, 53, 93);
+			width: 69px;
+			height: 28px;
+		}
+
+
+		.bateria1 {
+            border-radius: 3px;
+            background-color: rgb(28, 53, 93);
+            border: 1px solid rgb(28, 53, 93);
+            float: left;
+            width: 8px;
+            height: 15px;
+            margin: 6px 0px 0px 67px;
+		}
+
+
+
+	
+	
+		.colorCargaDescarregada{
+			background-color:white;
+		}
+		
+        .veiculozerado{
+            color: rgb(211, 211, 211);
+        }
+        .temServ {
+            color: rgb(28, 53, 93);
+        }
+       
+
+       .clearance {
+            color:white;
+            /* background: yellow; */
+            /* border-top: 2px solid orange; */
+        }
+
+        .clearance:after {
+            /* content: " on clearance!"; */
+            font-weight: bold;
+            font-style: italic;
+        }
+
+
+       .clearance1 {
+            color: #9f9fa0;
+            /* background: yellow; */
+            /* border-top: 2px solid orange; */
+        }
+
+        .clearance1:after {
+            /* content: " on clearance!"; */
+            font-weight: bold;
+            font-style: italic;
+        }
+
+
+
+
+    .submit-lente {
+        top: 0;
+        right: 0;
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    .submit-line {
+        position: relative;
+        width: 450px;
+    }
+
+    .submit-line input {
+        width: 100%;
+    }
+
+    .habilitaScanner {
+        color: black;
+        font-size: 34px;
+        position: absolute;
+
+    }
+
+    .desabilitaScanner {
+        font-size: 34px;
+
+        position: absolute;
+        color: gray;
+
+    }
+
+
+    .botoeFitros {
+        cursor: pointer;
+        border-radius: 53px;
+        width: 48px;
+        height: 48px;
+        border: 3px solid #ff7f27;
+    }
+
+    .fundoAzulPrincipal {
+        background: linear-gradient(#1c355d, white);
+        /* background-color: rgb(28, 53, 93); */
+        border-radius: 2%;
+    }
+
+    .panel-headingtela {
+        padding:13px 2px;
+        /* border-bottom: 1px solid transparent; */
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        max-height: 90px;
+        height: 90px;
+
+    }
+
+
+    .panel-Azul>.panel-heading {
+        color: white;
+        background-color: #1c355d;
+        border-color: #428bca;
+    }
+
+    .circuloEmVeiculo {
+        border: 2px solid gray;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background: #81ccef;
+        box-shadow: 5px 3px 5px rgba(50, 50, 50, 0.77);
+    }
+
+    .circuloEmArmazem {
+        border: 2px solid gray;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background: #f6eb8e;
+        box-shadow: 5px 3px 5px rgba(50, 50, 50, 0.77);
+    }
+
+    .circuloBloqueado {
+        border: 2px solid gray;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background: #db6262;
+        box-shadow: 5px 3px 5px rgba(50, 50, 50, 0.77);
+    }
+
+    .colorCargaCarregada0 {
+        background: transparent url(../img/truckOcupacao0.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+
+
+    .colorCargaCarregada1 {
+        background: transparent url(../img/truckOcupacao1.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada2 {
+        background: transparent url(../img/truckOcupacao2.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada3 {
+        background: transparent url(../img/truckOcupacao3.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada4 {
+        background: transparent url(../img/truckOcupacao4.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada5 {
+        background: transparent url(../img/truckOcupacao5.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada6 {
+        background: transparent url(../img/truckOcupacao6.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada7 {
+        background: transparent url(../img/truckOcupacao7.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada8 {
+        background: transparent url(../img/truckOcupacao8.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada9 {
+        background: transparent url(../img/truckOcupacao9.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+    .colorCargaCarregada10 {
+        background: transparent url(../img/truckOcupacao10.png);
+        margin-top: -47px;
+        margin-right: 10px;
+        width: 30%;
+        height: 12%;
+    }
+
+
+    .marcar {
+        background: rgba(128, 128, 128, 0.17);
+        border-radius: 13px;
+        /* height: 56px; */
+    }
+
+
+    .clearVeiculos {
+        background: transparent url(../img/clearVeiculos2.png);
+        cursor: pointer;
+        border-radius: 53px;
+        width: 35px;
+        height: 35px;
+        border: 3px solid #ff7f27;
+        margin-top: -37px;
+        margin-right: 0;
+        background-color: white;
+    }
+
+
+    .inverteselecao1 {
+        background: transparent url(../img/trocaSelect1.png);
+        height: 56PX;
+        width: 56PX;
+        BORDER-RADIUS: 43px;
+        border: 3px solid #ff7f27;
+        cursor: pointer;
+        margin-right: 35px;
+        margin-top: -56px;
+    }
+
+    .inverteselecao2 {
+        background: transparent url(../img/trocaSelect2.png);
+        height: 56px;
+        width: 56PX;
+        BORDER-RADIUS: 43px;
+        border: 3px solid #ff7f27;
+        cursor: pointer;
+        margin-right: 35px;
+        margin-top: -56px;
+
+    }
+
+    .identCavalo {
+
+        text-align: left;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 17px;
+        color: #d8d8d8;
+        margin-top: 10px;
+    }
+
+
+    .mostrarMapa {
+        background: transparent url(../img/mapico1.png);
+        height: 91px;
+        width: 96px;
+        border-radius: 43px;
+        position: absolute;
+        cursor: pointer;
+        margin-top: -103px;
+        margin-left: 136px;
+    }
+
+    .naoMostrarMapa {
+        background: transparent url(../img/mapico2.png);
+        height: 91px;
+        width: 96px;
+        border-radius: 43px;
+        position: absolute;
+        cursor: no-drop;
+        margin-top: -103px;
+        margin-left: 136px;
+    }
+
+
+    .cavalovazio {
+
+        width: 49%;
+        height: 122%;
+        background-color: #1c355d;
+        margin: -47px 0 0 -30;
+        border-radius: 0px 133px 133px 6px;
+    }
+
+    .logoBauSolistica {
+        background: transparent url(../img/logoBauSolistica.png);
+        height: 103%;
+        width: 24%;
+        margin: 0px 0 0 5%;
+    }
+
+
+    .logoBauExpresso {
+        background: transparent url(../img/logobauExpresso.png);
+        height: 103%;
+        width: 24%;
+        margin: -155px 0 0 105%;
+    }
+
+
+    .logoBauAtlas {
+        background: transparent url(../img/logobauAtlas.gif);
+        height: 103%;
+        width: 24%;
+        margin: -48px 0 0 168%;
+    }
+
+
+    .logoBauFemsa {
+        background: transparent url(../img/logobaufemsa.png);
+        height: 103%;
+        width: 24%;
+        margin: -48px 0 0 168%;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 54px;
+        height: 26px;
+        margin: 10px 0 -2px 43px;
+    }
+
+    .switch input {
+        display: none;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 1px;
+        left: 2px;
+        right: 2px;
+        bottom: 0;
+        background-color: #ef002f;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 1px;
+        bottom: 3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #3cbc8d;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+
+    }
+
+
+
+    .folha {
+        width: 500px;
+        height: 300px;
+        background: #8ceefa;
+        position: relative;
+        border: 1px solid #000;
+    }
+    
+    .teto {
+
+        /* width: 107px; */
+        /* height: 159px; */
+        border-top: 100px solid transparent;
+        border-right: 119px solid transparent;
+        border-bottom: 169px solid #1c355d;
+        border-left: 84px solid transparent;
+        position: absolute;
+        top: -86px;
+        left: 290px;
+        border-radius: 0px 0px 16px 0px;
+    }
+
+
+
+    
+    
+    .parede {
+        width: 478px;
+        height: 243px;
+        background-color: #1c355d;
+        position: absolute;
+        top: 157px;
+        left: 19px;
+        border-radius: 47px;
+    }
+    
+    .porta {
+        width: 366px;
+        height: 296px;
+        border-radius: 6% 13% 0 0;
+        background-color: #1c355d;
+        position: absolute;
+        bottom: 0;
+        left: 0px;
+        top: -262px;
+    }
+
+
+        

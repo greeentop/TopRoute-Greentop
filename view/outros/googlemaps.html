@@ -1,0 +1,657 @@
+<script>
+    $(function () {
+        $("#sortable").sortable({
+            placeholder: "ui-state-highlight"
+        });
+        $("#sortable").disableSelection();
+    });
+</script>
+
+
+<style>
+    /* #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+            #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+            #sortable li span { position: absolute; margin-left: -1.3em; } */
+
+    #draggable2 {
+        margin-bottom: 20px;
+    }
+
+    #draggable2 {
+        cursor: default;
+    }
+
+    h3 {
+        clear: left;
+    }
+
+    html,
+    /* body {
+                height: 100%;
+                width: 100%;
+            } */
+
+    .one {
+        background-color: rgb(28, 53, 93);
+        /* height: 100%; */
+        position: relative;
+        width: 100%;
+    }
+
+    .two {
+        background-color: transparent;
+        /* rgb(253, 254, 255); */
+        top: 60px;
+
+        position: absolute;
+        z-index: 9999;
+        background: transparent
+    }
+
+    .green1 {
+        color: #55fc78;
+    }
+
+    .purple1 {
+        color: #825bfc;
+    }
+
+    .green {
+        background: #55fc78;
+        border-color: #047b1e;
+        color: #030000;
+    }
+
+    .purple {
+        background: #825bfc;
+        border-color: #351497;
+        color: #0c0b0b;
+    }
+
+    .filial {
+        background: #5b84fd;
+        border-color: #183fb6;
+        color: #030000;
+
+    }
+
+    button.css3button {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #ffffff;
+        padding: 10px 20px;
+        margin-bottom: 18px;
+        margin-left: 20px;
+        background: -moz-linear-gradient( top,
+        #1937cc 0%,
+        #d66f15 75%,
+        #364bd1);
+        background: -webkit-gradient( linear, left top, left bottom,
+        from(#1937cc),
+        color-stop(0.75, #d66f15),
+        to(#364bd1));
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #b85f00;
+        -moz-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+        -webkit-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+        box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5),
+        inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+        text-shadow: 0px -1px 1px rgba(000, 000, 000, 0.2),
+        0px 1px 0px rgba(255, 255, 255, 0.3);
+    }
+
+    .ico {
+        -webkit-filter: grayscale(100%);
+        cursor: pointer;
+        /* font-size: 100%;    */
+        padding: 8px;
+    }
+
+    .ico:hover {
+        -webkit-filter: grayscale(0%);
+        transition: 0.2 s;
+        font-size: 120%;
+        color: #d66f15;
+
+    }
+</style>
+
+
+<style>
+    .painel {
+        position: absolute;
+        width: 396px;
+        height: 661px;
+        background: rgb(28, 53, 93);
+        margin-left: 10px;
+        margin: -26.5% 0 0px 16px;
+        border-radius: 30px
+    }
+
+    .detalhes {
+        position: absolute;
+        width: 380PX;
+        height: 643px;
+        background: white;
+        margin-left: 20px;
+        margin: -26% 21px 20px;
+        border-radius: 8px;
+
+    }
+
+    .dash {
+        border-radius: 50px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(28, 53, 93);
+        border: 4px solid rgb(218, 108, 34);
+        float: left;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 2em;
+        font-size: 20px;
+        margin: 0 15px;
+        padding: 8;
+        margin-left: 25px;
+        margin-top: 19px;
+    }
+
+    .textoDash {
+        font-size: 13px;
+        color: rgb(28, 53, 93);
+        text-align: left;
+        position: absolute;
+        margin: 11px 0 0 -11px;
+        font-weight: 500;
+    }
+
+
+    .textoDash1 {
+        font-size: 15px;
+        color: rgb(28, 53, 93);
+        text-align: left;
+        position: absolute;
+        margin: 27px 0 0 -6px;
+        font-weight: 800;
+    }
+
+    .starNumber {
+        margin-left: 10px;
+        color: #1c355d;
+    }
+
+    .bloco {
+
+        border-radius: 7px;
+        -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+
+
+    }
+
+    .bloconew {
+        margin: 2px 0 0 0px;
+        width: 99%;
+        width: 98%;
+        HEIGHT: 75%;
+        border: 3PX solid rgb(28, 53, 93);
+        border-radius: 0px
+    }
+
+    .routeControls122 {
+
+        width: 40%;
+        float: right;
+        display: block;
+        padding: 10px 0;
+        margin-right: 0;
+        margin: 1px 252px 0 -11px;
+        width: 270px;
+        text-align: right;
+    }
+
+
+    .placaCinza {
+        background: #d9dada;
+        width: 150px;
+        height: 63px;
+        border-radius: 7px;
+        font-size: 7px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        text-align: center;
+    }
+
+    .placaCinzaNumero {
+        margin-top: 14px;
+        text-align: center;
+        font-size: 18px;
+        color: black;
+        font-weight: 800;
+        margin-left: 25px;
+    }
+
+    .placaCinzaEmpresa {
+        width: 97px;
+        height: 6px;
+        border-width: 2px;
+        border-color: black;
+        margin-top: 8px;
+        margin-left: 30px;
+        font-weight: 900;
+
+    }
+
+    .btn-default {
+        color: #da6d24;
+        background-color: #1c355d;
+        border-color: #da6d24;
+    }
+
+
+    .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        border-radius: 4px;
+        margin-top: -70px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /*
+    .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+        color: #adadad;
+        background-color: rgb(36,63,116 );
+        border-color: #adadad;
+        outline: none; 
+    } */
+</style>
+
+
+<style>
+    #sortable {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 60%;
+    }
+
+    #sortable li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 1.2em;
+        height: 1.5em;
+    }
+
+    html>body #sortable li {
+        height: 1.5em;
+        line-height: 1.2em;
+    }
+
+    .ui-state-highlight {
+        height: 1.5em;
+        line-height: 1.2em;
+    }
+</style>
+
+
+<!-- <div class="two">
+          <p><button ng-click="adicionarOrdem()"> adicionar</button> </p>
+        
+          <p><button ng-click="removerOrdem()"> remover</button> </p>
+        </div> -->
+
+<!-- zoom-to-include-markers="auto" -->
+<!-- <div class="gmaps-ticket " style="overflow: hidden;"> -->
+<!-- styles="[{featureType:'road.highway',elementType:'geometry',stylers:[{hue:'#ff0022'}
+                ,{saturation:60},{lightness:-20}]},{featureType:'road.arterial',elementType:'all'
+                ,stylers:[{hue:'#2200ff'},{lightness:-40},{visibility:'simplified'},{saturation:30}]}
+                ,{featureType:'road.local',elementType:'all',stylers:[{hue:'#f6ff00'},{saturation:50}
+                ,{gamma:0.7},{visibility:'simplified'}]},{featureType:'water',elementType:'geometry'
+                ,stylers:[{saturation:40},{lightness:40}]},{featureType:'road.highway',elementType:'labels'
+                ,stylers:[{visibility:'on'},{saturation:98}]},{featureType:'administrative.locality'
+                ,elementType:'labels',stylers:[{hue:'#0022ff'},{saturation:50},{lightness:-10},{gamma:0.90}]}
+                ,{featureType:'transit.line',elementType:'geometry',stylers:[{hue:'#ff0000'},{visibility:'on'}
+                ,{lightness:-70}]}]"  -->
+<!-- style="height: 900px;"  -->
+
+<!-- <button style="position: fixed;margin-left: 446px;margin-top: 10px;z-index: 9999999999999;" type="button" class="btn btn-primary" 
+            ng-click="ler()">Get</button>
+
+            <button style="position: fixed;margin-left: 346px;margin-top: 10px;z-index: 9999999999999;" type="button" class="btn btn-primary" 
+            ng-click="add()">Post</button>
+
+            <button style="position: fixed;margin-left: 246px;margin-top: 10px;z-index: 9999999999999;" type="button" class="btn btn-primary"  ng-click="put()">Put</button> -->
+
+
+
+
+<div class="col-md-3" style="MARGIN-TOP: -46px;HEIGHT: 87%;">
+
+    <!-- contas e entregas sequenciadas -->
+    <div class="col-md-12 bloco" style="overflow-y: scroll;overflow-y: scroll;background: black;margin-top: 7px;height: 98%;  background: white;border-radius: 4px ;border: 3px solid #1c355d; width: 100%">
+        <div class="">
+            <!-- top route -->
+            <div class="col-md-12" style="margin-top: 34px;margin-left: -19px">
+
+                <ul class="form-group" ng-repeat="item in detalheItensVeiculo">
+
+                    <style>
+                        .fonte {
+                            font-size: 9px;
+                            font-weight: bold;
+                        }
+                    </style>
+
+                    <!-- SERVICOS -->
+                    <li drag-to-reorder="detalheItensVeiculo" class="ng-scope" 
+                    style="margin:-68px 0 0 -4px;cursor:pointer;height: 179px;width: auto">
+
+                        <span class="routeIndex ng-binding ng-scope" style="border: 3px solid rgb(218, 108, 34);background-color: #1c355d;color: white;margin: -10% 29px 17px 80%"
+                            tooltip="">{{item.ORDEM_ENTREGA}}</span>
+
+
+                        <span>
+                            <span style="display:block; border-top: 2px dashed #da6c22;padding-top:10px;font-weight:600;color:#1c355d;padding-bottom:7px"
+                                class="ng-binding">
+
+
+
+                                <span class="fa fa-user"></span> {{item.DESTINATARIO}}</span>
+
+
+                            <p style=" margin:  0px 0px 0px 16px">
+                                <span class="fa fa-map-marker"></span>
+                                <span class="ng-binding fonte"> {{item.ENDERECO | uppercase}} </span>
+                            </p>
+
+                            <p style=" margin:  0px 0px 0px 16px">
+                                <span class="ng-binding fonte">BAIRRO:{{item.BAIRRO | uppercase}}</span>
+                            </p>
+                            <p style=" margin:  0px 0px 0px 16px">
+                                <span class="ng-binding fonte">
+                                    CIDADE:{{item.CIDADE | uppercase}} - SP
+                                </span>
+                            </P>
+
+                            <p style=" margin:  0px 0px 0px 16px">
+                                <span class="ng-binding fonte"> CEP: {{item.CEP}}</span>
+                            </p>
+
+                            <p style=" margin:  0px 0px 0px 16px">
+                                <span class="ng-binding ng-scope fonte">
+                                    <span class="fa fa-history"></span> Horário de chegada previsto: XX:XX
+                                </span>
+                            </p>
+                            <p style=" margin:  0px 0px 0px 16px">
+                                <span class="ng-binding ng-scope fonte">
+                                    <span class="fa fa-truck"></span> {{item.IDENT_TIPO_DOCUMENTOS}}
+                                </span>
+                            </p>
+
+                            <div data-ng-class="{'others_itinerary': direction.start._delivery._others &amp;&amp; direction.start._delivery._others.length > 0}">
+
+                            </div>
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- LADO DIREITO -->
+<div class="col-md-9" style="margin-top: -40px">
+
+    <div class="col-md-12">
+    
+        <!-- MENU TOPO -->
+        <div class="col-md-12 bloco" style="border: 3px solid #1c355d;background: white;border-radius: 4px;  ">
+    
+            <div class="col-md-3">
+    
+                <table class="table" style="margin-bottom: -24px;">
+                    <tr>
+                        <td>
+                            <!-- PAINEL DASH -->
+                            <div style="font-size: 14px">
+    
+                                <div class="placaMercosul bloco" ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )" style="cursor:pointer;margin: 1% 0 0% 0%;border: 3px solid #1c355d;width: 100;height: 48px;">
+                                    <div class="placaDescEmpresa" style="font-family: Arial, Helvetica, sans-serif;background: rgba(34, 64, 113, 1);border-radius: 3px 3px 0px 0px;width: auto;font-size: aut;color: white;margin-left: 0px;MARGIN-TOP: 0px;">
+                                        <span style="margin-left: -7px"> SOLISTICA</span>
+                                        <img alt="" src="img/brasil.png" style="margin-right: -30px;margin-top: -6px;width: 21px;">
+    
+                                    </div>
+                                    <div class="placaParticular">
+                                        <i class="fas fa-truck fa-2x" style="color: #1c355d"></i>
+                                        {{detalheVeiculo.NR_PLACA}}
+                                    </div>
+    
+                                    <br>
+    
+                                </div>
+                                <br>
+                                <span style="font-size: 17px;color: gray;font-weight: bold;    margin-left: 18px; ">ID:{{detalheVeiculo.IDENT_VEICULOS}}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <button class="btn btn-default bloco" type="button" data-ng-click="itinerarioMostrar()" style="margin-top: 4px">
+                                    <span class="fa fa-bars ng-scope" data-ng-if="activeRoute.index === $index" >
+                                    </span> Itinerário</button>
+                            </div>
+    
+                        </td>
+                    </tr>
+                </table>
+    
+            </div>
+    
+    
+            <div class="col-md-9" style="padding-left: 6px;">
+                <div class="col-md-12">
+    
+                    <!-- class="table table-bordered" -->
+                    <table class="table" style="margin-bottom: -24px;background: transparent">
+                        <tr>
+                            <td>
+                                <table class="table" style="background: transparent">
+                                    <tr>
+                                        <td style="padding: 2px;">
+                                            <div style="border: 2px solid orange;width: 50px;height: 50px;border-radius: 40px;margin-left: 0;background: #1c355d;font-size: 26px;margin-left: auto;">
+                                                <span class="fab fa-dropbox" style="color: white;margin-left: 8px;margin-top: 8px;"></span>
+                                            </div>
+                                        </td>
+    
+    
+                                    </tr>
+                                    <tr>
+                                        <td style="display: contents;">
+                                            <div style="font-size: 10px;font-weight: bold;color: #80808094;text-align: center;"> Qtd serviços</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="text-align: center;font-weight: bold;color: #1c355d;font-size: 19px;"> {{quantidadeCtrc}}</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table class="table">
+                                    <tr>
+                                        <td style="padding: 2px;">
+                                            <div style="border: 2px solid orange;width: 50px;height: 50px;border-radius: 40px;margin-left: 0;background: #1c355d;font-size: 26px;margin-left: auto;">
+                                                <span class="fas fa-tachometer-alt" style="color: white;margin-left: 8px;margin-top: 8px;"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="display: contents;">
+    
+                                            <div style="font-size: 10px;font-weight: bold;color: #80808094;text-align: center;"> Peso</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+    
+                                            <div style="text-align: center;font-weight: bold;color: #1c355d;font-size: 19px;"> {{PESOTotal}}
+                                                <span style="font-size: 10px;font-weight: bold;color: #80808094;text-align: right"> kg</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+    
+                            <td>
+                                <table class="table">
+                                    <tr>
+                                        <td style="padding: 2px;">
+                                            <div style="border: 2px solid orange;width: 50px;height: 50px;border-radius: 30px;margin-left: 0;background: #1c355d;font-size: 26px;margin-left: auto;">
+                                                <span class="fas fa-battery-three-quarters" style="color: white;margin-left: 8px;margin-top: 8px;"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="display: contents;">
+    
+                                            <div style="font-size: 10px;font-weight: bold;color: #80808094;text-align: center;"> Ocupação</div>
+                                        </td>
+    
+                                    </tr>
+                                    <tr>
+                                        <td>
+    
+                                            <div style="text-align: center; font-weight: bold;color: #1c355d;font-size: 19px;"> {{capacidadePercent}}
+                                                <span style="font-size: 10px;font-weight: bold;color: #80808094;text-align: right"> %</span>
+    
+                                            </div>
+                                        </td>
+    
+                                    </tr>
+                                </table>
+                            </td>
+    
+                            <td>
+                                <table class="table">
+                                    <tr>
+                                        <td style="padding: 2px;">
+                                            <div style="border: 2px solid orange;width: 50px;height: 50px;border-radius: 30px;margin-left: 0;background: #1c355d;font-size: 26px;margin-left: auto;">
+                                                <span class="fas fa-arrows-alt-h" style="color: white;margin-left: 8px;margin-top: 8px;"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="display: contents;">
+    
+                                            <div style="font-size: 10px;font-weight: bold;color: #80808094;text-align: center;"> Distancia</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+    
+                                            <div style="text-align: center;font-weight: bold;color: #1c355d;font-size: 19px;"> {{kmDistaniaVeiculo}}
+                                                <span style="font-size: 10px;font-weight: bold;color: #80808094;text-align: right"> kM</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+    
+                        </tr>
+                    </table>
+    
+    
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+        <!-- MAPA -->
+        <div class="col-md-12 bloco" style="border: 3px solid #1c355d;background: white;border-radius: 4px;  height: 65%;">
+    
+            <ng-map center="-23.1857076, -46.8978057" zoom-to-include-markers="auto" on-click="logLatLng()" style="display: block;margin-left: -15px;margin-right: -3px;">
+    
+                <!-- <traffic-layer></traffic-layer> -->
+    
+                <directions suppress-markers="true" draggable="false" panel="directions-panel" travel-mode="{{travelMode}}" waypoints="{{wayPoints}}"
+                    origin="{{origin}}" destination="{{destination}}" polyline-options='{strokeColor: "#ff1409"}'>
+                </directions>
+    
+                <div>
+                    <marker label="F" optimized="false" icon="{{customIconFilial}}" position="{{origin.lat}}, {{origin.lng}}" on-click="vm.toggleBounce()"
+                        animation="DROP">
+                    </marker>
+                </div>
+    
+    
+                <div ng-repeat="p in wayPoints">
+    
+                    <!-- icon="{path:'CIRCLE', scale: 15, fillColor: 'yellow'}" -->
+                    <div ng-if="p.location.tipo == 'E'">
+                        <marker class="numero" label="*{{p.location.ORDEM_ENTREGA}}" optimized="false" icon=" {{customIconParadasEntregas}}" position="{{p.location.lat}}, {{p.location.lng}}"
+                            on-click="toggleBounce()" animation="DROP">
+                        </marker>
+                    </div>
+    
+                    <!-- icon=" {{customIconParadasColetas}}"  -->
+                    <div ng-if="p.location.tipo == 'C'">
+                        <marker class="numero" label=*{{p.location.ORDEM_ENTREGA}} optimized="false" icon=" {{customIconParadasColetas}}" position="{{p.location.lat}}, {{p.location.lng}}"
+                            on-click="toggleBounce()" animation="DROP">
+                        </marker>
+                    </div>
+    
+                </div>
+    
+            </ng-map>
+    
+            <div id="directions-panel" ng-show="itineratio==true" class="direction">
+                <!-- style="width: 28%; float:left; height: 100%; overflow: auto; padding: 0px 5px;position:absolute;margin:-42% 0 0 73%;background: white"> -->
+            </div>
+    
+        </div>
+    
+    </div>
+
+</div>
+
+<style>
+    .direction{
+        height: 90%;
+    overflow: auto;
+    padding: 0px 5px;
+    position: absolute;
+    margin: -56% 0px 0px 58%;
+    background: white;
+    border: 3px solid rgb(28, 53, 93);
+    border-radius: 10px;
+    direction: ltr;
+    color: #fa851e;
+    font-size: 14px;
+
+
+    }
+</style>

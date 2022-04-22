@@ -1,0 +1,57 @@
+<style>
+    md-toolbar.md-default-theme:not(.md-menu-toolbar),
+    md-toolbar:not(.md-menu-toolbar) {
+        background-color: rgb(255, 255, 255);
+        color: rgba(255, 255, 255, 0.87);
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        position: fixed;
+        border-bottom: solid 2px #3f51b5;
+        z-index: 99;
+    }
+    
+    md-bottom-sheet.md-grid {
+        height: 30em;
+    }
+</style>
+
+<md-toolbar>
+
+    <div class="md-toolbar-tools">
+        <!-- <img src="img/IconeparafundoAzul.png" style="width: 93px; margin-top: -3px;"> -->
+        <img src="img/LogoGreentop.png" style="width: 12em; ">
+
+
+        <h2 flex md-truncate style="padding-left: 50px;    color: #337b33;font-weight: 600;">
+            {{usuarioLogado.FilialSetada.NM_FILIAIS}}
+
+            <md-button class="md-fab" aria-label="Eat cake" style="background: #337b33;" ng-click="openDashManager()">
+                <md-tooltip md-direction="bottom">
+                    Dashboard Gerencial
+                </md-tooltip>
+                <md-icon md-svg-src="img/ico/dash-manager.svg"></md-icon>
+            </md-button>
+        </h2>
+
+
+        <div id="resolucao"></div>
+
+        <div style="color: #337b33;">
+            {{usuarioLogado.NM_FUNCIONARIOS}}
+        </div>
+
+        <md-button class="md-fab buttonOrange" ng-click="showGridBottomSheet()" style="background: #337b33;">
+            {{usuarioLogado.FilialSetada.SIGLA_FILIAIS}}
+        </md-button>
+
+
+
+        <md-button aria-label="Go Back" ng-click="logoff()" style="color:#337b33">
+            Sair
+        </md-button>
+        <span style="font-size: 12px; color:#337b33;">
+                    {{usuarioLogado.Version}}
+                </span>
+
+
+    </div>
+</md-toolbar>

@@ -1,0 +1,64 @@
+/* Put your css in here */
+
+/* ******************************************* */
+/* Optional CSS, default style for ng-sortable */
+/* ******************************************* */
+
+.as-sortable-item, .as-sortable-placeholder {
+    min-height: 20px;
+    margin: 1px 2px 5px 1px;
+    border-radius: 10px;
+}
+
+.as-sortable-item {
+    border: solid 1px darkgrey;
+    background-color: #ffffff;
+}
+
+.as-sortable-item-handle {
+}
+
+.as-sortable-placeholder {
+    border: 1px dashed darkgrey;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+}
+
+.as-sortable-drag {
+    opacity: .8;
+}
+
+.as-sortable-hidden {
+}
+
+
+/* ************************ Extra Styles for draggables *********************/
+
+ul.dragSort {
+    padding: 10px;
+}
+ul.dragSort li {
+    list-style: none;
+}
+.as-sortable-item {
+    height: 48px;
+    margin-bottom: 12px;
+    text-align: center;
+    position: relative;
+}
+.centered-handle-label {
+    margin: auto;
+}
+
+.full-handle {
+    height: 100%;
+    display: flex;
+}
+.as-sortable-unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

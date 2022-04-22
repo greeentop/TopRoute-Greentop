@@ -1,0 +1,233 @@
+tr:hover {
+    background: transparent;
+}
+
+.QtdServicos {
+    text-align: center;
+    display: block;
+    z-index: 4;
+    width: 220;
+    position: absolute;
+    text-align: center;
+    margin-top: 36px;
+    margin-left: 59px;
+}
+
+.escolha {
+    width: auto;
+    height: auto;
+    border: solid 1px;
+    padding: 5;
+    margin-left: 5px;
+    background: white;
+    color: tomato;
+    border-radius: 4px 4px 4px 4px;
+    cursor: pointer;
+}
+
+.escolha:hover {
+    background-color: teal;
+    color: white;
+}
+
+.active {
+    cursor: pointer;
+    width: 150px;
+    height: auto;
+    border: solid 1px;
+    padding: 5;
+    margin-left: 5px;
+    background-color: teal;
+    color: white;
+    border-radius: 4px 4px 4px 4px;
+}
+
+#chart-container {
+    margin-top: 137px;
+}
+
+.QtdServicos>span {
+    font-size: 17px;
+    font-weight: 900;
+    color: #1c355d;
+}
+
+.openRoute {
+    color: #94bdff;
+    cursor: pointer;
+    font-size: 16;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.openRoute:hover {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16;
+    margin-left: 20px;
+}
+
+.flex-container>div {
+    background-color: white;
+    border: 1px solid gray;
+    margin: 10px;
+    text-align: center;
+    font-size: 15px;
+    height: 197px;
+    width: 245px;
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    border: solid #e6570f 2px;
+    border-radius: 3%;
+    z-index: 1;
+}
+
+.headerDash {
+    cursor: pointer !important;
+    width: 100%;
+    height: 35px;
+    background: #1c355d !important;
+    color: white;
+    border-radius: 4px 4px 0px 0px;
+    font-size: 22px;
+    /* border: solid 1px green!important; */
+}
+
+.bodyDash>p {
+    height: 158px;
+    font-size: 22px;
+    border-radius: 0px 0px 4px 5px;
+}
+
+p>span {
+    font-size: 12px;
+}
+
+canvas {
+    display: block;
+    /* z-index: 3; */
+    position: absolute;
+    /* margin-top: 4px;  */
+    margin-left: 50px;
+    /* background-color: #e6570f;   */
+}
+
+.titleManual {
+    text-align: left;
+    margin-left: 10px;
+    display: block;
+    z-index: 1;
+    color: #686868;
+}
+
+.titleManual>div {
+    margin-top: 3px;
+    margin-left: -6px;
+}
+
+.titleManual>div>span {
+    font-size: 11px;
+    /* margin-left: 2em; */
+    font-weight: bold;
+    position: absolute;
+    color: #686868;
+}
+
+.spanTitleManual {
+    margin-top: 10px;
+    position: absolute;
+    margin-top: 11px;
+    font-style: italic;
+    color: #686868;
+    font-weight: bold;
+}
+
+.pipeManual {
+    width: 14px;
+    height: 14px;
+    background: #686868;
+    /* margin-top: 3px; */
+    /* margin-left: -6px; */
+    border-radius: 50%;
+}
+
+.titleOperador {
+    margin-top: 25px;
+    text-align: left;
+    margin-left: 10px;
+    display: block;
+    z-index: 1;
+    color: #e6570f;
+}
+
+.titleOperador>div {
+    margin-top: 3px;
+    margin-left: -6px;
+}
+
+.titleOperador>div>span {
+    font-size: 11px;
+    /* margin-left: 2em; */
+    font-weight: bold;
+    position: absolute;
+    color: #e6570f;
+}
+
+.spanTitleOperador {
+    margin-top: 10px;
+    position: absolute;
+    margin-top: 10px;
+    font-style: italic;
+    color: #e6570f;
+    font-weight: bold;
+}
+
+.titleRouteasy {
+    margin-top: 25px;
+    text-align: left;
+    margin-left: 10px;
+    display: block;
+    z-index: 1;
+    color: #1c355d;
+}
+
+.titleRouteasy>div {
+    margin-top: 3px;
+    margin-left: -6px;
+}
+
+.titleRouteasy>div>span {
+    font-size: 11px;
+    /* margin-left: 2em; */
+    font-weight: bold;
+    position: absolute;
+    color: #1c355d;
+}
+
+.spanTitleRouteasy {
+    margin-top: 10px;
+    position: absolute;
+    margin-top: 10px;
+    font-style: italic;
+    color: #1c355d;
+    font-weight: bold;
+}
+
+.original {
+    height: 157px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.box {
+    background: #29262636;
+    line-height: 93px;
+    text-align: center;
+    transform: rotate(-55deg);
+    font-size: 19px;
+    margin-top: 27px;
+    border-radius: 7%;
+}
+
+.spin {
+    cursor: pointer;
+}

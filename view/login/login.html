@@ -1,0 +1,73 @@
+<!--GRADIENT-->
+<!-- <div class="gradient"> -->
+
+<!--WRAPPER-->
+<!-- <div id="wrapper"> -->
+
+
+<!--LOGIN FORM-->
+<form name="login-form" class="login-form" action="" method="post">
+
+    <!--HEADER-->
+    <div class="header">
+        <!--TITLE-->
+        <div>
+            <!-- <img src="img/logoBauSolistica.png" alt="" height="80" width="120"> -->
+
+            <img src="img/ico/trouteLogo.png" alt="" height="80" width="120" class="logoTopRoute">
+            <br>
+            <br>
+        </div>
+        <!--END TITLE-->
+        <!--DESCRIPTION-->
+        <!-- <span>Solistica.</span> -->
+        <!--END DESCRIPTION-->
+    </div>
+    <!--END HEADER-->
+
+    <!--CONTENT-->
+    <div class="content">
+        <!--USERNAME<input ng-model="usuario.email"  name="username" type="text" class="input username" value="Username" onfocus="this.value=''" />END USERNAME-->
+        <!--USERNAME--><input ng-model="usuario.user" name="username" type="text" class="input username" value="Username" />
+        <!--END USERNAME-->
+        <!--PASSWORD--><input ng-model="usuario.password" name="password" type="password" class="input password" value="Password" />
+        <!--END PASSWORD-->
+    </div>
+    <!--END CONTENT-->
+
+    <!--FOOTER-->
+    <div class="footer1">
+        <!--LOGIN BUTTON-->
+        <input type="button" name="submit" value="Entrar" class="button" ng-click="LoggeInSolistica(usuario)" />
+        <!--END LOGIN BUTTON-->
+        <br>
+        <BR>
+        <p>
+            <img src="img/LogoGreentop.png" style="width: 15em; ">
+            <!-- <span style="font-size: 14px; color: gray; font-weight: bold; font-family: Tahoma;">
+						<span style="font-size: 13;" >from</span><br> GREENTOP -->
+            </span>
+            <br><br>
+            <span style="font-size: 11px; color: gray; opacity: 0.7;">
+                {{versionLogin}}
+            </span>
+
+
+            <!-- <input type="button" name="submit" value="msg" class="button" ng-click="msg()" /> -->
+
+
+        </p>
+        <!--REGISTER BUTTON-->
+        <!-- <input type="submit" name="submit" value="Register" class="register" /> -->
+        <!--END REGISTER BUTTON-->
+    </div>
+    <!--END FOOTER-->
+
+</form>
+<!--END LOGIN FORM-->
+
+<!-- </div> -->
+<!--END WRAPPER-->
+
+<!-- </div> -->
+<!--END GRADIENT-->

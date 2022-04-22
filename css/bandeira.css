@@ -1,0 +1,101 @@
+	
+	.brasil-flag {
+        position: relative;
+        background-color: #11822d;
+        width: 15px;
+        height: 9px;
+    }
+    
+    
+    .brasil-flag .losangue:before,
+    .brasil-flag .losangue:after {
+      position: absolute;
+    }
+    
+    .brasil-flag .losangue {
+        /* width: 77px; */
+        /* height: 100%; */
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .brasil-flag .losangue:before,
+    .brasil-flag .losangue:after {
+        content: "";
+        width: 0;
+        height: 0;
+        left: 2px;
+        right: 21px;
+    }
+    
+    .brasil-flag .losangue:before {
+        border-left: 5px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 6px solid #ffe11f;
+        top: 0px;
+    }
+    
+    .brasil-flag .losangue:after {
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 3px solid #ffe11f;
+        bottom: 0px;
+    }
+    
+    .brasil-flag .circle {
+        overflow: hidden;
+        z-index: 2;
+        display: block;
+        background-color: #1651b8;
+        height: 4px;
+        width: 9px;
+        margin-top: -18px;
+        margin-left: -33px;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+    }
+    
+    
+    
+    .brasil-flag .circle,
+    .brasil-flag .circle:before,
+    .brasil-flag .circle:after {
+        top: 235%;
+        left: 240%;
+        position: absolute;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+    }
+    
+    .brasil-flag .circle:before,
+    .brasil-flag .circle:after {
+      width: 90px;
+      height: 40px;
+      -ms-transform: rotate(14deg);
+      -webkit-transform: rotate(14deg);
+      transform: rotate(14deg);
+    }
+    
+    .brasil-flag .circle:before {
+        z-index: 3;
+        content: '';
+        margin-top: -49px;
+        margin-left: -72px;
+        background: #fff;
+    }
+    
+    .brasil-flag .circle:after {
+        z-index: 4;
+        content: '';
+        margin-top: -5px;
+        margin-left: -48px;
+        background-color: #1651b8;
+    }
+    

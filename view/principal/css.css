@@ -1,0 +1,214 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+
+/* td + td {
+    border-left:1px solid #eee;
+  } */
+
+
+/* td, th {
+    border-bottom:1px solid #eee;
+    background: white;
+    color: #000;
+  } */
+
+
+/* padding: 0px 25px; */
+
+
+
+/* .selected {
+    color: black; 
+    background-color: #a7ff9c;
+    cursor: pointer;
+  } */
+
+
+
+
+
+/* Animations to fade the snackbar in and out */
+
+
+
+
+
+/* input[type=text] {
+  border: none;
+  border-bottom: 2px solid #1c355d;
+}
+ */
+
+
+
+/* user agent stylesheet */
+
+
+
+
+/* 
+@media screen  and (max-width:1366px){
+  #divTableDocumentos{
+    height: 20em;
+
+  }
+  #sectionDocs{
+    height: 23em;
+  }
+} */
+
+
+/* 
+@media screen  and (min-width:1263.330px){
+  #divTableDocumentos{
+    height: 18em;
+    
+  }
+  #sectionDocs{
+    height: 21em;
+  }
+} */
+
+
+/* 
+@media screen  and (max-width:2400.520px){
+  #divTableDocumentos{
+    height: 43em;
+
+  }
+
+}
+@media screen  and (max-width:2000px){
+  #divTableDocumentos{
+    height: 33em;
+
+  }
+}
+
+@media screen  and (min-width:1946.520px){
+  #divTableDocumentos{
+    height: 27em;
+  }
+}
+
+@media screen  and (min-width:1725.140px){
+  #divTableDocumentos{
+    height: 23em;
+  }
+}
+
+@media screen  and (min-width:1531px){
+  #divTableDocumentos{
+    height: 16em;
+  }
+} */
+
+
+/* 
+@media screen  and (max-width:1920px){
+  #divTableDocumentos{
+    height: 40em;
+
+  }
+}
+
+@media screen  and (max-width:1920px){
+  #divTableDocumentos{
+    height: 40em;
+
+  }
+}
+
+@media screen  and (max-width:1707.500px){
+  #divTableDocumentos{
+    
+    height: 16em;
+
+  }
+}
+
+
+
+@media screen  and (max-width:1707.500px){
+  #divTableDocumentos{
+    
+    height: 16em;
+
+  }
+}
+
+@media screen  and (max-width:1517px){
+  #divTableDocumentos{
+    height: 16em;
+  }
+
+}
+
+@media screen  and (max-width:1366px){
+  #divTableDocumentos{
+    height: 16em;
+
+  } */
+
+
+/* #sectionDocs{
+    height: 31em;
+  } */
+
+
+/* } */
+
+
+/* background: #fffffff7; */
+
+
+/* border: solid 1px gray; */
+
+
+/* font-size: 11px; */
+
+
+/* .caixaTotalizadorSelecionados {
+  width: 100px;
+  border-radius: 10%;
+  text-align: center;
+  font-weight: 700;
+  height: 19px;
+  padding: 3px;
+  color: white;
+} */
+
+
+
+
+/* 
+
+ @media screen  and (max-width:1707.500px){
+  #divTableDocumentos{
+    height: 30em;
+
+  }
+  #sectionDocs{
+    height: 33em;
+  }
+
+}
+
+
+@media screen  and (max-width:2400px){
+  #divTableDocumentos{
+    height: 40em;
+
+  }
+  #sectionDocs{
+    height: 43em;
+  }
+
+} 
+ */

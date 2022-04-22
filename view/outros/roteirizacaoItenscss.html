@@ -1,0 +1,1423 @@
+<style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    label {
+        display: block;
+        width: 86px;
+        margin: -34px auto;
+        background: #CCC;
+        height: 23px;
+        border-radius: 40px;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #9e9e9e), to(#f4f4f4));
+        background: linear-gradient(to bottom, #9e9e9e 30%, #f4f4f4);
+        -webkit-box-shadow: 0 2px 0 0 #fff, 0 -2px 0 0 #969494;
+        box-shadow: 0 2px 0 0 #fff, 0 -2px 0 0 #969494;
+        position: relative;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+
+    label input {
+        display: none;
+    }
+
+    label div {
+        display: block;
+        width: 80px;
+        height: 33px;
+        position: absolute;
+        left: 50%;
+        top: 47%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #8b8c8e), to(#f4f4f4));
+        background: linear-gradient(to bottom, #8b8c8e 20%, #f4f4f4);
+        border-radius: 25px;
+    }
+
+    label div:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 17px;
+        width: 50px;
+        left: 2px;
+        top: 4px;
+        border-radius: 23px;
+        background: #828080;
+        -webkit-box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.8);
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.8);
+        -webkit-transition: .20s;
+        transition: .20s;
+    }
+
+    label i {
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #9e9e9e), to(#f4f4f4));
+        background: linear-gradient(to top, #9e9e9e 20%, #f4f4f4);
+        border-radius: 50%;
+        -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+        top: 1px;
+        left: -2px;
+        -webkit-transition: .25s;
+        transition: .25s;
+    }
+
+    label i:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        left: 3px;
+        top: 2px;
+        border-radius: 50%;
+        background: #d5d4d4;
+        z-index: 1;
+    }
+
+    label input:checked~i {
+        top: 1px;
+        left: 32px;
+    }
+
+    label input:checked+div:after {
+        background: #9aedbc;
+        -webkit-box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    label input:checked+div>.off {
+        color: transparent;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+    }
+
+    label input:checked+div>.on {
+        color: white;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    label:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 164px;
+        height: 84px;
+        border-radius: 42px;
+        background: rgb(247, 247, 247);
+        top: -2px;
+        left: -2px;
+        z-index: -1;
+        background: -webkit-gradient(linear, left top, left bottom, from(#969494), to(#fff));
+        background: linear-gradient(to bottom, #969494, #fff);
+    }
+
+    label:hover {
+        cursor: pointer;
+    }
+
+    label:focus,
+    label:active {
+        outline: 0;
+    }
+
+    .on,
+    .off {
+        text-transform: uppercase;
+        position: absolute;
+        left: 10px;
+        top: 42%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        font-weight: 600;
+        z-index: 2;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        letter-spacing: 1px;
+        -webkit-transition: .25s;
+        transition: .25s;
+    }
+
+    .on {
+        color: transparent;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+    }
+
+    .off {
+        left: initial;
+        right: 32px;
+        top: 13px;
+        color: #444;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+        /* background: green; */
+        margin: -52px 0 0 -42px;
+    }
+
+    .form-group2 {
+        margin-bottom: 0px;
+        /* background: green; */
+        margin: 6px 0 0 -42px;
+    }
+</style>
+
+<style>
+    .button {
+        background-color: none;
+        border: none;
+        color: none;
+        /* padding: 5px 8px; */
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 19px;
+        margin: 8px 2px;
+        cursor: pointer;
+    }
+
+    .button-carro {
+        width: 92px;
+    }
+
+    .button-carro-conteudo {
+        color: black;
+        margin: -20px 0px 0px -47px;
+        position: absolute;
+        font-size: 14px;
+    }
+
+    .button-servicos {
+        width: 27px;
+    }
+
+    .button-servicos-conteudo {
+        color: white;
+        margin: -31px 0 0 4px;
+        position: absolute;
+        font-size: 14px;
+    }
+
+    .naoRoteirizar {
+        background-color: rgb(237, 187, 187);
+        color: black;
+        cursor: no-drop;
+    }
+
+    .orfa {
+        background-color: rgba(255, 228 ,181,.68);
+        color: black;
+        cursor: pointer;
+    }
+
+    .emVeiculo { 
+        background-color:rgba(178, 227, 250, 0.892);
+        color: black;
+        cursor: no-drop;
+    }
+
+    .imgEmVeiculoHabilitado{
+            background: transparent url(img/icon-toco.gif) ;
+            height: 64px;
+            width: 63PX;
+            MARGIN: 0px 0 0 206px;
+            BORDER-RADIUS: 43px;
+            position: absolute;
+    }
+
+    .imgEmVeiculoDesabilitado{
+        background: transparent url(img/icon-TocoD.png) ;
+        height: 64px;
+        width: 63PX;
+        MARGIN: 0px 0 0 206px;
+        BORDER-RADIUS: 43px;
+        position: absolute;
+    }
+    
+    .imgOrfaHabilitado{
+            background: transparent url(img/icon-home.png) no-repeat left bottom;
+            height: 64px;
+            width: 63PX;
+            MARGIN: 0px 0 0 263px;
+            BORDER-RADIUS: 43px;
+            position: absolute;
+    }
+
+    .imgOrfaDesabilitado{
+        background: transparent url(img/icon-homeD.png) no-repeat left bottom;
+        height: 64px;
+        width: 63PX;
+        MARGIN: 0px 0 0 263px;
+        BORDER-RADIUS: 43px;
+        position: absolute;
+    }
+
+
+    .imgBloqueHabilitado{
+
+        background:transparent url(img/icon-bloqueio.gif);
+        height: 64px;
+        width: 63PX;
+        MARGIN: 0px 0 0 318px;
+        BORDER-RADIUS: 43px;
+        position: absolute;
+
+
+    }
+    .imgBloqueDesabilitado{
+        background: transparent url(img/icon-bloqueioD1.png);
+        height: 64px;
+        width: 63PX;
+        MARGIN: 0px 0 0 318px;
+        BORDER-RADIUS: 43px;
+        position: absolute;
+        
+    }
+
+
+    
+    
+    .selected {
+        background-color: rgba(124, 252, 177, 0.23);
+        color: black;
+        font-weight: bold;
+        cursor: not-allowed;
+    }
+
+    .selectedvei {
+        background-color: rgba(124, 252, 177, 0.23);
+        color: black;
+        font-weight: bold;
+        cursor: not-allowed;
+    }
+
+    .selected1 {
+        background-color: rgba(175, 169, 169, 0.6) ;
+        color: rgb(10, 10, 10);
+
+    }
+
+    .desable {
+        color: rgb(126, 123, 123);
+        cursor: not-allowed;
+    }
+
+    .habilitSetaDown {
+        color: green;
+        cursor: pointer;
+    }
+
+    .habilitSetaUp {
+        color: red;
+        cursor: pointer;
+    }
+
+    .ajustatela {
+        height: 280px;
+        overflow-y: scroll;
+    }
+
+    .ajustescroll {
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: none
+        /* overflow-y: scroll; */
+    }
+
+    .grid {
+        height: 550px;
+        overflow-y: scroll;
+        margin-left: -11px;
+    }
+
+    .titleAux {
+
+        color: rgb(218, 108, 34);
+        display: block;
+        line-height: 1em;
+        /* margin-top: 10px;
+    margin-left: 10px; */
+        margin: -36px 0px 0px 60px;
+    }
+
+    .titleDetalAux {
+        font-size: 1.0vmax;
+        margin-left: 10px;
+        margin: -20px 0px 0px 60px;
+    }
+
+    .titleDetalAux1 {
+        font-size: 1.0vmax;
+        margin-left: 10px;
+        margin: -22px 0px 0px 104px;
+    }
+
+    .placa {
+        border: double;
+        border-width: 4px;
+        background: #d8d3d3;
+        color: #636161;
+        width: fit-content;
+        text-decoration: none;
+        padding-top: 2px;
+        padding-left: 8%;
+
+    }
+
+    .list {
+        list-style: none outside none;
+        margin: 10px 0 30px;
+    }
+
+    .selecionado {
+        background-color: #9aedbc;
+    }
+
+
+
+    .bloco {
+        /* width: 200px;
+		height: 200px;
+		background-color: #F23005; */
+        border-radius: 7px;
+        -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+
+
+    }
+
+
+
+    .w3-modalItens {
+
+        z-index: 3;
+        display: none;
+        padding-top: 16%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 30px
+    }
+
+
+    .w3-modal-contentitens {
+        width: 37%;
+        margin: 1px 0 0 26%;
+        background: #f1f1f1
+    }
+
+
+
+
+    .painel {
+        position: absolute;
+        width: 293px;
+        height: 385px;
+        background: rgb(28, 53, 93);
+        margin-left: 10px;
+        margin: -12px 0 0px 83%;
+        border-radius: 30px
+    }
+
+    .detalhes {
+        position: absolute;
+        width: 276px;
+        height: 371px;
+        background: white;
+        margin-left: 20px;
+        margin: -5px 0 0px 83.5%;
+        border-radius: 8px;
+        z-index: 999999;
+
+    }
+
+    .dash {
+        border-radius: 50px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(28, 53, 93);
+        border: 3px solid rgb(218, 108, 34);
+        float: left;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 2em;
+        font-size: 20px;
+        margin: 0 10px;
+        padding: 0;
+        margin-left: 25px;
+        margin-top: 6px;
+    }
+
+    .textoDash {
+        font-size: 17px;
+        color: rgb(28, 53, 93);
+        text-align: left;
+        position: absolute;
+        margin-left: 29px;
+        font-weight: 800;
+    }
+
+    .starNumber {
+        margin-left: 10px;
+        color: #1c355d;
+    }
+
+    .bloco {
+
+        border-radius: 7px;
+        -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+
+
+    }
+
+    .bloconew {
+        margin: -47px 0 0 2px;
+        width: 99%;
+    }
+
+    .routeControls122 {
+
+        width: 40%;
+        float: right;
+        display: block;
+        padding: 10px 0;
+        margin-right: 0;
+        margin: 1px 17px 0 -11px;
+        width: 258px;
+        text-align: right;
+    }
+
+
+    .face {
+        content: "\f230";
+        font-family: FontAwesome;
+    }
+
+    .placaCinzaDetalhes {
+        border-style: 9px;
+        background: #d9dada;
+        width: 212px;
+        height: 70px;
+        border-radius: 7px;
+        font-size: 7px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #939598;
+        text-align: center;
+    }
+
+
+    .placaCinzaEmpresaDetalhe {
+        width: 119px;
+        height: 9px;
+        border-width: 1px;
+        border-color: black;
+        margin-top: 1px;
+        margin-left: 75px;
+        font-weight: 900;
+        font-size: 10px;
+    }
+
+    .placaCinzaNumeroDetalhe {
+        margin-top: 7px;
+        text-align: center;
+        font-size: 21px;
+        color: black;
+        font-weight: 800;
+        margin-left: 67px;
+    }
+
+    .eixoTraseiro {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: #000000d6;
+        margin: -21px 0 0 80px;
+    }
+
+    .eixoTraseiro1 {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: #000000d6;
+        margin: -66px 0 0 223px;
+    }
+
+    .eixoTraseiro2 {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: #000000d6;
+        margin: -66px 0 0 -81%;
+    }
+
+    .eixoCavalo {
+        width: 132px;
+        height: 67px;
+        border-radius: 0px 0px 71px 74px;
+        background: #000000d6;
+        margin:36px 0 0 1px; 
+        
+    }
+
+
+    .eixoLigarCavalo {
+        width: 24px;
+        height: 54px;
+        /* border-radius: 5px; */
+        background: #1c355d;
+        margin: -135px 0 0 -33px;
+    }
+
+    /* .animate {
+    animation-name: girando;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes girando {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+    } */
+
+    .mostrarVeiculo{
+        width: 54px;
+         display: block;
+          filter: grayscale(1);
+          
+    
+    }
+
+    .ladoalado{
+        float: left;
+        width: 30%;
+    }
+
+    
+
+    
+</style>
+
+
+<style>
+
+	.bateria {
+			border-radius: 2px;
+			background-color: #f9f8f8;
+			border: 1px solid rgb(28, 53, 93);
+			width: 69px;
+			height: 28px;
+		}
+
+
+		.bateria1 {
+            border-radius: 3px;
+            background-color: rgb(28, 53, 93);
+            border: 1px solid rgb(28, 53, 93);
+            float: left;
+            width: 8px;
+            height: 15px;
+            margin: 6px 0px 0px 67px;
+		}
+
+		.cargaCorpo{
+			border-radius: 2px;
+			color: rgb(255, 255, 255);
+			border: 1px solid rgb(28, 53, 93);
+			float: left;
+			width: 8px;
+			height: 28px;
+			text-align: center;
+			line-height: 2em;
+			font-size: 20px;
+			padding: 0;
+			position: absolute;
+
+		}
+
+		.carga1 {margin: -1px 0px 0px -1px; }
+		.carga2 {margin: -1px 0px 0px  6px; }
+		.carga3 {margin: -1px 0px 0px  13px;}
+		.carga4 {margin: -1px 0px 0px  20px;}
+		.carga5 {margin: -1px 0px 0px  27px;}
+		.carga6 {margin: -1px 0px 0px  34px;}
+		.carga7 {margin: -1px 0px 0px  41px;}
+		.carga8 {margin: -1px 0px 0px  48px;}
+		.carga9 {margin: -1px 0px 0px  54px;}
+		.carga10{margin: -1px 0px 0px  61px;}
+		
+
+	
+		.colorCargaCarregada{
+			background-color:#ff7f27;;
+		}
+
+
+		.colorCargaDescarregada{
+			background-color:white;
+		}
+		
+        .veiculozerado{
+            color: rgb(211, 211, 211);
+        }
+        .temServ {
+            color: rgb(28, 53, 93);
+        }
+       
+
+       .clearance {
+            color:white;
+            /* background: yellow; */
+            /* border-top: 2px solid orange; */
+        }
+
+        .clearance:after {
+            /* content: " on clearance!"; */
+            font-weight: bold;
+            font-style: italic;
+        }
+
+
+       .clearance1 {
+            color: #9f9fa0;
+            /* background: yellow; */
+            /* border-top: 2px solid orange; */
+        }
+
+        .clearance1:after {
+            /* content: " on clearance!"; */
+            font-weight: bold;
+            font-style: italic;
+        }
+
+
+
+
+
+</style>
+
+
+<div ng-include="'view/modal.html'" ng-show="loading"></div>
+<div ng-include="'view/codfiguracao.html'" ng-show="loading"></div>
+
+
+
+<!-- MODAL UP -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 w3-container">
+            <div id="id03" class="w3-modalItens">
+
+
+                <div class="w3-modal-contentitens w3-card-4 w3-animate-zoom">
+                    <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                            <span class="fas fa-window-close fa2x" onclick="document.getElementById('id03').style.display='none'" 
+                            style="color:red;margin-left: 99%;font-size: 24px">
+                            </span>
+                            <h2 style="    margin-top: -33px;  font-size: 20px;    text-align: center;">Confirmar exclusão</h2>
+                        </header>
+
+                        <h2 style="font-size: 20px;padding: 10px;margin: -76px 0 -8px 8px;">
+                            {{msg="Retirar as ordens selecionadas do veículo?"}}
+                        </h2>
+
+
+                        <button type="button" class="btn btn-primary" ng-click="excluirOrdemVeiculo()" style="width: 79px; color: white;background-color: #1c355d;border-color: #357ebd;margin: 0 0 0 35%;"
+                            onclick="document.getElementById('id03').style.display='none'">OK</button>
+                        
+                        <button type="button" class="btn btn-danger" style="color: white;background-color: #cd1515;border-color: #dd4646;margin: 0px 0 0 0%;"
+                            onclick="document.getElementById('id03').style.display='none'">Cancela</button>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+        
+
+<!-- MODAL DOWN -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 w3-container">
+            <div id="id02" class="w3-modalItens">
+
+
+                <div class="w3-modal-contentitens w3-card-4 w3-animate-zoom">
+                    <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                        <span class="fas fa-window-close fa2x" onclick="document.getElementById('id02').style.display='none'" 
+                        style="color:red;margin-left: 99%;font-size: 24px">
+                        </span>
+                        <h2 style="    margin-top: -33px;  font-size: 20px;    text-align: center;">Confirmar Inclusão</h2>
+                    </header>
+
+                    <h2 style="font-size: 20px;padding: 10px;margin: -76px 0 -8px 8px;">{{msg=" Confirmar o envio do(s) serviço(s) de entrega(s) e coleta(s) para o veículo selecionado?"}}
+                        </h2>
+
+                        
+                    <button type="button" class="btn btn-primary" 
+                        ng-click="inserirOrdemVeiculo()" 
+                        style="width: 79px;color: white;background-color: #1c355d;border-color: #357ebd;margin: 0 0 0 35%;"
+                        onclick="document.getElementById('id02').style.display='none'">OK</button>
+                        
+                    <button type="button" class="btn btn-danger" 
+                    style="color: white;background-color: #cd1515;border-color: #dd4646;margin: 0px 0 0 0%;"
+                    onclick="document.getElementById('id02').style.display='none'">Cancela</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- LISTA DE SERVIÇOS E LISTA DE VEICULOS ROTEIRIZAÇÃO -->
+<div class="form-group row w3-container">
+
+
+<style>
+    .submit-lente {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    .submit-line {
+        position: relative;
+        width: 370px;
+    }
+
+    .submit-line input {
+        width: 100%;
+    }
+
+    .habilitaScanner{
+        color: black;
+        font-size: 34px;
+        margin: 0px -70px 0 0px;
+        width: 0;
+        position: absolute
+
+    }
+    .desabilitaScanner{
+        font-size: 34px;
+        margin: 0px -70px 0 0px;
+        width: 0;
+        position: absolute;
+        filter: grayscale(1);
+    }
+
+</style>
+
+    <!-- DOCUMENTOS -->
+    <div class="col-md-10">
+
+        <!-- ng-class="{'ajustatela':dadosVeiculo.length >0,'ajustescroll':itensVeiculoSelecionado.length ==0}" -->
+        <div class="panel panel-primary bloco" style="margin: 0px 0 0 42px ">
+            <div class="col-md-12" style="background: rgb(28, 53, 93);color:white; width: 100%; height: 69px;    border-radius: 11px 11px 0px 0px;">
+                <div class="panel-heading">
+                    <div class="col-md-6" style="z-index: 9999999999999999999;">
+                        <div class="col-md-6">
+                            <h3 style="color:white">
+                                QTD. SERVIÇOS ENTR. E COL. ({{result.length }})
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                    <div class="submit-line">
+                                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" id="txtbuscardoc"  
+                                            ng-keypress="onKeyUpTxtScan_Veiculo($event)"
+                                            ng-model="searchText"
+                                            ng-change="search()" 
+                                            style="border: 1px solid #cccccc; background: white;width:472px"
+                                            placeholder="{{textoFind}}">
+                                        <button class="submit-lente" type="submit" ng-click="habilitarScanner()" 
+                                        ng-class="{'desabilitaScanner':Scanner==false,'habilitaScanner':Scanner==true}" >
+                                            <i class="fas fa-barcode"  ></i>
+                                        </button>
+                                    </div>
+
+                                    
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-10">
+                            <div class="col-md-03 ladoalado ">
+                                <div style="cursor:pointer; width: 75px">
+                                    <img class="bloco" style="width: 54px" 
+                                        data-ng-class="{'nnmostrarVeiculo': ev==false ,'mostrarVeiculo':ev==true}" 
+                                        alt="" 
+                                        data-ng-click="mostrarFiltro('emVeiculo')">
+                            
+                                </div>
+                            </div>
+                        
+                        <div class="bloco"
+                            style="cursor:pointer; border-radius:53px;width:48px;height:48px ;    border: 3px solid #ff7f27;" 
+                            ng-class="{'imgEmVeiculoHabilitado' : ev==false,'imgEmVeiculoDesabilitado'  : ev==true}"    
+                            ng-click="mostrarFiltro('emVeiculo')"
+                            title="Em Veículo"> 
+                        </div>
+                        <div class="bloco"
+                            style="cursor:pointer; border-radius:53px;width:48px;height:48px ;    border: 3px solid #ff7f27;" 
+                            ng-class="{'imgOrfaHabilitado'  : orf==false,'imgOrfaDesabilitado'      : orf==true}"
+                            ng-click="mostrarFiltro('orfa')"
+                            title="Em Armazém">      
+                        </div>
+                        <div class="bloco"
+                            style="cursor:pointer;border-radius:53px;width:48px;height:48px;    border: 3px solid #ff7f27;" 
+                            ng-class="{'imgBloqueHabilitado'    : block==false,'imgBloqueDesabilitado'  : block==true}" 
+                            ng-click="mostrarFiltro('bloqueado')"
+                            title="Não Roteirizar"> 
+                        </div>
+
+
+                        <!-- <img src="img/ico-clear.png" alt="" style=" cursor:pointer;   height: 49px;width: 49px;background: blue;border-radius: 45px;border: 2px solid #ff7f27;margin: -19px 0 0 122%;"  class="bloco" title="Limpar selecionado(s)!"> -->
+                        
+                        <!-- title="Configurações(troca de rotas e etc..)!" -->
+                        </div>
+
+                        <div class="col-md-2">
+                            <h3>
+                                <!-- BOTAO CONFIGURAÇAO  -->
+                                <button style="font-size:16px; background: white" 
+                                    type="button" 
+                                    class="btn btn-primary  btn-xs" 
+                                    ng-disabled="selectedRows.length <= 0"
+                                    onclick="document.getElementById('id01').style.display='block'"
+                                    ng-click="CarrregarRotasDistribuicaoFilias()"
+                                    title="Configurações em serviços selecionados com status Em Armazém">
+                                    <i class="fas fa-sliders-h" style="font-size:24px;color:#da6c22" placeholder=" teste"></i>
+                                </button>
+                            </h3>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel-body">
+                <div class="col-md-12" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}" style="border-radius: 0px 0 60px 60px;">
+
+                    <!-- ng-class="{'ajustatela':dadosVeiculo.length >0,'ajustescroll':itensVeiculoSelecionado.length ==0}" -->
+                    <table class="table" arrow-selector style="border-radius: 0px 0px 0px 0px; font-size: 9px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> VEÍCULO</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('COD_DOCUMENTO')">COD. CONHECIMENTO</a>
+                                </th>
+                                <th scope="col">
+                                        <a href="" ng-click="ordenarPor('COD_DOCUMENTO')"> NR DOCUMENTO</a>
+                                    </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> TP</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('ORDEM_ENTREGA')"> ORDEM</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('REMETENTE')"> REMETENTE</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('DESTINATARIO')"> DESTINATÁRIO</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('ROTA')"> RT</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('CIDADE')"> CIDADE</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('ENDERECO')"> ENDEREÇO</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('BAIRRO')"> BAIRRO</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('DT_EMISSAO')"> EM.</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('DT_MAXIMA')"> MAX.</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('QT_VOLUME')"> VOL.</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('PESO')"> PESO</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('PESO_REAL')"> PESO REAL</a>
+                                </th>
+                                <th scope="col">
+                                    <a href="" ng-click="ordenarPor('VALOR')"> VALOR</a>
+                                </th>
+                                <th scope="col">
+                                        <a href="" ng-click="ordenarPor('status')"> Status</a>
+                                    </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                             <!-- result / roteirizacaoItens -->
+                            <tr ng-repeat="item in result  | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index"
+                                ng-class="  {'selected1'  :$index                               == selectedRow
+                                                        ,'selected'     :item.selected          ==true
+                                                        ,'naoRoteirizar':item.FL_ROTEIRIZAR     ==false 
+                                                        ,'emVeiculo'    :item.IDENT_VEICULOS    !=''
+                                                        ,'orfa'         :item.IDENT_VEICULOS    =='' && item.FL_ROTEIRIZAR==true}"
+                                ng-click="setClickedRowGridServicos($index)" 
+                                ng-model="roteirizacaoItens" >
+                                <td>{{item.IDENT_VEICULOS |uppercase }}</td>
+                                <td>{{item.COD_DOCUMENTO}}</td>
+                                <td>{{item.NR_DOCUMENTO_FORMATADO}}</td>
+                                <td>{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                                <td>{{item.ORDEM_ENTREGA}}</td>
+                                <td>{{item.REMETENTE |uppercase}}</td>
+                                <td>{{item.DESTINATARIO |uppercase}}</td>
+                                <td>{{item.ROTA}}</td>
+                                <td>{{item.CIDADE}}</td>
+                                <td>{{item.ENDERECO |uppercase}} , {{item.NR_ENDERECO}} </td>
+                                <td>{{item.BAIRRO |uppercase}}</td>
+                                <td>{{item.DT_EMISSAO}}</td>
+                                <td>{{item.DT_MAXIMA}}</td>
+                                <td>{{item.QT_VOLUME}}</td>
+                                <td>{{item.PESO}}</td>
+                                <td>{{item.PESO_REAL}}</td>
+                                <td>{{item.VALOR | currency}} </td>
+                                <td>
+                                    <div ng-class="{'imgEmVeiculoHabilitado1' : item.status=='emVeiculo','imgEmArmazem'  : item.status=='orfa','imgBloqueado': item.status=='bloqueado'}"
+                                        ng-click="mostrarFiltro('emVeiculo')">
+                                    </div>
+                                </td>
+                                <!-- <td>
+                                        <div class="bloco"
+                                        style="border-radius:53px;width:40px;height:40px ;    border: 3px solid #ff7f27;" 
+                                        ng-class="{'imgEmVeiculoHabilitado1' : item.status=='emVeiculo','imgEmArmazem'  : item.status=='orfa','imgBloqueado': item.status=='bloqueado'}"    
+                                        ng-click="mostrarFiltro('emVeiculo')"
+                                        title="Em Veículo"> 
+                                    </div>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .imgEmVeiculoHabilitado1 {
+            border: 2px solid #cfd0d3;
+            width: 20px;
+            height: 20px;
+            border-radius: 15px;
+            background: #81ccef;
+            box-shadow: 5px 3px 5px rgba(50, 50, 50, 0.77);
+        }
+    
+        .imgEmArmazem {
+            border: 2px solid #cfd0d3;
+            width: 20px;
+            height: 20px;
+            border-radius: 15px;
+            background: #f6eb8e;
+            box-shadow: 5px 3px 5px rgba(50, 50, 50, 0.77);
+        }
+    
+        .imgBloqueado {
+            border: 2px solid #cfd0d3;
+            width: 20px;
+            height: 20px;
+            border-radius: 15px;
+            background: #db6262;
+            box-shadow: 5px 3px 5px rgba(50, 50, 50, 0.77);
+        }
+    </style>
+    
+    <!-- <div class="bloco"
+    style="cursor:pointer; border-radius:53px;width:48px;height:48px ;    border: 3px solid #ff7f27;" 
+   "    
+    ng-click="mostrarFiltro('emVeiculo')"
+    title="Em Veículo"> 
+</div>
+<div class="bloco"
+    style="cursor:pointer; border-radius:53px;width:48px;height:48px ;    border: 3px solid #ff7f27;" 
+    ng-class="{'imgOrfaHabilitado'  : orf==false,'imgOrfaDesabilitado'      : orf==true}"
+    ng-click="mostrarFiltro('orfa')"
+    title="Em Armazém">      
+</div>
+<div class="bloco"
+    style="cursor:pointer;border-radius:53px;width:48px;height:48px;    border: 3px solid #ff7f27;" 
+    ng-class="{'imgBloqueHabilitado'    : block==false,'imgBloqueDesabilitado'  : block==true}" 
+    ng-click="mostrarFiltro('bloqueado')"
+    title="Não Roteirizar"> 
+</div> -->
+
+
+    
+    
+    <!-- VEICULOS -->
+    <div class="col-sm-2">
+        <div class="panel panel-primary bloco" style="border-radius: 7px;width: 317px;margin-left: -40px;">
+
+            <div class="panel-heading" style="background: rgb(28, 53, 93);color:white; width: 100%; height: 69px; border-radius: 11px 11px 0px 0px;">
+
+                <div class="col-sm-4">
+                    <h2 class="panel-title">
+                        QTD. {{listaVeiculos.length }}
+                    </h2>
+                </div>
+                <div class="col-sm-8" style="width: 0px;">
+                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid" 
+                        ng-model="criterioDeBusca" style="border: 1px solid #cccccc; background: white;width: 100px "
+                        placeholder="Buscar">
+                </div>
+
+                <div onclick="document.getElementById('id04').style.display='block'" class="clearVeiculos" title="Limpar serviço(s) do(s) veículo(s)" >
+                        
+                </div>
+            </div>
+
+            <div class="panel-body"> 
+                <div class="col-md-12 grid" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}" style="    margin-left: -34px;width: 116%">
+
+                    <style>
+                        .marcar{
+                            background: rgba(128, 128, 128, 0.631)
+                        }
+
+                        .clearVeiculos{
+                            background: transparent url(img/clearVeiculos2.png);
+                            width: 32px;
+                            height: 32px;
+                            BORDER-RADIUS: 20px;
+                            border: 3px solid #ff7f27;
+                            cursor: pointer;
+                            margin: 0 0 0 250px;                      
+                            z-index: 9999999;    
+
+                        }
+                    </style>
+
+                    <div ng-repeat="vei in listaVeiculos | filter:criterioDeBusca" 
+                    
+                    style="margin: 13px 0 0 0px"
+                    ng-class="{'marcar':vei.selected==true}" >
+                        <div    class="placaMercosul bloco" 
+                                ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )"  
+                                style="cursor:pointer">
+                            <span style=" position: absolute;margin-top: 19px; margin-left: -52px; color: #1c355d;   ">
+                                <i class="fas fa-truck fa-3x"></i>
+                            </span>
+
+                            <div class="placaDescEmpresa" style="padding: 1px;">SOLISTICA
+                                <!-- <img alt="" src="img/colombia.png"title="Pais"> -->
+                                <img alt="" src="img/brasil.png"title="Pais" 
+                                style="position: absolute;margin: -5px 0 0 17px;width: 18px;">
+                                
+                                
+                            </div>
+                            <div class="placaParticular">{{vei.IDENT_VEICULOS}} </div>
+
+                        </div>
+
+                        <!-- <div class="brasil-flag" style="margin:-47px 0 0 99px; border-radius: 3px;position: absolute">
+                                <div class="losangue"></div>
+                                <div class="circle"></div> 
+                        </div> -->
+
+                        <a href="" 
+                            class="button "  
+                            style="width: 57px;position: absolute;     margin: -41px 0 0 134px; cursor:default"
+                            ng-class="{'temServ': vei.QTD_CTRC >0 ,'veiculozerado':vei.QTD_CTRC <=0}">
+                             
+                            <!-- ng-class="{'bloco':vei.QTD_CTRC>0}"  -->
+                            <i class="fa fa-map-marker fa-2x" ></i>
+                            <div style="position: absolute;margin-top: -36px;margin-left: 5px;z-index: 99999;" 
+                                ng-class="{'clearance': vei.QTD_CTRC >0 ,'clearance1':vei.QTD_CTRC <=0}">
+                                {{vei.QTD_CTRC}}
+                            </div>
+                        </a>
+
+                        <div style="position: absolute;margin:-28px 0 0 177px" class="bateria">
+                            <div class="bateria1"></div>
+                            <div class="cargaCorpo carga1" ng-class="{'colorCargaCarregada': vei.OCUPACAO >0 }"></div> 
+                            <div class="cargaCorpo carga2" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=20 }"></div> 
+                            <div class="cargaCorpo carga3" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=30 }"></div> 
+                            <div class="cargaCorpo carga4" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=40 }"></div> 
+                            <div class="cargaCorpo carga5" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=50 }"></div> 
+                            <div class="cargaCorpo carga6" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=60 }"></div> 
+                            <div class="cargaCorpo carga7" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=70 }"></div> 
+                            <div class="cargaCorpo carga8" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=80 }"></div> 
+                            <div class="cargaCorpo carga9" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=90 }"></div> 
+                            <div class="cargaCorpo carga10" ng-class="{'colorCargaCarregada': vei.OCUPACAO >=100 }"></div> 
+                        </div>
+
+                        <span style="margin: -46px 0 0 198px; position: absolute; font-weight: bold;color: rgb(28, 53, 93);    font-size: 16px;" > {{vei.OCUPACAO}} %</span>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-show="dadosVeiculo.length > 0">
+
+    <!-- SETAS -->
+    <div class="col-md-12  w3-container" style="text-align: center;margin-top: -25px;margin-left: -187px">
+        <button style="font-size:16px; background: #1c355d;border-radius: 6px; border: 3px solid #ff7f27;width: 40px;height: 40px" type="button"
+            class="btn btn-primary  btn-md" onclick="document.getElementById('id02').style.display='block'" title="Enviar para Veículo">
+            <i class="fa fa-arrow-circle-down" ></i>
+        </button>
+        <button style="font-size:16px; background: #1c355d;border: 3px solid #ff7f27;width: 40px;height: 40px" type="button"
+            class="btn btn-primary  btn-md" onclick="document.getElementById('id03').style.display='block'" title="Devolver para o Armazém">
+            <i class="fas fa-arrow-circle-up" style="text-align: center"></i>
+        </button>
+
+
+    </div>
+
+    <div class="form-group2 col-md-12">
+
+        <div class="col-md-10" style="border-radius: 7px;margin-left: 30px">
+
+
+            <!-- CARRETA -->
+            <div class="panel panel-primary bloco" style="border-radius: 7px;">
+                <div class="col-md-12" style="background: rgb(28, 53, 93);color:white; width: 100%; height: 69px;    border-radius: 11px 11px 0px 0px;">
+                    <div class="panel-heading">
+
+                        <div class="col-md-6" style="margin: -36px 0 0 75%;">
+
+                            <h3 style="color:white;    margin-top: 35px;height: 2px">
+                                Scanner Docs
+                            </h3>
+                            <h3 >
+                                <input type="text" 
+                                    class="form-control ng-pristine ng-untouched ng-valid" 
+                                    ng-model="txtbuscardoc" 
+                                    style="border: 1px solid #cccccc; background: white;width:273px"
+                                    placeholder="Buscar codigo de barras"
+                                    ng-keypress="scnnerDocs($event)">
+                                    <i class="fas fa-barcode" style="margin: -35px 0 0 231px;position: absolute;font-size: 36px;color: black;"></i>
+
+                                    <!-- ng-class="{'inverteselecao1': troca==false ,'inverteselecao2':troca==true}" 
+                                    <img class="dash" style=" width: 51px;border-radius: 60px; margin-top: 23px"                                               > -->
+                                    <div class="col-md-03 "style="width: 56px;margin: -74px 0 0px -21%;border-radius: 60px;">
+                                            <div ng-class="{'inverteselecao1': troca==false ,'inverteselecao2':troca==true}"
+                                                data-ng-click="trocaSelecao()" title="Inverter Seleção" >
+                                                
+                                        
+                                            </div>
+                                        </div>
+                                </h3>
+
+                                
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <style>
+
+         
+
+                    .inverteselecao1{
+                    
+                        background: transparent url(img/trocaSelect1.png);
+                        height: 56PX;
+                        width: 56PX;
+                        BORDER-RADIUS: 43px;
+                        border: 3px solid #ff7f27;
+                        cursor: pointer;
+                        MARGIN:18px 0 0 -18px;
+                        
+
+                    }
+                    .inverteselecao2{
+                        background: transparent url(img/trocaSelect2.png);
+                        height: 56px;
+                        width: 56PX;
+                        BORDER-RADIUS: 43px;
+                        border: 3px solid #ff7f27;
+                        cursor: pointer;
+                        MARGIN:18px 0 0 -18px;
+
+                    }
+                        
+                </style>
+                                    
+
+<!-- drag-to-reorder="itensVeiculoSelecionado" -->
+                <div class="panel-body">
+                    <div class="col-md-12" ng-class="{'ajustatela'   :dadosVeiculo.length>0,'grid' :dadosVeiculo.length<=0}" style="border-radius: 0px 0 60px 60px;">
+
+                        <table class="table" arrow-selector style="border-radius: 0px 0px 0px 0px; font-size: 9px">
+                            <caption style="text-align: center;" >SERVIÇOS VEICULO</caption>
+                            
+                            <tbody ng-repeat="item in itensVeiculoSelecionado ">
+                                    
+                                <tr drag-to-reorder="itensVeiculoSelecionado" ng-click="setClickedRowGridVeiculo($index)" ng-class="{'selectedvei':item.selected==true}" >
+                                   <td>{{item.IDENT_TIPO_DOCUMENTOS}}</td>
+                                    <td>{{item.ORDEM_ENTREGA}}</td>
+                                    <td>{{item.REMETENTE |uppercase}}</td>
+                                    <td>{{item.DESTINATARIO |uppercase}}</td>
+                                    <td>{{item.ROTA}}</td>
+                                    <td>{{item.ENDERECO |uppercase}} , {{item.NR_ENDERECO}} </td>
+                                    <td>{{item.CIDADE}}</td>
+                                    <td>{{item.BAIRRO |uppercase}}</td>
+                                    <td>{{item.PESO}}</td>
+                                    <td>{{item.PESO_REAL}}</td>
+                                    <td>{{item.VALOR | currency}} </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="eixoTraseiro bloco"></div>
+            <div class="eixoTraseiro1 bloco"></div>
+            <div class="eixoTraseiro2 bloco"></div>
+        </div>
+
+        <!-- CAVALO -->
+        <div class="painel bloco">
+
+            <a href="" class="button bloco" 
+                ng-click="selecionarVeiculo(veiculoSel.IDENT_VEICULOS,veiculoSel.COD_VEICULOS,'true')" style="font-size:28px;color:red ; cursor:pointer;    margin: 4px 0px 1px 86%; height: 29px;z-index: 99999999;position: absolute;transition: border-color 1s linear 0.1s;"
+                ng-class="{'temServ': vei.QTD_CTRC >0 }" ng-click="alert(vei.COD_VEICULOS)">
+                <i class="fas fa-window-close fa2x"></i>
+            </a>
+
+
+        </div>
+        <div class="detalhes">
+        
+            <div class="row">
+        
+                <div class="routeControls122 ">
+        
+        
+                    <div class="placaMercosul bloco" ng-click="selecionarVeiculo(vei.IDENT_VEICULOS,vei.COD_VEICULOS, 'false' )" style="position:pointer">
+                        <span style=" position: absolute;margin-top: 19px; margin-left: -52px; color: #1c355d;   ">
+                            <i class="fas fa-truck fa-3x"></i>
+                        </span>
+                        <img alt="" src="img/brasil.png" title="Pais" style="position: absolute;margin: -4px 0px 0px 41px;width: 18px;">
+                        <div class="placaDescEmpresa" style="padding: 1px;">SOLISTICA</div>
+                        <div class="placaParticular">{{dadosVeiculo.NR_PLACA_FORMATADA}} </div>
+                        
+                    </div>
+        
+                    <div class="identCavalo">ID: {{dadosVeiculo.IDENT_VEICULOS}} </div>
+                </div>
+                <!-- ABRIR MAPA -->
+        
+                <style>
+                    .identCavalo{
+                        text-align: left;
+                        padding: 10px;
+                        font-weight: bold;
+                        font-size: 17px;
+                        color: #747980;
+                    }
+                    .mostrarMapa {
+                        width: 92px;
+                        margin: -105px 0 0px 156px;
+                        cursor: pointer
+                    }
+        
+                    .naoMostrarMapa {
+                        width: 92px;
+                        margin: -105px 0 0px 156px;
+                        cursor: no-drop;
+                        filter: grayscale(1);
+                    }
+                </style>
+        
+                <img src="img/mapico.png" alt="" ng-class="{'mostrarMapa':quantidadeCtrc > 0 , 'naoMostrarMapa':quantidadeCtrc==0}" ng-click="openRtng(veiculoSel.COD_ROTEIRIZACAO, veiculoSel.COD_VEICULOS,quantidadeCtrc)">
+                <div class="row">
+                    <div class="dash">
+                        <span class="fab fa-dropbox" style="margin:9px 0 0 0"></span>
+                        <span class="textoDash"> Qtd serviços: {{quantidadeCtrc}}</span>
+        
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="dash">
+                        <span class="fas fa-tachometer-alt" style="margin:9px 0 0 0"></span>
+                        <span class="textoDash"> Peso: {{PESOTotal}} kg </span>
+                    </div>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="dash" ng-click="alert(capacidadePercent)">
+                        <span class="fas fa-battery-empty" style="margin:9px 0 0 0"></span>
+                        <span class="textoDash"> Ocupação: {{capacidadePercent}} % </span>
+                    </div>
+        
+                </div>
+        
+                <div class="row">
+                    <div class="dash">
+                        <span class="fas fa-road" style="margin:9px 0 0 0"></span>
+                        <span class="textoDash"> Distancia: {{kmDistaniaVeiculo}} KM</span>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="eixoCavalo bloco"></div>
+            <div class="eixoLigarCavalo"></div>
+        
+        </div>
+</div>

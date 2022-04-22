@@ -1,0 +1,275 @@
+<style>
+    .escolha {
+        width: auto;
+        height: auto;
+        border: solid 1px;
+        padding: 5;
+        margin-left: 5px;
+        background: white;
+        color: #1c355d;
+        border-radius: 4px 4px 4px 4px;
+        cursor: pointer;
+    }
+
+    .escolha:hover {
+        background-color: #e6570f;
+        color: white;
+    }
+
+    .active {
+        cursor: pointer;
+        /* width: 150px; */
+        height: auto;
+        border: solid 1px;
+        padding: 5;
+        margin-left: 5px;
+        background-color: #e6570f;
+        color: white;
+        border-radius: 4px 4px 4px 4px;
+    }
+
+    #chart-container {
+        margin-top: 137px;
+    }
+
+
+
+
+    .QtdServicos>span {
+        font-size: 17px;
+        font-weight: 900;
+        color: #1c355d;
+    }
+</style>
+
+
+
+<!-- COMPONETE TOOLBAR PARA NAVEGAÇÃO NA FERRAMENTA -->
+
+<div ng-include='"view/dashboard-manager/toolbar-dashboardManager.html"'  ng-controller="toolbarController"></div>
+<!-- <div ng-include='"view/partials/principal/toolbar.html"'  ng-controller="toolbarController"></div> -->
+
+
+<br>
+<br>
+<br>
+
+<div class="w3-row"
+    style="margin-top: 5px;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+
+
+    <div style="flex-wrap: wrap;display: flex;">
+
+
+
+
+
+        <!-- <div class="daterangepicker dropdown-menu ltr opensright" ng-show="mostra"
+                style="display: block; top: 45px; right: auto;">
+                <div class="ranges">
+                    <ul>
+                        <li data-range-key="Hoje" class="active">Hoje</li>
+                        <li data-range-key="Ontem">Ontem</li>
+                        <li data-range-key="Últimos 7 Dias">Últimos 7 Dias</li>
+                        <li data-range-key="Últimos 7 Dias">Últimos 15 Dias</li>
+                        <li data-range-key="Últimos 30 Dias">Últimos 30 Dias</li>
+                        <li data-range-key="Esse Mês">Esse Mês</li>
+                        <li data-range-key="Último Mês">Último Mês</li>
+                        <li data-range-key="Intervalo de datas" ng-model="date" datepicker-config="yourCustomConf"
+                            ng-flat-datepicker>Intervalo de datas</li>
+                    </ul>
+                    <div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" type="button"
+                            ng-click="mostra=!mostra; localizar()">Aplicar</button>
+                        <button class="cancelBtn btn btn-sm btn-default" type="button" ng-click="mostra=!mostra">Cancelar</button>
+                    </div>
+                </div>
+            
+            
+            </div> -->
+
+
+        <!-- <div ng-repeat="op_escolha in all  | filter : test |orderBy:criterioDeOrdenacao:direcaoDaOrdenacao track by $index ">
+                {{all}}
+
+            </div> -->
+
+        <!-- <div ng-repeat="ope in op_escolha">
+            <div ng-class="  { 'active':ope.active == true,'escolha' :ope.active  ==false}" id="{{ope.id}}" ng-click="opcaAtiva(ope.id);buscarDadosApi_TR_IRBR(ope)"   >  
+                {{ope.opcao}}
+            </div>
+            <div ng-show="ope.id==10 &&  ope.active==true" style="margin-top: -30px;margin-left: 150px;">
+                Inicio  <input type="date" name="Inicio" id="idIni" ng-model="Busca.dataInicio" style="width: 144px;text-align: center;padding-left: 9px;font-size: 14px;font-weight: 700;" > 
+                Fim     <input type="date" name="Final" id="IdFim"  ng-model="Busca.dataFinal" style="width: 144px;text-align: center;padding-left: 9px;font-size: 14px;font-weight: 700;" > 
+                <button type="submit" ng-click="buscarDadosApi_TR_IRBR(ope)"> Localizar</button>
+            </div>
+        </div> -->
+
+        <!-- <input type="button"  ng-click="acao1(filiais)" value="Baixa Remota (mocados)"> -->
+
+
+
+        <!-- <button ng-click="mostra=!mostra" >{{op_escolha.opcao}}</button>
+            <input type="text" ng-model="date" datepicker-config="yourCustomConf" ng-flat-datepicker>
+            <button ng-model="date" ng-flat-datepicker datepicker-config="yourCustomConf" ng-click="mostra=!mostra" >{{dia}}</button>
+            <input type="text"   ng-model="dateFinal" datepicker-config="yourCustomConf" ng-flat-datepicker>Pick a date</button> -->
+
+    </div>
+
+
+</div>
+
+
+
+<div class="w3-row"
+    style="height: 80%; margin-top: 15px;display: inline-flex;flex-wrap: wrap;flex-direction: row;padding-left: 93px;">
+
+
+    <div ng-repeat="dash in filiais   | orderBy:'NM_FILIAIS' " style="    margin-bottom: 10;">
+        
+
+
+        <!-- content -->
+        <div style="background: white;border-radius: 3%;margin-right: 20px;    width: 471px; height:375px;">
+
+            <!-- head -->
+            <div
+                style="    background: #1c355d;color: oldlace;padding: 20px;border: solid 1px orange;    border-radius: 6px 6px 0px 0px;font-size: 17px;">
+                {{dash.NM_FILIAIS}}    <span style="color: orange;cursor: pointer;font-size: 14;margin-left: 20px;">   QTD ROUTE {{ dash.QTD_ROTEIRIZACAO}} </span> 
+            </div>
+
+
+            <style>
+                tr:hover {
+                    background: transparent;
+                }
+            
+            
+                .QtdServicos {
+                    text-align: center;
+                    /* position: absolute; */
+                    display: block;
+                    z-index: 4;
+                    width: 220;
+                    /* height: 120px; */
+                    /* text-align: center; */
+                    /* background: gray; */
+                    position: absolute;
+                    /* display: inline; */
+                    /* width: 32%; */
+                    /* margin: 0px; */
+                    /* padding: 46px; */
+                    text-align: center;
+                    margin-top: 45px;
+                    /* color: azure; */
+                    margin-left: 59px;
+                    /* background: grey; */
+                }
+            
+                table {
+                    border-spacing: 0;
+                    width: 100%;
+                    background: rgba(158, 158, 158, 0);
+                    color: #616161;
+                }
+            </style>
+            <!-- body -->
+            <div style="    border-radius: 0px 0px 10px 10px; border: solid 1px #e6570f;padding: 10px; height: 310px;">
+
+                <table   style="width: 72%;font-family: Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 14px;">
+                    <body>
+                        <tr class="dadosCasa" style="height: 35px;color: gray;">
+                            <td>
+                                <div style="width: 20px;height: 20px;border-radius: 50%; background: gray; ">
+                                </div>
+                            </td>
+                            <td style="padding-left: 5px;width: 23px;">
+                                MANUAL
+                            </td>
+                            <td style="text-align: right;">
+                                {{dash.canvas_percentual[0]}}%
+                            </td>
+                            <td style="text-align: right;font-weight: 800">
+                                {{dash.QTD_MANUAL}}
+                            </td>
+                            <td >
+                                <span style="font-weight: 800; padding-left: 5px; padding-left: 5px;">Serviço(s)</span>
+                            </td>
+                        </tr>
+                        <tr style="height: 35px;color: #e6570f;">
+                            <td style="width: 11px;">
+                                <div style="width: 20px;height: 20px;border-radius: 50%; background:#e6570f; ">
+                                </div>
+                            </td>
+                            <td style="padding-left: 5px;width: 23px;">
+                                ROUTEASY C/ AJUSTE
+                            </td>
+                            <td style="text-align: right;">
+                                 {{dash.canvas_percentual[1]}}% 
+                            </td>
+                            <td style="text-align: right;font-weight: 800">
+                                {{dash.QTD_OPERADOR}}
+                            </td>
+                            <td>
+                                <span style="font-weight: 800; padding-left: 5px;padding-left: 5px; ">Serviço(s)</span>
+                            </td>
+                        </tr>
+                        <tr style="height: 35px;color: #1c355d">
+                            <td style="width: 11px;">
+                                <div style="width: 20px;height: 20px;border-radius: 50%; background: #1c355d; ">
+                                </div>
+                            </td>
+                            <td style="padding-left: 5px;width: 23px;">
+                                ROUTEASY
+                            </td>
+                            <td style="text-align: right;">
+                                {{dash.canvas_percentual[2]}}% 
+                            </td>
+                            <td style="text-align: right;font-weight: 800">
+                                {{dash.QTD_ROUTEASY}}
+                            </td>
+                            <td>
+                                <span style="font-weight: 800; padding-left: 5px;padding-left: 5px; ">Serviço(s) </span>
+                            </td>
+                        </tr>
+                    </body>
+                </table>
+
+              
+
+
+            </div>
+            <div style="margin-top: 5;margin-top: -306px;margin-left: 231px;">
+
+                <div class="QtdServicos">
+                    <span class="ng-binding">
+                        {{dash.TOTAL_DOCUMENTOS_ROTEIRIZADOS}}
+                    </span>
+
+                </div>
+                <canvas id="doughnut" class="chart chart-doughnut ng-isolate-scope" chart-data="dash.canvas"
+                    chart-labels="labels" chart-colors="colors"
+                    style="max-width: 238px; display: block; width: 238px; height: 114px;" width="100" height="50">
+                </canvas>
+                
+
+            </div>
+
+            <hr style="margin-top: 30px;    position: inherit;margin-top: 127px;border-top: 4px solid rgba(28, 53, 93, 0.8);;">
+            <div style="margin-top: -18px;" >
+             
+                <div id="{{ 'tablink-' + dash.COD_FILIAIS }}">
+                </div>
+            </div>
+            
+            <!-- grafico 3 linhas baixados/ocorrencia/nbaixados -->
+            <!-- <div fusioncharts width="470" height="300" type="msbar3d" dataSource="{{myDataSource}}"></div> -->
+            <!-- <div fusioncharts width="470" height="300" type="stackedbar2d" dataSource="{{myDataSource}}"></div> -->
+            <!-- <div style="margin-top: 137px;">
+                <div fusioncharts width="470" height="300" type="bar3d" dataSource="{{myDataSource1}}"></div>
+            </div> -->
+        </div>
+
+    </div>
+</div>
+
+

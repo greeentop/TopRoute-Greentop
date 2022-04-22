@@ -1,0 +1,282 @@
+.title-settings {
+    font-size: 15px;
+    color: $blue-raven;
+}
+
+.menu-item {
+    @extend .title-settings;
+    margin: 3px auto 0 auto;    
+    padding: 12px 20px;
+    cursor: pointer;
+
+    &.active, &:hover {
+        background: $green-mediumSeaGreen;
+        color: $white-white;
+    }
+}
+
+.form-settings {
+    width: 99.4%;
+    margin: 3px auto 3px 4px;
+    display: inline-block;
+    padding: 10px 10px;
+    // border: none !important;
+
+    .sub-title {
+        margin-bottom: -12px;
+    }
+    h2 {
+        @extend .title-settings;
+        margin: 10px 0 20px 0;
+        padding: 0 18px;
+    }
+    h3 {
+        margin-top: 0;
+        font-size: 13px;
+        color: $blue-raven;
+        font-weight: bold;
+    }
+    label {
+        color: $blue-raven;
+        font-size: 13px;
+
+        .error-block {
+            font-weight: normal;
+        }
+    }
+    .logo {
+        width: 172px;
+        height: 172px;
+        border: solid 1px $gray-veryLightGrey;
+        float: left;
+
+        border-radius: 4px;
+        @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.075));
+        
+        .logo-message {
+            margin: 0 auto;
+            width: 70%;
+            text-align: center;
+            position: relative;
+            top: 38%;
+        }
+    }
+
+    .form-horizontal {
+        padding: 0 34px;
+    }
+
+    .input-group {
+        padding: 0px 0px 10px 0;
+    }
+
+    .radio-inline {
+            margin: 0 20px 0 0;
+            width: auto;
+    }
+
+    .btn-upload {
+        width: 10%;
+        padding: 5px 3px;
+        background: $white-white;
+        color: $blue-raven;
+        position: relative;
+        top: 140px;
+        margin-left: 9px;
+        border: solid 1px $gray-veryLightGrey;
+        border-radius: 4px;
+        
+        @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.075));
+
+        &:hover {
+            background: $gray-veryLightGrey;
+        }
+    }
+
+    .btn-edit {
+        margin-top: 3.2%;
+    }
+
+    .preview {
+        margin-bottom: 20px;
+    }
+
+    .preview img {
+        margin-right: 20px;
+        width: 100%;
+    }
+
+    .preview a {
+        position: relative;
+        outline: none;
+    }
+
+    .preview img.active {
+        border: 5px solid $green-mediumSeaGreen;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .map-title {
+        position: absolute;
+        left: 15px;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        width: 88%;
+        text-align: center;
+        color: $white-white;
+        padding: 5px 0;
+    }
+
+    .map-title.active {
+        width: 84.5%;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table-scroll-users {
+        width: 763px;
+    }
+
+    .table-list-users {
+        overflow-y: auto;
+        max-height: 416px;
+        overflow-x: hidden;
+    }
+
+    .list-users-control-page {
+        position: relative;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .flag {
+        padding: 8px;        
+        margin: 0 12px;
+    }
+
+    .flag-red {
+        @extend .flag;
+        background: $red;
+    }
+
+    .flag-green {
+        @extend .flag;
+        background: $green-mediumSeaGreen;
+    }
+
+    .icon-identifier {
+        width: 20px;
+    }
+
+    .qr-code {
+        margin-left: -15px;
+    }
+
+    .action-icon {
+        font-size: 14px;
+        cursor: pointer;
+
+        &:hover {
+            color: $green-mediumSeaGreen;
+        }
+    }
+
+    .action-icon-edit {
+        @extend .action-icon;
+        font-size: 16px;
+    }
+
+    .action-icon-login {
+        @extend .action-icon;
+        font-size: 16px;
+    }
+
+    .action-icon-type {       
+        font-size: 16px;
+        padding-top: 2px;
+    }
+
+    .end-line {
+        border: 1px solid $gray-veryLightGrey;
+        margin: 15px 18px;
+    }
+
+    .column-name {
+        max-width: 255px;
+        width: 255px;
+    }
+
+    .column-username {
+        max-width: 300px;
+        width: 300px;
+    }
+
+    .column-plan {
+        max-width: 155px;
+        width: 155px;
+    }
+
+    .column-action {
+        max-width: 55px;
+        width: 55px;
+    }
+}
+
+select option:empty { display:none }
+
+.cancel-subscription {
+    .modal-dialog {
+            width: 40%;
+    }
+
+    .modal-body {
+        padding: 20px 40px;
+
+        .text-danger {
+            color: $red !important;
+            font-weight: bold;
+        }
+    }
+}
+
+.paid-bill {
+    .modal-body {
+        padding: 15px 30px;
+    }
+    .modal-dialog {
+        width: 30%;
+    }
+}
+
+.topbar-settings {
+    .btn {
+        padding: 9px 20px;
+        width: 160px;
+        margin-top: 12px;
+        margin-right: -10px;
+    }
+}
+
+.user-preferences {
+    a, a:active, a:hover {
+        color: $green-mediumSeaGreen;
+    }
+}
+
+.section-header {
+    height: 40px;
+
+    h2 {
+        max-width: 160px;
+        display: inline-block;
+        padding: 0px 20px;
+        height: 30px;
+    }
+}
+
+.manager-payment {
+    .table > tbody > tr > td {
+        vertical-align: middle;
+    }
+}

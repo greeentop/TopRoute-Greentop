@@ -1,0 +1,92 @@
+<div media="(max-width: 800px)">
+
+    <div class="w3-row" style="margin-top: 5px;   display: flex ;">
+
+        <!-- CAIXAS DE ROTAS -->
+        <div class="w3-col" style="width: 100%;overflow: auto;margin-right: 10px;">
+
+            <div class="w3-row" style="display: inline-flex;">
+                <div style="position: absolute;margin-top: -58px;font-size: 17px;font-weight: 700;color: white">
+
+                    <!-- LIGA E DESLIGA O AGRUPAMENTO -->
+                    <md-switch class="md-primary" ng-model="data.merge" aria-label="Agrupamento" ng-change="retornoRouteasyButton()">
+                        Agrupamento
+                    </md-switch>
+                    <!-- ENVIAR TODAS AS CAIXAS PARA ROUTEASY DE UMA UNICA VEZ -->
+                    <div ng-class="{'w3-grayscale1-max': opcaoTela=='conferencia' }" id="caixaEnviaTodos" style="MARGIN-TOP: -61px;margin-left: 10em;">
+                        <div class="tooltip">
+                            <span class="tooltiptext">Enviar todas as rotas para Routeasy </span>
+                            <img src="img/ico/enviarTodos.png" alt="" width="60" height="60" style="cursor: pointer;margin-right: 5px;width: 2.5em;height: 2.5em; " ng-click="enviarRouteasy('all')">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group" ng-repeat="r in rotas" context-menu="menuOptions">
+
+                    <!-- w3-grayscale-max -->
+                    <div ng-class="{'': r.services.length==0,'CaixaMerge':r.merge ==  true }" id="{{$index}}" class="backgroud-green-primary" style="height: auto;  border: solid 1px rgb(255, 255, 255) ;  border-radius: 20%;  margin-right:10px;  box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);margin-bottom: 10px ">
+
+                        <div id="avisoRetorno" ng-show="r.retorno=='routeasy'" style="width: 20px;height: 20px;border-radius: 50%;background:#20ab49;position: absolute;margin-top: -25px;margin-left: 21px;    border: solid 1px #f27319;;">
+                        </div>
+
+
+                        <div ng-class=" {'envioRouteasyTrue'        :r.envio                ==  'Enviado',
+                                            'envioRouteasyFalse'     :r.envio               ==  'Nao Enviado',
+                                            'retornoRouteasySUCCESS' :r.envio               ==  'SUCCESS',
+                                            'orfa'                   :r.IDENT_VEICULOS      ==  ''
+                                        }" style=" width: 100%; height: 22px;   border: solid 1px #e8580f;text-align: center;border-radius: 12px 12px 0px 0px">
+
+                            <!-- ENVIO INDIVIDUAL -->
+                            <div style="    display: inline-flex; width: auto; ">
+
+                                <div class="iitem" style=" text-align: left; margin-top: 3px">
+
+                                    <img src="img/ico/send.png" alt="" width="15" height="15" style="cursor: pointer;margin-right: 5px" ng-click="modal('envioRouteasy1', $index )">
+                                </div>
+                                <div style="text-align: center;">
+                                    <i ng-show="r.COD_ROTAS_DISTRIBUICAO !=0 && r.COD_ROTAS_DISTRIBUICAO !='0A' " style=" color:#1c355d ; font-size: 14px; font-style: normal;">
+                                        R{{r.COD_ROTAS_DISTRIBUICAO}} </i>
+
+                                    <i ng-show="r.COD_ROTAS_DISTRIBUICAO ==0 " style=" color:#1c355d ; font-size: 14px; font-style: normal;">
+                                        R.{{r.COD_ROTAS_DISTRIBUICAO}} </i>
+
+                                    <i ng-show="r.COD_ROTAS_DISTRIBUICAO =='0A' " style=" color:#1c355d ; font-size: 14px; font-style: normal;">
+                                        R.0-A </i>
+
+
+
+                                </div>
+                            </div>
+
+                            <span ng-show="rowsSelecteds.length >0 " class="fa fa-arrows-alt" style="color: #8080808a;position: absolute;margin-left: 8px;margin-top: 3px; cursor: all-scroll;">
+                            </span>
+
+                        </div>
+
+                        <img ng-show="r.services.length>0" src="img/ico/pallet1.png" alt="" width="50" height="31" style="cursor: pointer;margin-right: 5px;    border-block-end: inherit;margin-top: 5px; margin-left: 5px">
+
+                        <img ng-show="r.services.length==0" src="img/ico/pallet.png" alt="" width="50" height="10" style="cursor: pointer;    border-block-end: inherit;margin-top: 26px ;margin-left: 5px;margin-right: 5px">
+                        <p>
+                            <span style="color:rgba(255, 255 ,255);cursor: pointer;font-size: 17px;font-weight: bold;" onclick="openConferenciaFull()" ng-click="conferencia($index)">
+                                {{r.services.length}}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENVIAR TODOS -->
+        <!-- <div class="w3-col" style=" width: 4%;">
+            <div ng-class="{'w3-grayscale1-max': opcaoTela=='conferencia' }" id="caixaEnviaTodos">
+                <div class="tooltip">
+                    <span class="tooltiptext">Enviar todas as rotas para Routeasy </span>
+                    <img src="img/ico/enviarTodos.png" alt="" width="60" height="60"
+                        style="cursor: pointer;margin-right: 5px; " ng-click="enviarRouteasy('all')">
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+</div>

@@ -1,0 +1,120 @@
+<style>
+    .bloquear {
+        background: salmon;
+    }
+</style>
+
+
+<!-- MODAL CONFIGURAÇÕES -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-8 w3-container">
+            <div id="id01" class="w3-modal" style="z-index: 110;">
+
+
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width: 50%;height: 51% ;background:rgb(28, 53, 93) ">
+
+
+                    <!-- <div class="col-md-12 "  style="background: gray"> -->
+
+                    <header class="w3-container" style="background: rgb(28, 53, 93);color:white;left: 50% ">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-blue w3-xlarge w3-display-topright"
+                            style="border-radius: 10px;background-color: #ff0000ad!important;" ng-click="selectedRowsCopy=[]">&times; </span>
+                        <h2 style="font-size: 22px;text-align: left"> Configurações</h2>
+                    </header>
+
+
+
+                    <div class="col-md-12">
+                        <div class="w3-card-4" style="   background: rgb(28, 53, 93); 
+                                                                    padding: 9px;
+                                                                    height: 97px;
+                                                                    /* position: absolute; */
+                                                                    margin: -74px 0 0 0px;
+                                                                    border: 1px solid orange;
+                                                                    border-radius: 5px;">
+
+                            <div class="card">
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="border: 0px solid;height: 81px;background: rgb(28, 53, 93);">
+                                        <select class="form-control form-control-lg" style="width: 29%;" ng-model="rotaDistribuica" ng-options="rot.COD_ROTAS_DISTRIBUICAO + ' ( ' + (rot.DS_ROTAS_DISTRIBUICAO) + ' )' for rot in rotasDistribuicao | orderBy:'COD_ROTAS_DISTRIBUICAO'"
+                                            ng-change="trocarRotaDistribuicao(rotaDistribuica)" ng-click="trocarRotaDistribuicao(rotaDistribuica)">
+                                            <option value="">Selecione uma Rota</option>
+                                        </select>
+
+
+                                        <div class="bloco" style="cursor:pointer;border-radius:53px;width:50px;height:50px;margin: -4% 0 0 37%; border:2px solid #ffa500;"
+                                            ng-class="{'imgBloqueHabilitado'    : bloqueado==false,'imgBloqueDesabilitado'  : bloqueado==true}"
+                                            data-ng-click="bloquearServicoConfiguracao()" title="Não Roteirizar">
+                                        </div>
+                                    </li>
+
+                                    <!-- <li class="list-group-item">alterar armazem</li> -->
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="col-md-12">
+
+                        <!-- LISTA DOS SELECIONADOS -->
+                        <div class="w3-card-4" style="  /* background: rgb(28, 53, 93); */
+                                                                                                padding: 9px;
+                                                                                                height: 244px;
+                                                                                                /* position: absolute; */
+                                                                                                margin: 24px 0 0 0px;
+                                                                                                border: 1px solid orange;
+                                                                                                border-radius: 5px; overflow-y: scroll;
+                                                                                                background: white">
+                            <table class="table" arrow-selector style="border-radius: 0px 0px 0px 0px; font-size: 9px;">
+                                <thead class="thead-dark">
+
+                                    <tr>
+                                        <th scope="col">
+                                            <a href="" ng-click="ordenarPor('IDENT_TIPO_DOCUMENTOS')"> DOCUMENTO</a>
+                                        </th>
+                                        <th scope="col">
+                                            <a href="" ng-click="ordenarPor('COD_DOCUMENTO')"> VEICULO</a>
+                                        </th>
+
+                                        <th scope="col">
+                                            <a href="" ng-click="ordenarPor('COD_DOCUMENTO')"> DESTINATÁRIO</a>
+                                        </th>
+                                        <th scope="col">
+                                            <a href="" ng-click="ordenarPor('COD_DOCUMENTO')"> ROTA</a>
+                                        </th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="i in selectedRowsCopy " ng-class="{'bloquear':bloqueado==false}">
+                                        <td> {{i.COD_DOCUMENTO}}</td>
+                                        <td> {{i.IDENT_VEICULOS}}</td>
+                                        <td> {{i.DESTINATARIO}}</td>
+                                        <td> {{i.ROTA}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="w3-container w3-light-grey w3-padding" style="text-align: center;">
+                        <button class="w3-button w3-center w3-border " style="width: 79px;color: white;background-color: #1c355d;border-color: #357ebd;"
+                            onclick="document.getElementById('id01').style.display='none'" ng-click="putRotasDistribuicao()"
+                            title="Salvar configurações">Salvar
+                        </button>
+                        <button class="w3-button w3-center w3-border " style="color: white;
+                                background-color: #cd1515;
+                                border-color: #dd4646" onclick="document.getElementById('id01').style.display='none'" ng-click="selectedRowsCopy=[]">Cancelar</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>

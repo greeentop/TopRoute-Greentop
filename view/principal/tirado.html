@@ -1,0 +1,51 @@
+<!--ROTA ORFÃ -->
+<div>
+<div class="inputGroupMerge">
+    <input id= "route-R0" name="option1" type="checkbox" 
+      ng-click="selecionarCaixa($index, 'R0')" />
+    <label for="route-R0"></label>
+  </div>
+
+
+  <!-- ROTA ORFÃ ROTA ZERO R.0 -->
+  <div
+    style="width: auto; height: auto; background :rgb(28, 53, 93); border: solid 1px #fa851e;  border-radius: 20%;  margin-right:10px;  box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); ">
+
+    <div ng-class="  {'envioRouteasyTrue'   :r.envio ==  true,
+                                  'envioRouteasyFalse'  :r.envio ==  false ,
+                                  'orfa'                :item.IDENT_VEICULOS    ==  ''}"
+      style="height: 22px;   border: solid 1px #e8580f;text-align: center;font-weight: bold;background: white;    border-radius: 13px 13px 0px 0px;">
+
+      <!-- ENVIO INDIVIDUAL ROTA ORFÃ -->
+      <div style="    display: inline-flex; ">
+
+        <div class="iitem" style=" text-align: left; margin-top: 3px">
+
+          <img src="img/ico/send.png" alt="" width="15" height="15"
+            style="cursor: pointer;margin-right: 5px ;  " ng-click="modal('envioRouteasy1', $index )">
+        </div>
+        <div>
+          <i style=" color:#1c355d ; font-size: 14px; font-style: normal;">
+            R.O </i>
+        </div>
+      </div>
+
+      <span ng-show="rowsSelecteds.length >0 " class="fa fa-arrows-alt"
+        style="color: #8080808a;position: absolute;margin-left: 8px;margin-top: 3px; cursor: all-scroll;">
+      </span>
+    </div>
+
+    <img ng-show="r.services.length>0" src="img/ico/pallet1.png" alt="" width="50" height="31"
+      style="cursor: pointer;margin-right: 5px;    border-block-end: inherit;margin-top: 5px; margin-left: 5px">
+
+    <!-- <img ng-show="r.services.length==0" src="img/ico/pallet.png" alt="" width="50" height="10" -->
+    <img src="img/ico/pallet.png" alt="" width="50" height="10"
+      style="cursor: pointer;    border-block-end: inherit;margin-top: 26px ;margin-left: 5px;margin-right: 5px">
+    <p>
+      <span style="color:rgba(255, 228 ,181);cursor: pointer;font-size: 17px;font-weight: bold;"
+        onclick="openConferenciaFull()" ng-click="conferencia()">
+        {{rotaZero.length}} 
+      </span>
+    </p>
+  </div>
+</div>

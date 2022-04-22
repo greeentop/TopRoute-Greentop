@@ -1,0 +1,62 @@
+
+<md-bottom-sheet class="md-grid" layout="column" style=" padding: 0px 0px 88px 0px;">
+  <div layout="row" layout-align="center center" ng-cloak style="background:#e6570f;color: white;">
+
+    <h4>Arraste para baixo ou precione press ESC para fechar</h4>
+
+    <div layout-align="left" style="    width: 72%; text-align: right;" >
+      <md-button  style="background: rgb(28, 53, 73);"  class="md-raised md-warn" 
+      ng-click="selecionarFilial_ungroup()">Selecionar</md-button>
+    </div>
+  </div>
+
+  <div ng-cloak layout="row">
+    <div flex layout="row">
+      <div flex layout="row" layout-align="center center" class="demo-swipe"
+        md-swipe-down="onSwipeDown($event, $target)">
+        <md-input-container flex="70">
+          <label style="color: black;">FILIAL</label>
+          <md-select ng-model="filial">
+            <md-option ng-repeat="item in itens | orderBy : 'IDENT_FILIAIS' " value="{{item.COD_FILIAIS}}" style="color: black;">
+              {{item.nameDescricao}} ( {{item.name}})
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+    </div>
+
+    <md-divider></md-divider>
+    <div flex style="margin: 33px 0px;">
+      <md-input-container class="md-block" flex-gt-xs style="    margin: 0px 0; ">
+        <label> CODIGO INTERNO (Disabled)</label>
+        <input ng-model="company.COD_FILIAIS" disabled>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs style="padding: 0px;margin: 0px 0;">
+        <label>FILIAIL (Disabled)</label>
+        <input ng-model="company.NM_FILIAIS" disabled>
+      </md-input-container>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-xs style="padding: 0px;margin: 0px 0;">
+        <label>ENDEREÇO (Disabled)</label>
+        <input ng-model="company.END_FILIAIS" disabled>
+      </md-input-container>
+      <md-input-container class="md-block" style="padding: 0px;margin: 0px 0;">
+        <label>LATITUDE (Disabled)</label>
+        <input ng-model="company.LATITUDE" disabled>
+      </md-input-container>
+      <md-input-container class="md-block" style="padding: 0px;margin: 0px 0;">
+        <label>LONGITUDE (Disabled)</label>
+        <input ng-model="company.LONGITUDE" disabled>
+      </md-input-container>
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+</md-bottom-sheet>

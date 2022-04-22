@@ -1,0 +1,125 @@
+<style>
+
+</style>
+
+<div ng-include='"view/partials/toolbar-partials.html"' ng-controller="toolbar-partials-Controller"></div>
+
+<br />
+<br />
+<br />
+
+<div class="w3-row" style="display: none;margin-top: 5px;display: flex;flex-direction: row;justify-content: center;align-items: center;background: green;
+    ">
+    <div style="flex-wrap: wrap; display: flex">
+        <div ng-repeat="ope in op_escolha">
+            <div ng-class="  { 'active':ope.active == true,'escolha' :ope.active  ==false}" id="{{ope.id}}" ng-click="opcaAtiva(ope.id);buscarDadosApi_TR_IRBR(ope)">
+                {{ope.opcao}}
+            </div>
+            <div ng-show="ope.id==10 &&  ope.active==true" style="margin-top: -30px; margin-left: 150px">
+                Inicio
+                <input type="date" name="Inicio" id="idIni" ng-model="Busca.dataInicio" style="width: 144px;text-align: center;padding-left: 9px;font-size: 14px;font-weight: 700;" /> Fim
+                <input type="date" name="Final" id="IdFim" ng-model="Busca.dataFinal" style="width: 144px;text-align: center;padding-left: 9px;font-size: 14px;font-weight: 700;" />
+                <button type="submit" ng-click="buscarDadosApi_TR_IRBR(ope)">
+                Localizar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: inline-flex; flex-wrap: wrap">
+    <div class="w3-row" style="display: inline-table;flex-wrap: wrap;padding-left: 93px;">
+        <div>
+            <div ng-repeat="dash in roteirizacoes  | orderBy:'-COD_ROTEIRIZACAO' " style="margin-bottom: 10;display: inline-flex;flex-wrap: wrap;flex-direction: row;">
+                <!-- content -->
+                <div style="background: rgb(255,255,255) ;border-radius: 3%;margin-right: 20px;width: 506px;height: 199px;">
+                    <!-- head -->
+                    <div class="header-container-Dash">
+                        {{dash.NM_FILIAIS}}
+                        <span ng-click="openRtng(dash.COD_ROTEIRIZACAO)">
+                          <span class="openRoute" style="font-size: 18px">
+                            {{ dash.COD_ROTEIRIZACAO}}
+                          </span>
+                        <span style="font-size: 14px">
+                            {{dash.DATA_INCLUSAO_ROTEIRIZACAO}} às {{dash.HORA_INCLUSAO_ROTEIRIZACAO}}
+                          </span>
+                        </span>
+                    </div>
+
+
+                    <!-- body -->
+                    <div class="body-container-Dash">
+                        <table style=" width: 76%;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;">
+
+                            <body>
+                                <!-- ROUTEASY -->
+                                <tr style="height: 35px; color: #006400">
+                                    <td style="width: 11px">
+                                        <div style="width: 20px;height: 20px;border-radius: 50%;background: #006400;"></div>
+                                    </td>
+                                    <td style="padding-left: 5px;width: 23px;font-size: 12px;font-weight: bold;">
+                                        ROUTEASY
+                                    </td>
+                                    <td style="text-align: right">{{dash.canvas[0]}}%</td>
+                                    <td style="text-align: right; font-weight: 800">{{dash.QTD_ROUTEASY}}</td>
+                                    <td>
+                                        <span style="font-weight: 800;padding-left: 5px;padding-left: 5px;">Serviço(s)</span>
+                                    </td>
+                                </tr>
+                                <!-- AJUSTE -->
+                                <!-- <tr style="height: 35px; color: #e4560f">
+                                    <td style="width: 11px">
+                                        <div style="width: 20px;height: 20px;border-radius: 50%;background: #e6570f;"></div>
+                                    </td>
+                                    <td style="padding-left: 5px;width: auto;font-size: 10px;font-weight: bold;">
+                                        ROUTEASY C/ AJUSTES
+                                    </td>
+                                    <td style="text-align: right">{{dash.canvas[1]}}%</td>
+                                    <td style="text-align: right; font-weight: 800">
+                                        {{dash.QTD_OPERADOR}}
+                                    </td>
+                                    <td>
+                                        <span style="font-weight: 800;padding-left: 5px;padding-left: 5px;">Serviço(s)</span                    >
+                                      </td>
+                                </tr> -->
+                                <!-- MANUAL -->
+                                <tr class="dadosCasa #acaaaa" style="height: 35px; ;">
+                                    <td>
+                                        <div style="width: 20px;height: 20px;border-radius: 50%;background: #bdbdbd;"></div>
+                                    </td>
+                                    <td style="padding-left: 5px;width: 23px;font-size: 12px;font-weight: bold;">
+                                        MANUAL
+                                    </td>
+                                    <td style="text-align: right">{{dash.canvas[2]}}%</td>
+                                    <td style="text-align: right; font-weight: 800">
+                                        {{dash.QTD_MANUAL}}
+                                    </td>
+                                    <td>
+                                        <span style="font-weight: 800;padding-left: 5px;padding-left: 5px;">Serviço(s)</span>
+                                    </td>
+                                </tr>
+                            </body>
+                        </table>
+                    </div>
+                    <div style="margin-top: 5; margin-top: -129px; margin-left: 268px">
+                        <div class="QtdServicos">
+                            <span class="ng-binding">
+                            <p>{{dash.TOTAL_DOCUMENTOS_ROTEIRIZADOS}}</p>
+                            <p style="font-size: 13px; color: darkgray">
+                              {{dash.TOTAL_DOCUMENTOS_BASE}}
+                            </p>
+                          </span>
+                        </div>
+                        <canvas id="doughnut" class="chart chart-doughnut ng-isolate-scope" chart-data="dash.canvas" chart-labels="labels" chart-colors="colors" style="max-width: 238px;display: block;width: 238px;height: 114px;" width="100" height="50"></canvas>
+                    </div>
+
+                    <div style="margin-top: -18px">
+                        <div id="{{ 'tablink-' + dash.COD_FILIAIS }}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

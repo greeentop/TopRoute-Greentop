@@ -1,0 +1,8 @@
+node_modules/
+TopRoute.rar
+node_modules/**/*
+.vs/
+.vscode/
+versao-pre-Femsa.rar
+BancoDados/
+controlversion.js

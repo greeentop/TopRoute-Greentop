@@ -1,0 +1,407 @@
+
+/* ---- capa de login ---- */
+#login-bg-image{    
+    min-width: 300px !important;
+    min-height: 530px !important; 
+    background: url(../../img/login_bg.jpg)  50% 50% no-repeat; 
+    position:absolute;
+    background-size: cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index:1;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);	
+}
+
+
+#login-bg-layer{    
+    opacity:0.6;
+    position:absolute;
+    width:100%;
+    height:100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;  
+    min-width: 300px !important;
+    min-height: 530px !important;    
+    background-color:#101613;
+    z-index:2;  
+}
+
+/* ---- cuerpo capa de login ---- */
+
+#login-body{
+    display:none;
+    position:relative; 
+    width:100%;
+    height:100%;
+    min-width: 300px !important;
+    min-height: 530px !important; 
+    z-index:1;
+}
+
+#login-body-container{
+    position:relative; 
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+
+/* ---- pie capa de login ---- */
+
+#login-body-footer{
+    height: 40px;
+    width:350px;
+    left: 50%;
+    margin-left:-175px;
+    color:#fff;
+    border-top: solid 1px #fff;
+    border-bottom: solid 1px #fff;
+    text-align: center;
+    position:absolute; 
+    bottom: 10px;   
+    font-size: 12px; 
+    z-index:3;    
+}
+
+#login-body-footer div{
+    padding:8px 0 0 0;
+}
+
+/* ---- capa del formulario de login ---- */
+#login-form-layer{
+    /*opacity:0.8;*/    
+    padding: 0;
+    position:absolute;
+    width:350px;
+    /*height:455px;*/
+    border-radius: 6px;
+    left: 50%;
+    top: 50%;
+    margin-left:-175px;
+    margin-top:-200px;
+}
+
+/**----   capa de cargando en el l ogin ----**/
+#login-form-layer{
+    background-color: #fff;
+    box-shadow: 0 0 6px 1px #000;	    
+    z-index:3;
+}
+
+.slidein-animation{    
+    animation: slidein 0.5s;
+    -moz-animation: slidein 0.5s; /* animacion Firefox */
+    -webkit-animation: slidein 0.5s; /* animacion Safari and Chrome */
+    -o-animation: slidein 0.5s; /* animacion Opera */
+}
+
+/* ---- definici�n de animaci�n para capa del formulario login ---- */
+
+@keyframes slidein {
+    from {
+        left: 50%;
+        top: -100%;
+        margin-left:-175px;
+        margin-top:0;
+    }
+    to {
+        left: 50%;
+        top: 50%;
+        margin-left:-175px;
+        margin-top:-200px;
+    }
+}
+@-moz-keyframes slidein { /* Firefox */
+    from {
+        left: 50%;
+        top: -100%;
+        margin-left:-175px;
+        margin-top:0;
+    }
+    to {
+        left: 50%;
+        top: 50%;
+        margin-left:-175px;
+        margin-top:-200px;
+    }
+}
+@-webkit-keyframes slidein { /* Safari and Chrome */
+    from {
+        left: 50%;
+        top: -100%;
+        margin-left:-175px;
+        margin-top:0;
+    }
+    to {
+        left: 50%;
+        top: 50%;
+        margin-left:-175px;
+        margin-top:-200px;
+    }
+}
+
+/* ---- icono formulario login ---- */
+
+#login-form-layer .login-user img {
+    margin-top: 25px;
+    margin-bottom: 2px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 0.6em #ffffff, 0 0 6px 0.5em #222, 0 0 0 1.8em #ffffff;
+    width: 64px;
+    height: 64px;
+}
+
+/* ---- cabecera formulario login ---- */
+
+#login-form-layer header{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-align: center;
+    color: #414f57;
+}
+
+#login-form-error{
+    margin-bottom:4px;
+    display:none;	
+}
+
+#login-form-layer .login-header-title img{
+    width: 40%;
+    height: 40%;
+}
+
+#login-form-layer .login-header-title{
+    margin: 0;
+    border-radius: 6px 6px 0 0;
+    padding: 10px 0 10px 0;
+    border: 0;
+    border-bottom: solid 1px #161E36;
+    font: inherit;
+    font-size: 28px;
+    line-height:26px;
+    text-align: center;
+    color: #fff;
+    background-color:#1f2b52;
+}
+
+#login-form-layer .login-header-title small{
+    font-size: 16px;
+    line-height:26px;
+}
+
+/* ---- pie formulario login (donde estan los botones) ---- */
+
+#login-form-layer footer{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-top: solid 1px #999;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-align: center;
+    color: #414f57;   
+}
+
+/* ---- boton para cerrar pantalla de login ---- */
+
+#close-login-screen{
+    transition-duration: 0.4s;
+    position:absolute;
+    color: #d5d5d5;	
+    top:10px;
+    right: 16px;
+    z-index:6;
+}
+
+#close-login-screen:hover{
+    transition-duration: 0.4s;
+    color: #fff;
+}
+
+/* ---- boton 'Entrar' formulario login ---- */
+
+#btn-do-login{
+    transition-duration: 0.4s;
+    float:right;
+    width: 150px;
+    padding-top:3px;
+    height: 45px;
+    font-size: 16px;
+    /*font-weight: bold;*/
+    border-radius: 0 0 5px 0;
+    background-color:#1f2b52 ;
+    border-top: solid 1px #405494;
+    border-left: solid 1px #405494;
+    border-bottom: solid 1px #1B2544;
+    border-right:  solid 1px #1B2544;
+    box-shadow: 0 -1px 0 #161E36;
+    color:#fff;
+    outline: none;
+}
+
+.non-touch #btn-do-login:hover{
+    transition-duration: 0.4s;
+    background-color: #405494;
+
+}
+
+/* ---- boton 'Contraseña olvidada' formulario login ---- */
+
+#btn-forgotten-pass{
+    transition-duration: 0.4s;
+    float:left;
+    width: 200px;
+    padding-top:4px;
+    background-color: #f4f4f4;
+    border: solid 1px #fff;
+    border-bottom: solid 1px #999;
+    height: 45px;
+    font-size: 16px;
+    border-radius: 0 0 0 5px;
+    outline: none;
+}
+
+.non-touch #btn-forgotten-pass:hover{
+    transition-duration: 0.4s;
+}
+
+/* ---- formulario login ---- */
+
+#login-form{
+    padding-top: 1px;
+    padding-bottom: 12px;
+}
+
+#login-form div span{
+    width: 40px;
+}
+
+#login-form .checkbox{
+    padding-top: 0px !important;
+    margin: 0px !important;
+    text-align: center;
+}
+
+#login-form .checkbox-label{
+    text-align: center;
+}
+
+#login-form .input-group{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+html, body {
+    background-color: #f0f0f0 !important;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0;
+    font-family: "Open Sans", Arial, serif !important;
+    -ms-overflow-style: scrollbar;
+    overflow: hidden;
+}
+.error {
+    color: #B82121;
+    font-size: 15px;
+    text-align: center;
+}
+.info {
+    color: #099e08;
+    font-size: 15px;
+    text-align: center;
+}
+#rfc-bg-image{    
+    min-width: 30px !important;
+    min-height: 30px !important; 
+    background: url(../../img/rfc.jpg)  50% 50% no-repeat; 
+    position:absolute;
+    background-size: cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+/* ---- boton 'Nuw PASS' formulario login ---- */
+
+#btn-do-new-pass{
+    transition-duration: 0.4s;
+    float:right;
+    width: 190px;
+    padding-top:3px;
+    height: 45px;
+    font-size: 16px;
+    /*font-weight: bold;*/
+    border-radius: 0 0 5px 0;
+    background-color: #1f2b52;
+    border-top: solid 1px #405494;
+    border-left: solid 1px #405494;
+    border-bottom: solid 1px #1B2544;
+    border-right:  solid 1px #1B2544;
+    box-shadow: 0 -1px 0 #161E36;
+    color:#fff;
+    outline: none;
+}
+/********   TAMAÑOS EN MOVILES    ***/
+@media  only screen and (max-width: 600px){
+    #login-form-layer .login-header-title img{
+        width: 25%;
+        height: 25%;
+    }
+    #login-form-layer .login-user img {
+        width: 44px;
+        height: 44px;
+    }
+    #login-form-layer{
+        width:250px;
+    }
+}
+/*   ALTO     */
+@media  only screen and (max-height: 600px) {
+    #login-form-layer{margin-top: -230px;}
+}
+@media  only screen and (max-height: 500px) {
+    #login-form-layer{margin-top: -220px;}
+}
+@media  only screen and (max-height: 400px) {
+    #login-form-layer{margin-top: -165px;}
+}
+@media  only screen and (max-height: 300px) {
+    #login-form-layer{margin-top: -135px;}
+}
+/*   ANCHO     */
+@media  only screen and (min-width: 600px){
+    #login-form-layer{    margin-left:-175px;  }
+}
+@media  only screen and (max-width: 600px) {
+    #login-form-layer{margin-left: -135px;}
+}
+@media  only screen and (max-width: 500px){
+    #login-form-layer{margin-left: -135px;}
+}
+@media  only screen and (max-width: 400px) {
+    #login-form-layer{margin-left: -125px;}
+}
+@media  only screen and (max-width: 300px) {
+    #login-form-layer{margin-left: -115px;}
+}
