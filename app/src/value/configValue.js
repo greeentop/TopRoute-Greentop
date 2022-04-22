@@ -4,7 +4,7 @@
         CONEXAO COM API BACK-END (BANCO DE DADOS)
     *****************************************************/
     baseUrl: 'https://newsitex.expressojundiai.com.br/ApiOTM'
-        //baseUrl: 'http://localhost/ApiOTM'
+        //baseUrl_local: 'https://api-toproute.toproute.com.br'
         //baseUrl: "http://homologacao.femsalogistica.com.br/ApiOTM"
         //statusbaseUrl: "http://localhost/ApiTopRoute"
 
@@ -26,6 +26,6 @@
         REAL TIME F5
     *****************************************************/
     ,
-    //baseUrlRealTime: 'https://realtime.greentop.com.br/'
-    baseUrlRealTime: 'http://localhost:3000/'
+    baseUrlRealTime: 'https://real-time.greentop.com.br/'
+        //baseUrlRealTime: 'http://localhost:3000/'
 })
